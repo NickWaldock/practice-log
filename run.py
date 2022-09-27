@@ -8,29 +8,42 @@ def log_practice():
     Log duration and date of session and productivity score
     """
     print("\n** LOG PRACTICE **\n")
-    session_today = input("\nWas your practice session today? (y/n)\n")
     
     #Ask if practice date was today
-    if session_today.lower() == "n":
-        session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
-        is_valid = re.match(r"^[0-9][0-9]['/'][0-9][0-9]['/'][2][2-3]$", session_date)
-        valid_date = bool(is_valid) 
-        if valid_date == False:
-            print("Please enter the date in the correct format (DD/MM/YY)")
-        elif valid_date == True:
-            print(f"\nYou practiced on {session_date}\n")
+    session_today = input("\nWas your practice session today? (y/n)\n")
 
-    elif session_today.lower() == "y":
+    if session_today.lower() == "y":
         #Get today's date and change default format
         today = datetime.date.today()
         session_date = today.strftime('%d/%m/%y')
         print(f"\nToday's date is {session_date}\n")
+    
+    elif session_today.lower() == "n":
+        while True:
+            try:
+                session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
+                is_valid = re.match(r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$", session_date)
+                valid_date = bool(is_valid)
+                if valid_date is False:
+                    raise ValueError("Please enter a valid date and in the correct format (DD/MM/YY):")
+                else:
+                    break
+                
+            except ValueError as e:
+                print(f"Invalid Date Format: {e}")
+        
+        if valid_date is True:
+            print(f"\nYou practiced on {session_date}\n")
 
-    session_duration = int(input("How long was your practice session in minutes?\n"))
-    print(f"\nWell done! You practiced for {session_duration} mins")
 
-    prod_score = int(input("\nOn a scale of 1 - 10, how productive was it?"))
-    print(prod_score)
+
+            
+
+    # session_duration = int(input("How long was your practice session in minutes?\n"))
+    # print(f"\nWell done! You practiced for {session_duration} mins")
+
+    # prod_score = int(input("\nOn a scale of 1 - 10, how productive was it?"))
+    # print(prod_score)
 
 def start():
     """
