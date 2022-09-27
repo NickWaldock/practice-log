@@ -13,9 +13,12 @@ def log_practice():
     #Ask if practice date was today
     if session_today.lower() == "n":
         session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
-        is_valid = re.match([0-9][0-9]'/'[0-9][0-9]'/'[0-9][0-9], session_date)
+        is_valid = re.match(r"^[0-9][0-9]['/'][0-9][0-9]['/'][2][2-3]$", session_date)
         valid_date = bool(is_valid) 
-        print(f"\nYou practiced on {valid_date}\n")
+        if valid_date == False:
+            print("Please enter the date in the correct format (DD/MM/YY)")
+        elif valid_date == True:
+            print(f"\nYou practiced on {session_date}\n")
 
     elif session_today.lower() == "y":
         #Get today's date and change default format
