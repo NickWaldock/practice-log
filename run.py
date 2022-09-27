@@ -11,16 +11,21 @@ def log_practice():
     print("\n** LOG PRACTICE **\n")
 
 def log_date():
-    #Ask if practice date was today
+    """
+    Ask user if their practice date was today,
+    if yes - store today's date,
+    if no - ask for date input and validate for correct format
+    """
     session_today = input("\nWas your practice session today? (y/n)\n")
 
     if session_today.lower() == "y":
-        #Get today's date and change default format
+        # Get today's date and change default format
         today = datetime.date.today()
         session_date = today.strftime('%d/%m/%y')
         print(f"\nToday's date is {session_date}\n")
     
     elif session_today.lower() == "n":
+        # Validate for correct date input format
         while True:
             try:
                 session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
@@ -38,7 +43,9 @@ def log_date():
             print(f"\nYou practiced on {session_date}\n")
 
 def log_duration():
-    # Ask for duration of practice session
+    """
+    Ask user for duration of practice session and validate for an integer
+    """
     session_duration = 0
     while True:
         try:
@@ -49,9 +56,16 @@ def log_duration():
             print(f"\nWell done! You practiced for {session_duration} mins")
             break
 
+def log_score():
+    """
+    Ask user for self-assesed productivity score input,
+    and validate for an integer 
+    """
+    prod_score = int(input("\nOn a scale of 1 - 10, how productive was it?"))
+    print(prod_score)
 
-    # prod_score = int(input("\nOn a scale of 1 - 10, how productive was it?"))
-    # print(prod_score)
+
+
 
 def start():
     """
@@ -69,6 +83,7 @@ def start():
         log_practice()
         log_date()
         log_duration()
+        log_score()
     elif start_choice == 2:
         print("\n You have chosen to get insights on your logged practice sessions\n")
     elif start_choice == 3:
