@@ -1,5 +1,6 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 from datetime import datetime
+import re
 
 def log_practice():
     """
@@ -12,7 +13,10 @@ def log_practice():
     #Ask if practice date was today
     if session_today.lower() == "n":
         session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
-        print(f"\nYou practiced on {session_date}\n")
+        is_valid = re.match([0-9][0-9]'/'[0-9][0-9]'/'[0-9][0-9], session_date)
+        valid_date = bool(is_valid) 
+        print(f"\nYou practiced on {valid_date}\n")
+
     elif session_today.lower() == "y":
         #Get today's date and change default format
         today = datetime.date.today()
