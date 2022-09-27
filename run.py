@@ -1,5 +1,6 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 from datetime import datetime
+import datetime
 import re
 
 def log_practice():
@@ -8,7 +9,8 @@ def log_practice():
     Log duration and date of session and productivity score
     """
     print("\n** LOG PRACTICE **\n")
-    
+
+def log_date():
     #Ask if practice date was today
     session_today = input("\nWas your practice session today? (y/n)\n")
 
@@ -25,7 +27,7 @@ def log_practice():
                 is_valid = re.match(r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$", session_date)
                 valid_date = bool(is_valid)
                 if valid_date is False:
-                    raise ValueError("Please enter a valid date and in the correct format (DD/MM/YY):")
+                    raise ValueError("Please enter a valid date in the correct format (DD/MM/YY):")
                 else:
                     break
                 
@@ -35,12 +37,18 @@ def log_practice():
         if valid_date is True:
             print(f"\nYou practiced on {session_date}\n")
 
+def log_duration():
+    # Ask for duration of practice session
+    session_duration = 0
+    while True:
+        try:
+            session_duration = int(input("How long was your practice session in minutes?\n"))
+        except ValueError as e:
+            print("Please enter a number")
+        else:
+            print(f"\nWell done! You practiced for {session_duration} mins")
+            break
 
-
-            
-
-    # session_duration = int(input("How long was your practice session in minutes?\n"))
-    # print(f"\nWell done! You practiced for {session_duration} mins")
 
     # prod_score = int(input("\nOn a scale of 1 - 10, how productive was it?"))
     # print(prod_score)
@@ -59,6 +67,8 @@ def start():
     if start_choice == 1:
         print("\n You have chosen to log a new practice session.\n")
         log_practice()
+        log_date()
+        log_duration()
     elif start_choice == 2:
         print("\n You have chosen to get insights on your logged practice sessions\n")
     elif start_choice == 3:
