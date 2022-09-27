@@ -1,4 +1,5 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
+from datetime import datetime
 
 def log_practice():
     """
@@ -11,11 +12,9 @@ def log_practice():
     #Ask if practice date was today
     if session_today.lower() == "n":
         session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
-        print(f"\nYou practiced on {session_date}")
-    
+        print(f"\nYou practiced on {session_date}\n")
     elif session_today.lower() == "y":
         #Get today's date and change default format
-        import datetime
         today = datetime.date.today()
         session_date = today.strftime('%d/%m/%y')
         print(f"\nToday's date is {session_date}\n")
@@ -30,13 +29,11 @@ def start():
     """
     Welcome message and user choice input to proceed
     """
-    username = input("Please enter your name: ")
-    print(f"\nHello {username}! What would you like to do?\n")
     print("1. Log a practice session")
     print("2. Get insights on your practice")
     print("3. Get practice ideas")
     print("4. Quit\n")
-    print("Make your selection with a number")
+    print("Make your selection with a number:")
     start_choice = int(input())
 
     if start_choice == 1:
@@ -50,8 +47,7 @@ def start():
         print("\nQuitting, thank you for logging your practice")
         exit()
     
-
-
-print("Wecome to the Practice Log!\n")
+print("\n ** Wecome to the Practice Log! **\n")
+print("What would you like to do?\n")
 start()
 
