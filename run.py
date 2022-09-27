@@ -2,6 +2,7 @@
 from datetime import datetime
 import datetime
 import re
+import time
 
 def log_practice():
     """
@@ -41,6 +42,7 @@ def log_date():
         
         if valid_date is True:
             print(f"\nYou practiced on {session_date}\n")
+    time.sleep(2)
 
 def log_duration():
     """
@@ -50,19 +52,34 @@ def log_duration():
     while True:
         try:
             session_duration = int(input("How long was your practice session in minutes?\n"))
-        except ValueError as e:
-            print("Please enter a number")
+        except ValueError:
+            print("\nPlease enter a number\n")
         else:
-            print(f"\nWell done! You practiced for {session_duration} mins")
+            print(f"\nWell done! You practiced for {session_duration} mins!")
             break
+    time.sleep(2)
 
 def log_score():
     """
     Ask user for self-assesed productivity score input,
     and validate for an integer 
     """
-    prod_score = int(input("\nOn a scale of 1 - 10, how productive was it?"))
-    print(prod_score)
+    prod_score = 0
+    while True:
+        try:
+            prod_score = int(input("\nOn a scale of 1 - 10, how productive do you feel the session was?\n"))
+        except ValueError:
+            print("\nPlease enter a number\n")
+        else:
+            if prod_score <= 3:
+                print(f"\n{prod_score} is ok, you still practiced!\nIt's the consistency that counts")
+            elif prod_score <= 5:
+                print(f"{prod_score} is a good score! All progress is good progress!")
+            elif prod_score <= 8:
+                print(f"{prod_score} is fantastic! Well done!")
+            elif prod_score <= 10:
+                print(f"{prod_score} is awesome! You are smashing it!") 
+            break
 
 
 
