@@ -1,8 +1,26 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
+import gspread
+from google.oauth2.service_account import Credentials 
 from datetime import datetime
 import datetime
 import re
 import time
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open("practice_log")
+
+log = SHEET.worksheet("log")
+
+data = log.get_all_values()
+print(data)
 
 def log_practice():
     """
@@ -10,6 +28,7 @@ def log_practice():
     Log duration and date of session and productivity score
     """
     print("\n** LOG PRACTICE **\n")
+
 
 def log_date():
     """
@@ -24,7 +43,7 @@ def log_date():
         today = datetime.date.today()
         session_date = today.strftime('%d/%m/%y')
         print(f"\nToday's date is {session_date}\n")
-    
+
     elif session_today.lower() == "n":
         # Validate for correct date input format
         while True:
@@ -36,13 +55,14 @@ def log_date():
                     raise ValueError("Please enter a valid date in the correct format (DD/MM/YY):")
                 else:
                     break
-                
+
             except ValueError as e:
                 print(f"Invalid Date Format: {e}")
-        
+
         if valid_date is True:
             print(f"\nYou practiced on {session_date}\n")
     time.sleep(2)
+
 
 def log_duration():
     """
@@ -59,30 +79,21 @@ def log_duration():
             break
     time.sleep(2)
 
+
 def log_score():
     """
     Ask user for self-assesed productivity score input,
     and validate for an integer 
     """
-    prod_score = 0
-    while True:
-        try:
-            prod_score = int(input("\nOn a scale of 1 - 10, how productive do you feel the session was?\n"))
-        except ValueError:
-            print("\nPlease enter a number\n")
-        else:
-            if prod_score <= 3:
-                print(f"\n{prod_score} is ok, you still practiced!\nIt's the consistency that counts")
-            elif prod_score <= 5:
-                print(f"{prod_score} is a good score! All progress is good progress!")
-            elif prod_score <= 8:
-                print(f"{prod_score} is fantastic! Well done!")
-            elif prod_score <= 10:
-                print(f"{prod_score} is awesome! You are smashing it!") 
-            break
-
-
-
+    prod_score = int(input("\nOn a scale of 1 - 10, how productive do you feel the session was?\n"))
+    if prod_score <= 3:
+        print(f"\n{prod_score} is ok, you still practiced!\nIt's the consistency that counts\n")
+    elif prod_score <= 5:
+        print(f"\n{prod_score} is a good score! All progress is good progress!\n")
+    elif prod_score <= 8:
+        print(f"\n{prod_score} is fantastic! Well done!\n")
+    elif prod_score <= 10:
+        print(f"\n{prod_score} is awesome! You are smashing it!\n")
 
 def start():
     """
@@ -108,8 +119,9 @@ def start():
     elif start_choice == 4:
         print("\nQuitting, thank you for logging your practice")
         exit()
-    
+
+
 print("\n ** Wecome to the Practice Log! **\n")
 print("What would you like to do?\n")
-start()
+# start()
 
