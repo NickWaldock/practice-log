@@ -240,6 +240,35 @@ def log_wins():
     print("\nThis completes your log. Thank you and great work!\n")
     sleep()
 
+    # Commit log to spreadsheet
+    push = ""
+    try:
+        push = input("Would you like to save this log? (y/n)\n")
+        if push.lower() == "y":
+            print("Saving log...")
+            sleep()
+            push_log_data()
+            print("Returning to main menu...")
+            sleep()
+            start()
+        elif push.lower() == "n":
+            print("Are you sure you do not want to save this log?\n")
+            confirm = input("y = quit and lose all changes. n = save and return to main menu.\n")
+            if confirm.lower() == "y":
+                quit_program()
+            elif confirm.lower() == "n":
+                print("Saving log...")
+                sleep()
+                push_log_data()
+                print("Returning to main menu...")
+                sleep()
+                start()
+    except:
+        ValueError("Please enter y/n")
+    else:
+        break
+
+
     # Check if user wishes to quit or return to the main menu
     menu_choice = input('\nType "menu" or "quit" to return to the main menu or exit the program.\n')
     if menu_choice.lower() == "menu":
@@ -260,7 +289,14 @@ def log_wins():
             start()
 
 
-# def push_log_data():
+def push_log_data():
+    session_date
+    session_duration
+    prod_score
+    user_exercises
+    user_diffs
+    user_wins
+    print("Logged sucessfully saved")
 
 
 
