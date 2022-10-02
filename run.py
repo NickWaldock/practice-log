@@ -107,7 +107,7 @@ def log_topics():
     if they respond YES specifics are requested. Data is saved to variables 
     and later sent to the spreadsheet.
     """
-    print("\nNext I will ask you about what exercises you worked on.")
+    print("\nNext I will ask you about what exercises you worked on...")
     time.sleep(1.5)
     topics_options = '''
         In this model, general practice topics are classed as either:
@@ -149,6 +149,7 @@ def log_topics():
         print(logged)
         time.sleep(1)
     elif technique.lower() == "n":
+        user_exercises["Technical"] = "None"
         print(no_log)
         time.sleep(1)
 
@@ -159,6 +160,7 @@ def log_topics():
         print(logged)
         time.sleep(1)
     elif musicianship.lower() == "n":
+        user_exercises["Musicianship"] = "None"
         print(no_log)
         time.sleep(1)
 
@@ -169,6 +171,7 @@ def log_topics():
         print(logged)
         time.sleep(1)
     elif creative.lower() == "n":
+        user_exercises["Creative"] = "None"
         print(no_log)
         time.sleep(1)
 
@@ -179,27 +182,81 @@ def log_topics():
         print(logged)
         time.sleep(1)
     elif repertoire.lower() == "n":
+        user_exercises["Repertoire"] = "None"
         print(no_log)
         time.sleep(1)
     time.sleep(1)
-    print("\nOk, you have logged the following this practice session:\n")
+    print("\nYou have logged the following this practice session:\n")
     print(user_exercises)
     time.sleep(1)
-    print("\nLet's move on to the final part of the log...")
+    print("\nLet's move on to the final part of the log...\n")
+    time.sleep(1.5)
 
+def log_wins():
+    """
+    Asks the user to detail particular problems experienced in the 
+    practice session, then asks for details on what positive 
+    outcomes they achieved.
+    """
+    global user_diffs
+    global user_wins
 
+    # Ask for info on difficulties in the practice session
+    user_diffs_yn = input("\nDid you experience any particular difficulties during this practice session? (y/n)\n")
+    if user_diffs_yn.lower() == "y":
+       user_diffs = input("\nPlease detail them here (seperate them with ','):\n")
+       time.sleep(1)
+       print("\nThank you. Remember that experiencing difficulties in your practice session is a natural part of the learning process!\n")
+    elif user_diffs_yn.lower() == "n":
+        user_diffs = "None"
+        print("Great! Moving on...")
+    time.sleep(1)
 
+    # Ask for info on wins in the practice session 
+    user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
+    if user_wins_yn == "y":
+        user_wins = input('Amazing! What were they? (seperate your wins with ",")\n')
+        time.sleep(1)
+        print("Well done! You are making great progress!")
+    elif user_wins_yn == "n":
+        print("\nThat's ok, you practiced! That's what counts!")
+        user_wins = "None"
+
+    print("\nYou logged the following difficulties and wins:\n")
+    time.sleep(1)
+    print(f"Difficulties - {user_diffs}")
+    time.sleep(1)
+    print(f"Wins - {user_wins}\n")
+    time.sleep(1)
+    print("\nThis completes your log. Thank you and great work!\n")
+    time.sleep(1)
+    menu_choice = input('\nType "menu" or "quit" to return to the main menu or exit the program.\n')
+    if menu_choice.lower() == "menu":
+        print("\nReturning to main menu...\n")
+        time.sleep(1)
+        start()
+    elif menu_choice.lower == "quit" or "exit":
+        choice = input("\nAre you sure you want to quit? (y/n)\n")
+        if choice.lower() == "y":
+            print("\nQuitting, thank you for logging your practice! See you next time!")
+        elif choice.lower() == "n":
+            print("Returning to main menu...")
+            time.sleep(1)
+            start()
+        else:
+            print("\nSorry I didn't understant that. Returning to main menu...\n")
+            time.sleep(1)
+            start()
 
 
 def quit_program():
     """
-    Function to allow the user to safely quit the program
+    Function to allow the user to safely quit the program.
     """
     print("\nYou have chosen to quit Nick's Practice Log\n")
-    quit_choice = ""
     quit_choice = input("\nAre you sure? (y/n)\n")
     if quit_choice.lower() == "y":
-        print("\nQuitting, thank you for logging your practice! See you next time!")
+        print("\nQuitting... See you next time!")
         exit()
     elif quit_choice.lower() == "n":
         print("\nGreat! Returning to main menu...")
@@ -207,9 +264,11 @@ def quit_program():
         start()
     else:
         print("\nSorry, I didn't understand your input\n")
+        time.sleep(1)
         print("\nReturning to main menu...\n")
-        time.sleep(1.5)
+        time.sleep(1)
         start()
+
 
 def start():
     """
@@ -229,15 +288,14 @@ def start():
         log_duration()
         log_score()
         log_topics()
+        log_wins()
     elif start_choice == 2:
         print("\n You have chosen to get insights on your logged practice sessions\n")
     elif start_choice == 3:
         print("\nYou have chosen to get practice ideas")
     elif start_choice == 4:
         quit_program()
-        
 
-        
 
 print("\n ** Wecome to Nick's Practice Log! **\n")
 print("What would you like to do?\n")
