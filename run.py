@@ -22,6 +22,12 @@ log = SHEET.worksheet("log")
 # data = log.get_all_values()
 # print(data)
 
+# General Functions
+def sleep():
+    time.sleep(1.5)
+
+
+# Funtions within option 1. Log Practice
 def log_practice():
     """
     Log a new practice session.
@@ -36,6 +42,7 @@ def log_date():
     if yes - store today's date,
     if no - ask for date input and validate for correct format
     """
+    global session_date
     session_today = input("\nWas your practice session today? (y/n)\n")
 
     if session_today.lower() == "y":
@@ -61,13 +68,14 @@ def log_date():
 
         if valid_date is True:
             print(f"\nYou practiced on {session_date}\n")
-    time.sleep(1.5)
+    sleep()
 
 
 def log_duration():
     """
     Ask user for duration of practice session and validate for an integer
     """
+    global session_duration
     session_duration = 0
     while True:
         try:
@@ -77,7 +85,7 @@ def log_duration():
         else:
             print(f"\nWell done! You practiced for {session_duration} mins!")
             break
-    time.sleep(1.5)
+    sleep()
 
 
 def log_score():
@@ -85,19 +93,20 @@ def log_score():
     Ask user for self-assesed productivity score input,
     and validate for an integer 
     """
+    global prod_score
     prod_score = int(input("\nOn a scale of 1 - 10, how productive do you feel the session was?\n"))
     if prod_score <= 3:
         print(f"\n{prod_score} is ok, you still practiced!\nIt's the consistency that counts\n")
-        time.sleep(1.5)
+        sleep()
     elif prod_score <= 5:
         print(f"\n{prod_score} is a good score! All progress is good progress!\n")
-        time.sleep(1.5)
+        sleep()
     elif prod_score <= 8:
         print(f"\n{prod_score} is fantastic! Well done!\n")
-        time.sleep(1.5)
+        sleep()
     elif prod_score <= 10:
         print(f"\n{prod_score} is awesome! You are smashing it!\n")
-        time.sleep(1.5)
+        sleep()
 
 
 def log_topics():
@@ -108,7 +117,7 @@ def log_topics():
     and later sent to the spreadsheet.
     """
     print("\nNext I will ask you about what exercises you worked on...")
-    time.sleep(1.5)
+    sleep()
     topics_options = '''
         In this model, general practice topics are classed as either:
 
@@ -147,50 +156,50 @@ def log_topics():
     if technique.lower() == "y":
         user_exercises["Technical"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
-        time.sleep(1)
+        sleep()
     elif technique.lower() == "n":
         user_exercises["Technical"] = "None"
         print(no_log)
-        time.sleep(1)
+        sleep()
 
     # Ask about Musicianship practice
     musicianship = input("Did you work on anything relating to Musicianship? (y/n)\n")
     if musicianship.lower() == "y":
         user_exercises["Musicianship"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
-        time.sleep(1)
+        sleep()
     elif musicianship.lower() == "n":
         user_exercises["Musicianship"] = "None"
         print(no_log)
-        time.sleep(1)
+        sleep()
 
     # Ask about Creative practice
     creative = input("Did you work on anything relating to Creativity? (y/n)\n")
     if creative.lower() == "y":
         user_exercises["Creative"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
-        time.sleep(1)
+        sleep()
     elif creative.lower() == "n":
         user_exercises["Creative"] = "None"
         print(no_log)
-        time.sleep(1)
+        sleep()
 
     # Ask about Repertoire practice
     repertoire = input("Did you work on anything relating to Repertoire? (y/n)\n")
     if repertoire.lower() == "y":
         user_exercises["Repertoire"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
-        time.sleep(1)
+        sleep()
     elif repertoire.lower() == "n":
         user_exercises["Repertoire"] = "None"
         print(no_log)
-        time.sleep(1)
-    time.sleep(1)
+        sleep()
+    sleep()
     print("\nYou have logged the following this practice session:\n")
     print(user_exercises)
-    time.sleep(1)
+    sleep()
     print("\nLet's move on to the final part of the log...\n")
-    time.sleep(1.5)
+    sleep()
 
 def log_wins():
     """
@@ -205,35 +214,37 @@ def log_wins():
     user_diffs_yn = input("\nDid you experience any particular difficulties during this practice session? (y/n)\n")
     if user_diffs_yn.lower() == "y":
        user_diffs = input("\nPlease detail them here (seperate them with ','):\n")
-       time.sleep(1)
+       sleep()
        print("\nThank you. Remember that experiencing difficulties in your practice session is a natural part of the learning process!\n")
     elif user_diffs_yn.lower() == "n":
         user_diffs = "None"
         print("Great! Moving on...")
-    time.sleep(1)
+    sleep()
 
     # Ask for info on wins in the practice session 
     user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
     if user_wins_yn == "y":
         user_wins = input('Amazing! What were they? (seperate your wins with ",")\n')
-        time.sleep(1)
+        sleep()
         print("Well done! You are making great progress!")
     elif user_wins_yn == "n":
         print("\nThat's ok, you practiced! That's what counts!")
         user_wins = "None"
 
     print("\nYou logged the following difficulties and wins:\n")
-    time.sleep(1)
+    sleep()
     print(f"Difficulties - {user_diffs}")
-    time.sleep(1)
+    sleep()
     print(f"Wins - {user_wins}\n")
-    time.sleep(1)
+    sleep()
     print("\nThis completes your log. Thank you and great work!\n")
-    time.sleep(1)
+    sleep()
+
+    # Check if user wishes to quit or return to the main menu
     menu_choice = input('\nType "menu" or "quit" to return to the main menu or exit the program.\n')
     if menu_choice.lower() == "menu":
         print("\nReturning to main menu...\n")
-        time.sleep(1)
+        sleep()
         start()
     elif menu_choice.lower == "quit" or "exit":
         choice = input("\nAre you sure you want to quit? (y/n)\n")
@@ -241,12 +252,16 @@ def log_wins():
             print("\nQuitting, thank you for logging your practice! See you next time!")
         elif choice.lower() == "n":
             print("Returning to main menu...")
-            time.sleep(1)
+            sleep()
             start()
         else:
-            print("\nSorry I didn't understant that. Returning to main menu...\n")
-            time.sleep(1)
+            print("\nSorry I didn't understand that. Returning to main menu...\n")
+            sleep()
             start()
+
+
+# def push_log_data():
+
 
 
 def quit_program():
@@ -260,13 +275,13 @@ def quit_program():
         exit()
     elif quit_choice.lower() == "n":
         print("\nGreat! Returning to main menu...")
-        time.sleep(1.5)
+        sleep()
         start()
     else:
         print("\nSorry, I didn't understand your input\n")
-        time.sleep(1)
+        sleep()
         print("\nReturning to main menu...\n")
-        time.sleep(1)
+        sleep()
         start()
 
 
