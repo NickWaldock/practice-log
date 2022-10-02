@@ -142,11 +142,29 @@ def start():
     elif start_choice == 3:
         print("\nYou have chosen to get practice ideas")
     elif start_choice == 4:
-        print("\nQuitting, thank you for logging your practice")
+        quit_program()
+        
+        
+
+def quit_program():
+    print("\nYou have chosen to quit Nick's Practice Log\n")
+    quit_choice = ""
+    quit_choice = input("\nAre you sure? (y/n)\n")
+    if quit_choice.lower() == "y":
+        print("\nQuitting, thank you for logging your practice! See you next time!")
         exit()
+    elif quit_choice.lower() == "n":
+        print("\nGreat! Returning to main menu...")
+        time.sleep(1.5)
+        start()
+    else:
+        print("\nSorry, I didn't understand your input\n")
+        print("\nReturning to main menu...\n")
+        time.sleep(1.5)
+        start()
+        
 
-
-print("\n ** Wecome to the Practice Log! **\n")
+print("\n ** Wecome to Nick's Practice Log! **\n")
 print("What would you like to do?\n")
 start()
 
