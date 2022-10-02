@@ -128,12 +128,18 @@ def log_topics():
                           (Transciption, memorisation, repertoire reserach)
         '''
     print(topics_options)
-    user_exercises = {}
+
+    # Define the dictionary for user input
+    user_exercises = {
+        "Technical": "",
+        "Musicianship": "",
+        "Creative": "",
+        "Repertoire": ""
+    }
 
     # Repeated acknoledgement responses
     logged = "\nGreat, I've made a note of that.\n"
     no_log = "\nOk, no problem.\n"
-
 
     # Define variables for user inputs as global
     global user_technique_exercises
@@ -143,7 +149,7 @@ def log_topics():
     # Ask about Technique practice
     technique = input("Did you work on anything Technical? (y/n)\n")
     if technique.lower() == "y":
-        user_technique_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        user_exercises["Technical"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
         time.sleep(1)
     elif technique.lower() == "n":
@@ -180,14 +186,14 @@ def log_topics():
         print(no_log)
         time.sleep(1)
     time.sleep(1.5)
-    print(f"\nOk, you have logged the following this practice session: ")
+    print("\nOk, you have logged the following this practice session:\n")
+    print()
 
 
     print("Let's move on to the final part of the log...")
 
-# def save_user_inputs():
-#     user_technique_exercises
-#     user_musicianship_exercises
+
+
 
 
 def quit_program():
