@@ -102,28 +102,113 @@ def log_score():
 
 def log_topics():
     """
-    Ask user to log the general topics they covered in their practice, and
-    explain to the user the four general topics of practice they should refer to
+    Explain to the user the next steps. Define the four main pratice topics.
+    Ask the user whether they practiced any exercises within a topic 
+    if they respond YES specifics are requested. Data is saved to variables 
+    and later sent to the spreadsheet.
     """
-    print(
-        "\nIn this model, general practice topics are classed as either:\n"
-        "\n1. Technical\n"
-        "2. Musicianship\n"
-        "3. Creative\n"
-        "4. Repertoire\n"
-        )
-    print("\nWhich general practice topics did you work on in this practice session?")
-    topics_log = []
-
-    while True:
-        try:
-            topics_log = input('\n(Please seperate your choices with a ",")\n')
-        except ValueError:
-            print('\nPlease enter a selection of the above topics seperated with a ","\n')
-        else:
-            print("\nThat's great! I've made a note of that")
-            break
+    print("\nNext I will ask you about what exercises you worked on.")
     time.sleep(1.5)
+    topics_options = '''
+        In this model, general practice topics are classed as either:
+
+        1. Technical    - Developing technical skill through repeated 
+                          incremental exercises targeting specific 
+                          motor movements
+
+        2. Musicianship - Developing musically intuitive skills 
+                          (Aural, theory, harmony, rhythm, sight-reading
+                          ensemble skills, voacbulary, etc)
+
+        3. Creative     - Developing creative skills and intuition
+                          (Improvisation, composition, interpretation,
+                          phrasing, etc)
+
+        4. Repertoire   - Learning new or refining already-known repertoire
+                          (Transciption, memorisation, repertoire reserach)
+        '''
+    print(topics_options)
+    user_exercises = {}
+
+    # Repeated acknoledgement responses
+    logged = "\nGreat, I've made a note of that.\n"
+    no_log = "\nOk, no problem.\n"
+
+
+    # Define variables for user inputs as global
+    global user_technique_exercises
+    global user_musicianship_exercises
+    global user_creative_exercises
+
+    # Ask about Technique practice
+    technique = input("Did you work on anything Technical? (y/n)\n")
+    if technique.lower() == "y":
+        user_technique_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        print(logged)
+        time.sleep(1)
+    elif technique.lower() == "n":
+        print(no_log)
+        time.sleep(1)
+
+    # Ask about Musicianship practice
+    musicianship = input("Did you work on anything relating to Musicianship? (y/n)\n")
+    if musicianship.lower() == "y":
+        user_musicianship_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        print(logged)
+        time.sleep(1)
+    elif musicianship.lower() == "n":
+        print(no_log)
+        time.sleep(1)
+
+    # Ask about Creative practice
+    creative = input("Did you work on anything relating to Musicianship? (y/n)\n")
+    if creative.lower() == "y":
+        user_creative_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        print(logged)
+        time.sleep(1)
+    elif creative.lower() == "n":
+        print(no_log)
+        time.sleep(1)
+
+    # Ask about Repertoire practice
+    repertoire = input("Did you work on anything relating to Musicianship? (y/n)\n")
+    if repertoire.lower() == "y":
+        user_repertoire_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        print(logged)
+        time.sleep(1)
+    elif repertoire.lower() == "n":
+        print(no_log)
+        time.sleep(1)
+    time.sleep(1.5)
+    print(f"\nOk, you have logged the following this practice session: ")
+
+
+    print("Let's move on to the final part of the log...")
+
+# def save_user_inputs():
+#     user_technique_exercises
+#     user_musicianship_exercises
+
+
+def quit_program():
+    """
+    Function to allow the user to safely quit the program
+    """
+    print("\nYou have chosen to quit Nick's Practice Log\n")
+    quit_choice = ""
+    quit_choice = input("\nAre you sure? (y/n)\n")
+    if quit_choice.lower() == "y":
+        print("\nQuitting, thank you for logging your practice! See you next time!")
+        exit()
+    elif quit_choice.lower() == "n":
+        print("\nGreat! Returning to main menu...")
+        time.sleep(1.5)
+        start()
+    else:
+        print("\nSorry, I didn't understand your input\n")
+        print("\nReturning to main menu...\n")
+        time.sleep(1.5)
+        start()
 
 def start():
     """
@@ -133,7 +218,7 @@ def start():
     print("2. Get insights on your practice")
     print("3. Get practice ideas")
     print("4. Quit\n")
-    print("Make your selection with a number:")
+    print("\nMake your selection with a number:")
     start_choice = int(input())
 
     if start_choice == 1:
@@ -151,22 +236,6 @@ def start():
         quit_program()
         
 
-def quit_program():
-    print("\nYou have chosen to quit Nick's Practice Log\n")
-    quit_choice = ""
-    quit_choice = input("\nAre you sure? (y/n)\n")
-    if quit_choice.lower() == "y":
-        print("\nQuitting, thank you for logging your practice! See you next time!")
-        exit()
-    elif quit_choice.lower() == "n":
-        print("\nGreat! Returning to main menu...")
-        time.sleep(1.5)
-        start()
-    else:
-        print("\nSorry, I didn't understand your input\n")
-        print("\nReturning to main menu...\n")
-        time.sleep(1.5)
-        start()
         
 
 print("\n ** Wecome to Nick's Practice Log! **\n")
