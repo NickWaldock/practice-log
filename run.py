@@ -105,7 +105,13 @@ def log_topics():
     Ask user to log the general topics they covered in their practice, and
     explain to the user the four general topics of practice they should refer to
     """
-    print("In this model, general practice topics are classed as either: Technical, Musicianship, Creative, or Repertoire")
+    print(
+        "\nIn this model, general practice topics are classed as either:\n"
+        "\n1. Technical\n"
+        "2. Musicianship\n"
+        "3. Creative\n"
+        "4. Repertoire\n"
+        )
     print("\nWhich general practice topics did you work on in this practice session?")
     topics_log = []
 
@@ -143,7 +149,6 @@ def start():
         print("\nYou have chosen to get practice ideas")
     elif start_choice == 4:
         quit_program()
-        
         
 
 def quit_program():
