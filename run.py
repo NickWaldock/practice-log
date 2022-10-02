@@ -130,6 +130,7 @@ def log_topics():
     print(topics_options)
 
     # Define the dictionary for user input
+    global user_exercises
     user_exercises = {
         "Technical": "",
         "Musicianship": "",
@@ -140,11 +141,6 @@ def log_topics():
     # Repeated acknoledgement responses
     logged = "\nGreat, I've made a note of that.\n"
     no_log = "\nOk, no problem.\n"
-
-    # Define variables for user inputs as global
-    global user_technique_exercises
-    global user_musicianship_exercises
-    global user_creative_exercises
 
     # Ask about Technique practice
     technique = input("Did you work on anything Technical? (y/n)\n")
@@ -159,7 +155,7 @@ def log_topics():
     # Ask about Musicianship practice
     musicianship = input("Did you work on anything relating to Musicianship? (y/n)\n")
     if musicianship.lower() == "y":
-        user_musicianship_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        user_exercises["Musicianship"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
         time.sleep(1)
     elif musicianship.lower() == "n":
@@ -167,9 +163,9 @@ def log_topics():
         time.sleep(1)
 
     # Ask about Creative practice
-    creative = input("Did you work on anything relating to Musicianship? (y/n)\n")
+    creative = input("Did you work on anything relating to Creativity? (y/n)\n")
     if creative.lower() == "y":
-        user_creative_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        user_exercises["Creative"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
         time.sleep(1)
     elif creative.lower() == "n":
@@ -177,20 +173,19 @@ def log_topics():
         time.sleep(1)
 
     # Ask about Repertoire practice
-    repertoire = input("Did you work on anything relating to Musicianship? (y/n)\n")
+    repertoire = input("Did you work on anything relating to Repertoire? (y/n)\n")
     if repertoire.lower() == "y":
-        user_repertoire_exercises = input('\nPlease list the exercises you worked on seperated by ","\n')
+        user_exercises["Repertoire"] = input('\nPlease list the exercises you worked on seperated by ","\n')
         print(logged)
         time.sleep(1)
     elif repertoire.lower() == "n":
         print(no_log)
         time.sleep(1)
-    time.sleep(1.5)
+    time.sleep(1)
     print("\nOk, you have logged the following this practice session:\n")
-    print()
-
-
-    print("Let's move on to the final part of the log...")
+    print(user_exercises)
+    time.sleep(1)
+    print("\nLet's move on to the final part of the log...")
 
 
 
