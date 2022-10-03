@@ -226,7 +226,7 @@ def log_wins():
     if user_wins_yn == "y":
         user_wins = input('Amazing! What were they? (seperate your wins with ",")\n')
         sleep()
-        print("Well done! You are making great progress!")
+        print("\nWell done! You are making great progress!")
     elif user_wins_yn == "n":
         print("\nThat's ok, you practiced! That's what counts!")
         user_wins = "None"
@@ -254,7 +254,7 @@ def log_wins():
             sleep()
             start()
         elif push.lower() == "n":
-            print("\nAre you sure you do not want to save this log?\n")
+            print("\nAre you sure you do not want to save this log?")
             confirm = input('\n"y" = quit and lose all changes. "n" = save and return to main menu.\n')
             if confirm.lower() == "y":
                 quit_program()
@@ -285,15 +285,23 @@ def log_wins():
             sleep()
             start()
 
+def collate_data():
+    global data
+    data = [str(session_date),
+        str(session_duration),
+        str(prod_score),
+        user_exercises,
+        user_diffs,
+        user_wins]
 
-def push_log_data():
-    session_date
-    session_duration
-    prod_score
-    user_exercises
-    user_diffs
-    user_wins
-    print("Logged sucessfully saved")
+def push_log_data(data):
+    """
+    Update log worksheet, add new row with the data provided by the user in the log program
+    """
+    print("Updating log worksheet...\n")
+    log_worksheet = SHEET.worksheet("log")
+    log_worksheet.append_row(data)
+    print("Logged sucessfully updated")
 
 
 
