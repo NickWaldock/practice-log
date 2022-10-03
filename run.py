@@ -218,7 +218,7 @@ def log_wins():
        print("\nThank you. Remember that experiencing difficulties in your practice session is a natural part of the learning process!\n")
     elif user_diffs_yn.lower() == "n":
         user_diffs = "None"
-        print("Great! Moving on...")
+        print("\nGreat! Moving on...")
     sleep()
 
     # Ask for info on wins in the practice session 
@@ -231,6 +231,7 @@ def log_wins():
         print("\nThat's ok, you practiced! That's what counts!")
         user_wins = "None"
 
+    sleep()
     print("\nYou logged the following difficulties and wins:\n")
     sleep()
     print(f"Difficulties - {user_diffs}")
@@ -242,32 +243,28 @@ def log_wins():
 
     # Commit log to spreadsheet
     push = ""
-    try:
-        push = input("Would you like to save this log? (y/n)\n")
+    # Check for a valid input
+    while push != 'y' or push != 'n':
+        push = input("\nWould you like to save this log? (y/n)\n")
         if push.lower() == "y":
-            print("Saving log...")
+            print("\nSaving log...")
             sleep()
             push_log_data()
-            print("Returning to main menu...")
+            print("\nReturning to main menu...")
             sleep()
             start()
         elif push.lower() == "n":
-            print("Are you sure you do not want to save this log?\n")
-            confirm = input("y = quit and lose all changes. n = save and return to main menu.\n")
+            print("\nAre you sure you do not want to save this log?\n")
+            confirm = input('\n"y" = quit and lose all changes. "n" = save and return to main menu.\n')
             if confirm.lower() == "y":
                 quit_program()
             elif confirm.lower() == "n":
-                print("Saving log...")
+                print("\nSaving log...")
                 sleep()
                 push_log_data()
-                print("Returning to main menu...")
+                print("\nReturning to main menu...")
                 sleep()
                 start()
-    except:
-        ValueError("Please enter y/n")
-    else:
-        break
-
 
     # Check if user wishes to quit or return to the main menu
     menu_choice = input('\nType "menu" or "quit" to return to the main menu or exit the program.\n')
