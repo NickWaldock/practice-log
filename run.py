@@ -260,10 +260,10 @@ def get_insights():
         view_last_Log()
 
 
-
 def view_last_Log():
     """
-    Get all log sheet data, print the last entry for the user
+    Get all log sheet data, get the last entry, 
+    split the list entry and seperately print to the user
     """
     print("\nYou have chosen to view the last log entry. \nLoading...\n")
     all_data = log.get_all_values()
@@ -288,7 +288,8 @@ def quit_program():
     print("\nYou have chosen to quit Nick's Practice Log\n")
     quit_choice = input("\nAre you sure? (y/n)\n")
     if quit_choice.lower() == "y":
-        print("\nQuitting... See you next time!")
+        print("\nQuitting...\n")
+        tprint("See you next time!")
         exit()
     elif quit_choice.lower() == "n":
         print("\nGreat! Returning to main menu...")
