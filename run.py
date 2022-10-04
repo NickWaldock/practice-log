@@ -5,6 +5,7 @@ from datetime import datetime
 import datetime
 import re
 import time
+from art import *
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -21,6 +22,11 @@ log = SHEET.worksheet("log")
 
 # data = log.get_all_values()
 # print(data)
+
+# Display Titles
+def main_title():
+    tprint("Nick's")
+    tprint("Practice Log Book")
 
 # General Functions
 def sleep():
@@ -261,7 +267,10 @@ def start():
     """
     Welcome message and user choice input to proceed
     """
-    print("1. Log a practice session")
+    main_title()
+    print("\n ** Wecome to Nick's Practice Log! **\n")
+    print("What would you like to do?\n")
+    print("\n1. Log a practice session")
     print("2. Get insights on your practice")
     print("3. Get practice ideas")
     print("4. Quit\n")
@@ -283,8 +292,7 @@ def start():
     elif start_choice == 4:
         quit_program()
 
-
-print("\n ** Wecome to Nick's Practice Log! **\n")
-print("What would you like to do?\n")
 start()
+
+
 

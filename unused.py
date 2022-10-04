@@ -1,4 +1,18 @@
 
+print(
+        """
+         ___     __    __
+        |    \  |  |  |  |    /          
+        |  |  \ |  |  |  |   /              
+        |  |\  \|  |  |  |  |            
+        |  | \  |  |  |  |   \              
+        |__|  \____|  |__|    \          
+
+        """
+    )
+
+
+
 def log_topics():
     """
     Explain to the user the next steps. Define the four main pratice topics.
