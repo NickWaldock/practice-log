@@ -328,12 +328,29 @@ def view_3_logs():
     print(f"\nYou expressed the difficulties you encountered as:\n{third_recent[4]}")
     print(f"\nYou expressed your successes as:\n{third_recent[5]}")
 
-# Get Insights - 3. Calculate Average Practice Time
-def 
 
-
-
-
+# 2. Get Insights - 3. Calculate Average Practice Time
+def average_time():
+    """
+    Get all duration values from the column in the spreadsheet,
+    Remove the column title from the list,
+    Convert as numbers as strings to integers,
+    Calculate average and print to the user
+    """
+    print("\nGetting practice data...")
+    all_values = log.col_values(2)
+    all_nums = all_values[1:]
+    all_ints = [int(i) for i in all_nums]
+    total_minutes = sum(all_ints)
+    print(f"\nYou have clocked a total of {total_minutes} minutes practicing...")
+    num_sessions = len(all_ints)
+    sleep()
+    print(f"\nOver the course of {num_sessions} practice sessions...")
+    result = total_minutes / num_sessions
+    sleep()
+    print(f"\nYour average time spent in each practice session is {result} minutes!")
+    sleep()
+    print("\nThat's not too shabby ;)")
 
 
 # 4. Quit Program

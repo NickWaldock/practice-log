@@ -1,6 +1,7 @@
 References
-
+General
 https://www.programiz.com/python-programming/methods/string/lower
+https://railsware.com/blog/python-for-machine-learning-indexing-and-slicing-for-lists-tuples-strings-and-other-sequential-types/
 
 Datetime formatting
 https://pynative.com/python-datetime-format-strftime/
