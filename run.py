@@ -255,15 +255,18 @@ def get_insights():
 
         1. View Last Recorded Log
         2. View Last 3 Logs
+        3. Calculate Average Practice Time
         """)
     user_choice = input("What would you like to do? (Enter a number)\n")
     if user_choice == "1":
         view_last_Log()
     if user_choice == "2":
         view_3_logs()
+    if user_choice == "3":
+        average_time()
 
 
-# Get Insights Functions
+# 2. Get Insights - 1. View Last Log
 def view_last_Log():
     """
     Get all log sheet data, get the last entry, 
@@ -282,7 +285,7 @@ def view_last_Log():
     print(f"\nDifficulties Encountered: {last_log[4]}")
     print(f"\nPersonal Wins: {last_log[5]}")
 
-
+#2. Get Insights - 2. View Last Three Logs
 def view_3_logs():
     """
     Get all values from spreadsheet, find last 3 rows (logs),
@@ -315,7 +318,7 @@ def view_3_logs():
     print(f"\nYou expressed the difficulties you encountered as:\n{second_recent[4]}")
     print(f"\nYou expressed your successes as:\n{second_recent[5]}")
 
-#Printing third most recent entry
+    #Printing third most recent entry
     sleep()
     print("\nThird Most Recent Log:")
     print(f"\nDate: {third_recent[0]}")
@@ -324,6 +327,13 @@ def view_3_logs():
     print(f"\nThe exercises you worked on were:\n{third_recent[3]}")
     print(f"\nYou expressed the difficulties you encountered as:\n{third_recent[4]}")
     print(f"\nYou expressed your successes as:\n{third_recent[5]}")
+
+# Get Insights - 3. Calculate Average Practice Time
+def 
+
+
+
+
 
 
 # 4. Quit Program
