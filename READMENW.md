@@ -21,7 +21,8 @@ https://replit.com/talk/learn/The-Slow-Print/44741
 pretty printer
 https://docs.python.org/3/library/pprint.html
 
-
+Console Art
+https://github.com/sepandhaghighi/art
 
 BUGS
 Data not pushing to spreadsheet - due to attemping to send dictionary objects across. Topics dicts function removed and replaced with a log_exercises function

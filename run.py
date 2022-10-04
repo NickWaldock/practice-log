@@ -2,7 +2,6 @@
 import gspread
 from google.oauth2.service_account import Credentials 
 from datetime import datetime
-import datetime
 import re
 import time
 from art import *
@@ -20,13 +19,12 @@ SHEET = GSPREAD_CLIENT.open("practice_log")
 
 log = SHEET.worksheet("log")
 
-# data = log.get_all_values()
-# print(data)
 
 # Display Titles
 def main_title():
     tprint("Nick's")
     tprint("Practice Log Book")
+
 
 # General Functions
 def sleep():
@@ -242,6 +240,47 @@ def push_log_data(data):
     print("Logged sucessfully updated")
 
 
+# 2. Get Insights
+def get_insights():
+    """
+    Main function for option 2 to allow choice to next menu
+    """
+    tprint("Get Insights")
+    sleep()
+    print("You have chosen to get insights on your saved practice logs\n")
+    sleep()
+    print(
+        """
+        Insights Menu:
+
+        1. View Last Recorded Log
+        """)
+    user_choice = input("What would you like to do? (Enter a number)\n")
+    if user_choice == "1":
+        view_last_Log()
+
+
+
+def view_last_Log():
+    """
+    Get all log sheet data, print the last entry for the user
+    """
+    print("\nYou have chosen to view the last log entry. \nLoading...\n")
+    all_data = log.get_all_values()
+    last_log = list.pop(all_data)
+    sleep()
+    print("\nHere is you last recorded log:\n")
+    sleep()
+    print(f"\nDate: {last_log[0]}")
+    print(f"\nPractice Time: {last_log[1]}")
+    print(f"\nProductivity Score: {last_log[2]}")
+    print(f"\nExercises Worked On: {last_log[3]}")
+    print(f"\nDifficulties Encountered: {last_log[4]}")
+    print(f"\nPersonal Wins: {last_log[5]}")
+    
+
+
+# 4. Quit Program
 def quit_program():
     """
     Function to allow the user to safely quit the program.
@@ -261,7 +300,6 @@ def quit_program():
         print("\nReturning to main menu...\n")
         sleep()
         start()
-
 
 def start():
     """
@@ -286,7 +324,7 @@ def start():
         log_exercises()
         log_wins()
     elif start_choice == 2:
-        print("\n You have chosen to get insights on your logged practice sessions\n")
+        get_insights()
     elif start_choice == 3:
         print("\nYou have chosen to get practice ideas")
     elif start_choice == 4:
