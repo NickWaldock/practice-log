@@ -256,6 +256,7 @@ def get_insights():
         1. View Last Recorded Log
         2. View Last 3 Logs
         3. Calculate Average Practice Time
+        4. View List of Exercises Practiced
         """)
     user_choice = input("What would you like to do? (Enter a number)\n")
     if user_choice == "1":
@@ -264,6 +265,8 @@ def get_insights():
         view_3_logs()
     if user_choice == "3":
         average_time()
+    if user_choice == "4":
+        view_exercises()
 
 
 # 2. Get Insights - 1. View Last Log
@@ -285,7 +288,8 @@ def view_last_Log():
     print(f"\nDifficulties Encountered: {last_log[4]}")
     print(f"\nPersonal Wins: {last_log[5]}")
 
-#2. Get Insights - 2. View Last Three Logs
+
+# 2. Get Insights - 2. View Last Three Logs
 def view_3_logs():
     """
     Get all values from spreadsheet, find last 3 rows (logs),
@@ -308,7 +312,7 @@ def view_3_logs():
     print(f"\nYou expressed the difficulties you encountered as:\n{most_recent[4]}")
     print(f"\nYou expressed your successes as:\n{most_recent[5]}")
     
-    #Printing second most recent entry
+    # Printing second most recent entry
     sleep()
     print("\nSecond Most Recent Log:")
     print(f"\nDate: {second_recent[0]}")
@@ -318,7 +322,7 @@ def view_3_logs():
     print(f"\nYou expressed the difficulties you encountered as:\n{second_recent[4]}")
     print(f"\nYou expressed your successes as:\n{second_recent[5]}")
 
-    #Printing third most recent entry
+    # Printing third most recent entry
     sleep()
     print("\nThird Most Recent Log:")
     print(f"\nDate: {third_recent[0]}")
@@ -353,6 +357,21 @@ def average_time():
     print("\nThat's not too shabby ;)")
 
 
+# 2. Get Insights - 4. Get List of Exercises
+def view_exercises():
+    """
+    Get all values from Exercises column in spreadsheet,
+    Print to the user
+    """
+    print("\nRetrieving data...")
+    sleep()
+    all_values = log.col_values(4)
+    all_exercises = all_values[1:]
+    print("\nHere is a list of exercises you have logged:\n")
+    for i in all_exercises:
+        print(i)
+
+
 # 4. Quit Program
 def quit_program():
     """
@@ -374,6 +393,7 @@ def quit_program():
         print("\nReturning to main menu...\n")
         sleep()
         start()
+
 
 def start():
     """
@@ -403,6 +423,7 @@ def start():
         print("\nYou have chosen to get practice ideas")
     elif start_choice == 4:
         quit_program()
+
 
 start()
 
