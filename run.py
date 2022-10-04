@@ -224,11 +224,11 @@ def log_wins():
 
     # Ask for info on wins in the practice session 
     user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
-    if user_wins_yn == "y":
+    if user_wins_yn.lower() == "y":
         user_wins = input('Amazing! What were they? (seperate your wins with ",")\n')
         sleep()
         print("\nWell done! You are making great progress!")
-    elif user_wins_yn == "n":
+    elif user_wins_yn.lower() == "n":
         print("\nThat's ok, you practiced! That's what counts!")
         user_wins = "None"
 
