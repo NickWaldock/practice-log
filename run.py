@@ -240,7 +240,7 @@ def push_log_data(data):
     print("Logged sucessfully updated")
 
 
-# 2. Get Insights
+# 2. Get Insights Menu
 def get_insights():
     """
     Main function for option 2 to allow choice to next menu
@@ -254,12 +254,16 @@ def get_insights():
         Insights Menu:
 
         1. View Last Recorded Log
+        2. View Last 3 Logs
         """)
     user_choice = input("What would you like to do? (Enter a number)\n")
     if user_choice == "1":
         view_last_Log()
+    if user_choice == "2":
+        view_3_logs()
 
 
+# Get Insights Functions
 def view_last_Log():
     """
     Get all log sheet data, get the last entry, 
@@ -277,7 +281,49 @@ def view_last_Log():
     print(f"\nExercises Worked On: {last_log[3]}")
     print(f"\nDifficulties Encountered: {last_log[4]}")
     print(f"\nPersonal Wins: {last_log[5]}")
+
+
+def view_3_logs():
+    """
+    Get all values from spreadsheet, find last 3 rows (logs),
+    send each of the 3 rows into seperate variables,
+    print the information from those variables to the user
+    """
+    all_data = log.get_all_values()
+    most_recent = all_data[-1]
+    second_recent = all_data[-2]
+    third_recent = all_data[-3]
+
+    # Printing most latest entry
+    print("\nGetting last 3 entries...")
+    sleep()
+    print("\nMost Recent Log:")
+    print(f"\nDate: {most_recent[0]}")
+    print(f"\nYou practiced for {most_recent[1]} mins")
+    print(f"\nYou scored your productivity at {most_recent[2]}")
+    print(f"\nThe exercises you worked on were:\n{most_recent[3]}")
+    print(f"\nYou expressed the difficulties you encountered as:\n{most_recent[4]}")
+    print(f"\nYou expressed your successes as:\n{most_recent[5]}")
     
+    #Printing second most recent entry
+    sleep()
+    print("\nSecond Most Recent Log:")
+    print(f"\nDate: {second_recent[0]}")
+    print(f"\nYou practiced for {second_recent[1]} mins")
+    print(f"\nYou scored your productivity at {second_recent[2]}")
+    print(f"\nThe exercises you worked on were:\n{second_recent[3]}")
+    print(f"\nYou expressed the difficulties you encountered as:\n{second_recent[4]}")
+    print(f"\nYou expressed your successes as:\n{second_recent[5]}")
+
+#Printing third most recent entry
+    sleep()
+    print("\nThird Most Recent Log:")
+    print(f"\nDate: {third_recent[0]}")
+    print(f"\nYou practiced for {third_recent[1]} mins")
+    print(f"\nYou scored your productivity at {third_recent[2]}")
+    print(f"\nThe exercises you worked on were:\n{third_recent[3]}")
+    print(f"\nYou expressed the difficulties you encountered as:\n{third_recent[4]}")
+    print(f"\nYou expressed your successes as:\n{third_recent[5]}")
 
 
 # 4. Quit Program
