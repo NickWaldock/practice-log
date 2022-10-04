@@ -201,6 +201,7 @@ def log_topics():
     print("\nLet's move on to the final part of the log...\n")
     sleep()
 
+
 def log_wins():
     """
     Asks the user to detail particular problems experienced in the 
@@ -213,9 +214,9 @@ def log_wins():
     # Ask for info on difficulties in the practice session
     user_diffs_yn = input("\nDid you experience any particular difficulties during this practice session? (y/n)\n")
     if user_diffs_yn.lower() == "y":
-       user_diffs = input("\nPlease detail them here (seperate them with ','):\n")
-       sleep()
-       print("\nThank you. Remember that experiencing difficulties in your practice session is a natural part of the learning process!\n")
+        user_diffs = input("\nPlease detail them here (seperate them with ','):\n")
+        sleep()
+        print("\nThank you. Remember that experiencing difficulties in your practice session is a natural part of the learning process!\n")
     elif user_diffs_yn.lower() == "n":
         user_diffs = "None"
         print("\nGreat! Moving on...")
@@ -249,7 +250,7 @@ def log_wins():
         if push.lower() == "y":
             print("\nSaving log...")
             sleep()
-            push_log_data()
+            push_log_data(data)
             print("\nReturning to main menu...")
             sleep()
             start()
@@ -261,7 +262,7 @@ def log_wins():
             elif confirm.lower() == "n":
                 print("\nSaving log...")
                 sleep()
-                push_log_data()
+                push_log_data(data)
                 print("\nReturning to main menu...")
                 sleep()
                 start()
@@ -285,6 +286,7 @@ def log_wins():
             sleep()
             start()
 
+
 def collate_data():
     global data
     data = [str(session_date),
@@ -294,6 +296,7 @@ def collate_data():
         user_diffs,
         user_wins]
 
+
 def push_log_data(data):
     """
     Update log worksheet, add new row with the data provided by the user in the log program
@@ -302,7 +305,6 @@ def push_log_data(data):
     log_worksheet = SHEET.worksheet("log")
     log_worksheet.append_row(data)
     print("Logged sucessfully updated")
-
 
 
 def quit_program():
