@@ -109,103 +109,22 @@ def log_score():
         sleep()
 
 
-def log_topics():
+def log_exercises():
     """
-    Explain to the user the next steps. Define the four main pratice topics.
-    Ask the user whether they practiced any exercises within a topic 
-    if they respond YES specifics are requested. Data is saved to variables 
-    and later sent to the spreadsheet.
+    Asks the user to provide details of the specific exercises they worked on
+    in the practice session, saved in a variable
     """
-    print("\nNext I will ask you about what exercises you worked on...")
-    sleep()
-    topics_options = '''
-        In this model, general practice topics are classed as either:
-
-        1. Technical    - Developing technical skill through repeated 
-                          incremental exercises targeting specific 
-                          motor movements
-
-        2. Musicianship - Developing musically intuitive skills 
-                          (Aural, theory, harmony, rhythm, sight-reading
-                          ensemble skills, voacbulary, etc)
-
-        3. Creative     - Developing creative skills and intuition
-                          (Improvisation, composition, interpretation,
-                          phrasing, etc)
-
-        4. Repertoire   - Learning new or refining already-known repertoire
-                          (Transciption, memorisation, repertoire reserach)
-        '''
-    print(topics_options)
-
-    # Define the dictionary for user input
     global user_exercises
-    user_exercises = {
-        "Technical": "",
-        "Musicianship": "",
-        "Creative": "",
-        "Repertoire": ""
-    }
-
-    # Repeated acknoledgement responses
-    logged = "\nGreat, I've made a note of that.\n"
-    no_log = "\nOk, no problem.\n"
-
-    # Ask about Technique practice
-    technique = input("Did you work on anything Technical? (y/n)\n")
-    if technique.lower() == "y":
-        user_exercises["Technical"] = input('\nPlease list the exercises you worked on seperated by ","\n')
-        print(logged)
-        sleep()
-    elif technique.lower() == "n":
-        user_exercises["Technical"] = "None"
-        print(no_log)
-        sleep()
-
-    # Ask about Musicianship practice
-    musicianship = input("Did you work on anything relating to Musicianship? (y/n)\n")
-    if musicianship.lower() == "y":
-        user_exercises["Musicianship"] = input('\nPlease list the exercises you worked on seperated by ","\n')
-        print(logged)
-        sleep()
-    elif musicianship.lower() == "n":
-        user_exercises["Musicianship"] = "None"
-        print(no_log)
-        sleep()
-
-    # Ask about Creative practice
-    creative = input("Did you work on anything relating to Creativity? (y/n)\n")
-    if creative.lower() == "y":
-        user_exercises["Creative"] = input('\nPlease list the exercises you worked on seperated by ","\n')
-        print(logged)
-        sleep()
-    elif creative.lower() == "n":
-        user_exercises["Creative"] = "None"
-        print(no_log)
-        sleep()
-
-    # Ask about Repertoire practice
-    repertoire = input("Did you work on anything relating to Repertoire? (y/n)\n")
-    if repertoire.lower() == "y":
-        user_exercises["Repertoire"] = input('\nPlease list the exercises you worked on seperated by ","\n')
-        print(logged)
-        sleep()
-    elif repertoire.lower() == "n":
-        user_exercises["Repertoire"] = "None"
-        print(no_log)
-        sleep()
+    user_exercises = input('\nWhat exercises did you work on in this practice session? (Seperate exercises with ",")\n')
     sleep()
-    print("\nYou have logged the following this practice session:\n")
-    print(user_exercises)
+    print("\nGreat work!\n")
+    print(f"\nI have made a note of the following:\n {user_exercises}")
     sleep()
-    print("\nLet's move on to the final part of the log...\n")
-    sleep()
-
 
 def log_wins():
     """
-    Asks the user to detail particular problems experienced in the 
-    practice session, then asks for details on what positive 
+    Asks the user to detail particular problems experienced in the
+    practice session, then asks for details on what positive
     outcomes they achieved.
     """
     global user_diffs
@@ -235,9 +154,9 @@ def log_wins():
     sleep()
     print("\nYou logged the following difficulties and wins:\n")
     sleep()
-    print(f"Difficulties - {user_diffs}")
+    print(f"Difficulties - {user_diffs}\n")
     sleep()
-    print(f"Wins - {user_wins}\n")
+    print(f"Wins         - {user_wins}\n")
     sleep()
     print("\nThis completes your log. Thank you and great work!\n")
     sleep()
@@ -248,9 +167,11 @@ def log_wins():
     while push != 'y' or push != 'n':
         push = input("\nWould you like to save this log? (y/n)\n")
         if push.lower() == "y":
-            print("\nSaving log...")
+            collate_data()
             sleep()
+            print("\nSaving log...")
             push_log_data(data)
+            sleep()
             print("\nReturning to main menu...")
             sleep()
             start()
@@ -260,6 +181,7 @@ def log_wins():
             if confirm.lower() == "y":
                 quit_program()
             elif confirm.lower() == "n":
+                collate_data()
                 print("\nSaving log...")
                 sleep()
                 push_log_data(data)
@@ -288,13 +210,20 @@ def log_wins():
 
 
 def collate_data():
+    """
+    Collates all of the user input variables into a single variable
+    and converts ints to strings.
+    """
     global data
+    print("Collating data...")
     data = [str(session_date),
         str(session_duration),
         str(prod_score),
         user_exercises,
         user_diffs,
         user_wins]
+    print(data)
+    print("Data successfully collated")
 
 
 def push_log_data(data):
@@ -345,7 +274,7 @@ def start():
         log_date()
         log_duration()
         log_score()
-        log_topics()
+        log_exercises()
         log_wins()
     elif start_choice == 2:
         print("\n You have chosen to get insights on your logged practice sessions\n")
