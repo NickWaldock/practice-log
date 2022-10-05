@@ -257,6 +257,7 @@ def get_insights():
         2. View Last 3 Logs
         3. Calculate Average Practice Time
         4. View List of Exercises Practiced
+        5. View List of Difficulties Encounterd
         """)
     user_choice = input("What would you like to do? (Enter a number)\n")
     if user_choice == "1":
@@ -267,6 +268,8 @@ def get_insights():
         average_time()
     if user_choice == "4":
         view_exercises()
+    if user_choice == "5":
+        view_difficulties()
 
 
 # 2. Get Insights - 1. View Last Log
@@ -363,6 +366,8 @@ def view_exercises():
     Get all values from Exercises column in spreadsheet,
     Print to the user
     """
+    print("\nYou have chosen to view your logged exercises.")
+    sleep()
     print("\nRetrieving data...")
     sleep()
     all_values = log.col_values(4)
@@ -372,10 +377,26 @@ def view_exercises():
         print(i)
 
 
+# 2. Get Insights - 4. Get List of Difficulties
+def view_difficulties():
+    """
+    Get all values from Difficulties column in spreadsheet,
+    Print to the user
+    """
+    print("\nYou have chosen to view your logged difficulties")
+    sleep()
+    print("\nRetrieving data...\n")
+    sleep()
+    all_values = log.col_values(5)
+    all_diffs = all_values[1:]
+    for i in all_diffs:
+        print(i)
+
+
 # 4. Quit Program
 def quit_program():
     """
-    Function to allow the user to safely quit the program.
+    Function to allow the user to safely quit the program
     """
     print("\nYou have chosen to quit Nick's Practice Log\n")
     quit_choice = input("\nAre you sure? (y/n)\n")
