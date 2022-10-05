@@ -1,7 +1,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials 
-from datetime import datetime
+from datetime import date
 import re
 import time
 from art import *
@@ -17,7 +17,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("practice_log")
 
+# Variables for spreadsheet worksheets
 log = SHEET.worksheet("log")
+tech_sheet = SHEET.worksheet("my-technical-exercises")
+mus_sheet = SHEET.worksheet("my-musicianship-exercises")
+create_sheet = SHEET.worksheet("my-creative-exercises")
+rep_sheet = SHEET.worksheet("my-repertoire-exercises")
 
 
 # Display Titles
@@ -31,7 +36,13 @@ def sleep():
     time.sleep(1.5)
 
 
-# Funtions within option 1. Log Practice
+def get_date():
+    global today
+    date_today = date.today()
+    today = date_today.strftime('%d/%m/%y')
+
+
+# 1. Log Practice
 def log_practice():
     """
     Log a new practice session.
@@ -47,13 +58,11 @@ def log_date():
     if no - ask for date input and validate for correct format
     """
     global session_date
+    session_date = ""
     session_today = input("\nWas your practice session today? (y/n)\n")
 
     if session_today.lower() == "y":
-        # Get today's date and change default format
-        today = datetime.date.today()
-        session_date = today.strftime('%d/%m/%y')
-        print(f"\nToday's date is {session_date}\n")
+        print(f"\nToday's date is {today}\n")
 
     elif session_today.lower() == "n":
         # Validate for correct date input format (Code Ref.1)
@@ -392,8 +401,63 @@ def view_difficulties():
     for i in all_diffs:
         print(i)
 
+# 3. Submit Practice Ideas
+def submit_ideas():
+    """
 
-# 4. Quit Program
+    """
+    tprint("Submit Practice Ideas!")
+    print("\nYou have chosen to submit some practice ideas")
+    sleep()
+    print("""
+        \nHere I will ask you a series of questions to help me organise your
+        ideas into one of 4 categories...
+        """)
+    sleep()
+    print("""
+        General practice topics are classed as either:
+
+        1. Technical    - Developing technical skill through repeated 
+                          incremental exercises targeting specific 
+                          motor movements
+
+        2. Musicianship - Developing musically intuitive skills 
+                          (Aural, theory, harmony, rhythm, sight-reading
+                          ensemble skills, voacbulary, etc)
+
+        3. Creative     - Developing creative skills and intuition
+                          (Improvisation, composition, interpretation,
+                          phrasing, etc)
+
+        4. Repertoire   - Learning new or refining already-known repertoire
+                          (Transciption, memorisation, repertoire reserach)
+    
+    """)    
+    sleep()
+    user_choice = input("\nWhich category do you want to log your practice idea under?\n")
+    if user_choice == "1":
+        print("\nTechnical, ok great! Good technique facilitates everything we do!")
+        global tech_data
+        tech_idea = input("\nWhat details would you like to save?\n")
+        tech_data = []
+        tech_data.append(today)
+        tech_data.append(tech_idea)
+        sleep()
+        print("\nOk, I've got that. This is what I will save under the topic 'Technical':\n")
+        sleep()
+        print(tech_idea)
+        user_confirm = input('\nShall I save that for you? (Hit "y" to save, "n" to edit, "d" to delete)\n')
+        if user_confirm.lower() == "y":
+            send_tech_exs(tech_data)
+       
+
+def send_tech_exs(tech_data):
+    print("Saving...\n")
+    tech_sheet.append_row(tech_data)
+
+
+
+# 5. Quit Program
 def quit_program():
     """
     Function to allow the user to safely quit the program
@@ -418,15 +482,18 @@ def quit_program():
 
 def start():
     """
+    Save today's date as global variable,
     Welcome message and user choice input to proceed
     """
+    get_date()
     main_title()
     print("\n ** Wecome to Nick's Practice Log! **\n")
     print("What would you like to do?\n")
     print("\n1. Log a practice session")
     print("2. Get insights on your practice")
-    print("3. Get practice ideas")
-    print("4. Quit\n")
+    print("3. Submit practice ideas")
+    print("4. Get practice ideas")
+    print("5. Quit\n")
     print("\nMake your selection with a number:")
     start_choice = int(input())
 
@@ -441,8 +508,8 @@ def start():
     elif start_choice == 2:
         get_insights()
     elif start_choice == 3:
-        print("\nYou have chosen to get practice ideas")
-    elif start_choice == 4:
+        submit_ideas()
+    elif start_choice == 5:
         quit_program()
 
 
