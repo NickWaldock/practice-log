@@ -1,6 +1,6 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
-from google.oauth2.service_account import Credentials 
+from google.oauth2.service_account import Credentials
 from datetime import date
 import re
 import time
@@ -75,11 +75,15 @@ def log_date():
         # Validate for correct date input format (Code Ref.1)
         while True:
             try:
-                session_date = input("\nPlease input the date of your practice session (DD/MM/YY):\n")
-                is_valid = re.match(r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$", session_date)
+                session_date = input("\nPlease input the date of your practice"
+                                     " session (DD/MM/YY):\n")
+                is_valid = re.match(
+                                    r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$", 
+                                    session_date)
                 valid_date = bool(is_valid)
                 if valid_date is False:
-                    raise ValueError("Please enter a valid date in the correct format (DD/MM/YY):")
+                    raise ValueError("Please enter a valid date in the correct"
+                                     " format (DD/MM/YY):")
                 else:
                     break
 
@@ -99,7 +103,8 @@ def log_duration():
     session_duration = 0
     while True:
         try:
-            session_duration = int(input("How long was your practice session in minutes?\n"))
+            session_duration = int(input("How long was your practice session"
+                                         " in minutes?\n"))
         except ValueError:
             print("\nPlease enter a number\n")
         else:
@@ -114,12 +119,15 @@ def log_score():
     and validate for an integer 
     """
     global prod_score
-    prod_score = int(input("\nOn a scale of 1 - 10, how productive do you feel the session was?\n"))
+    prod_score = int(input("\nOn a scale of 1 - 10, how productive do you"
+                           " feel the session was?\n"))
     if prod_score <= 3:
-        print(f"\n{prod_score} is ok, you still practiced!\nIt's the consistency that counts\n")
+        print(f"\n{prod_score} is ok, you still practiced!\n"
+              "It's the consistency that counts\n")
         sleep()
     elif prod_score <= 5:
-        print(f"\n{prod_score} is a good score! All progress is good progress!\n")
+        print(f"\n{prod_score} is a good score!"
+              " All progress is good progress!\n")
         sleep()
     elif prod_score <= 8:
         print(f"\n{prod_score} is fantastic! Well done!\n")
@@ -135,11 +143,13 @@ def log_exercises():
     in the practice session, saved in a variable
     """
     global user_exercises
-    user_exercises = input('\nWhat exercises did you work on in this practice session?\n(Seperate exercises with ",")\n')
+    user_exercises = input('\nWhat exercises did you work on in this practice'
+                           ' session?\n(Seperate exercises with ",")\n')
     sleep()
     print("\nGreat work!\n")
     print(f"\nI have made a note of the following:\n {user_exercises}")
     sleep()
+
 
 def log_wins():
     """
@@ -151,20 +161,24 @@ def log_wins():
     global user_wins
 
     # Ask for info on difficulties in the practice session
-    user_diffs_yn = input("\nDid you experience any particular difficulties during this practice session? (y/n)\n")
+    user_diffs_yn = input("\nDid you experience any particular difficulties"
+                          " during this practice session? (y/n)\n")
     if user_diffs_yn.lower() == "y":
-        user_diffs = input("\nPlease detail them here (seperate them with ','):\n")
+        user_diffs = input("\nPlease detail them here"
+                           " (seperate them with ','):\n")
         sleep()
-        print("\nThank you. Remember that experiencing difficulties in your practice session is a natural part of the learning process!\n")
+        print("\nThank you. Remember that experiencing difficulties in your"
+              " practice session is a natural part of the learning process!\n")
     elif user_diffs_yn.lower() == "n":
         user_diffs = "None"
         print("\nGreat! Moving on...")
     sleep()
 
-    # Ask for info on wins in the practice session 
+    # Ask for info on wins in the practice session
     user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
     if user_wins_yn.lower() == "y":
-        user_wins = input('Amazing! What were they? (seperate your wins with ",")\n')
+        user_wins = input('Amazing! What were they? '
+                          '(seperate your wins with ",")\n')
         sleep()
         print("\nWell done! You are making great progress!")
     elif user_wins_yn.lower() == "n":
@@ -174,9 +188,9 @@ def log_wins():
     sleep()
     print("\nYou logged the following difficulties and wins:\n")
     sleep()
-    print(f"Difficulties - {user_diffs}\n")
+    print(f"Difficulties -\n {user_diffs}\n")
     sleep()
-    print(f"Wins         - {user_wins}\n")
+    print(f"Wins         -\n {user_wins}\n")
     sleep()
     print("\nThis completes your log. Thank you and great work!\n")
     sleep()
@@ -197,7 +211,8 @@ def log_wins():
             start()
         elif push.lower() == "n":
             print("\nAre you sure you do not want to save this log?")
-            confirm = input('\n"y" = quit and lose all changes. "n" = save and return to main menu.\n')
+            confirm = input('\n"y" = quit and lose all changes.'
+                            ' "n" = save and return to main menu.\n')
             if confirm.lower() == "y":
                 quit_program()
             elif confirm.lower() == "n":
@@ -210,7 +225,8 @@ def log_wins():
                 start()
 
     # Check if user wishes to quit or return to the main menu
-    menu_choice = input('\nType "menu" or "quit" to return to the main menu or exit the program.\n')
+    menu_choice = input('\nType "menu" or "quit" to return to the main menu'
+                        ' or exit the program.\n')
     if menu_choice.lower() == "menu":
         print("\nReturning to main menu...\n")
         sleep()
@@ -218,13 +234,15 @@ def log_wins():
     elif menu_choice.lower == "quit" or "exit":
         choice = input("\nAre you sure you want to quit? (y/n)\n")
         if choice.lower() == "y":
-            print("\nQuitting, thank you for logging your practice! See you next time!")
+            print("\nQuitting, thank you for logging your practice!"
+                  "See you next time!")
         elif choice.lower() == "n":
             print("Returning to main menu...")
             sleep()
             start()
         else:
-            print("\nSorry I didn't understand that. Returning to main menu...\n")
+            print("\nSorry I didn't understand that." 
+                  "Returning to main menu...\n")
             sleep()
             start()
 
@@ -249,7 +267,8 @@ def collate_data():
 
 def push_log_data(data):
     """
-    Update log worksheet, add new row with the data provided by the user in the log program
+    Update log worksheet, add new row with the data provided
+    by the user in the log program
     """
     print("Updating log worksheet...\n")
     log_worksheet = SHEET.worksheet("log")
@@ -292,7 +311,7 @@ def get_insights():
 # 2. Get Insights - 1. View Last Log
 def view_last_Log():
     """
-    Get all log sheet data, get the last entry, 
+    Get all log sheet data, get the last entry,
     split the list entry and seperately print to the user
     """
     print("\nYou have chosen to view the last log entry. \nLoading...\n")
@@ -329,7 +348,8 @@ def view_3_logs():
     print(f"\nYou practiced for {most_recent[1]} mins")
     print(f"\nYou scored your productivity at {most_recent[2]}")
     print(f"\nThe exercises you worked on were:\n{most_recent[3]}")
-    print(f"\nYou expressed the difficulties you encountered as:\n{most_recent[4]}")
+    print("\nYou expressed the difficulties you encountered as:"
+          f"\n{most_recent[4]}")
     print(f"\nYou expressed your successes as:\n{most_recent[5]}")
     
     # Printing second most recent entry
@@ -339,7 +359,8 @@ def view_3_logs():
     print(f"\nYou practiced for {second_recent[1]} mins")
     print(f"\nYou scored your productivity at {second_recent[2]}")
     print(f"\nThe exercises you worked on were:\n{second_recent[3]}")
-    print(f"\nYou expressed the difficulties you encountered as:\n{second_recent[4]}")
+    print("\nYou expressed the difficulties you encountered as:"
+          f"\n{second_recent[4]}")
     print(f"\nYou expressed your successes as:\n{second_recent[5]}")
 
     # Printing third most recent entry
@@ -349,7 +370,8 @@ def view_3_logs():
     print(f"\nYou practiced for {third_recent[1]} mins")
     print(f"\nYou scored your productivity at {third_recent[2]}")
     print(f"\nThe exercises you worked on were:\n{third_recent[3]}")
-    print(f"\nYou expressed the difficulties you encountered as:\n{third_recent[4]}")
+    print("\nYou expressed the difficulties you encountered as:"
+          f"\n{third_recent[4]}")
     print(f"\nYou expressed your successes as:\n{third_recent[5]}")
 
 
@@ -366,13 +388,15 @@ def average_time():
     all_nums = all_values[1:]
     all_ints = [int(i) for i in all_nums]
     total_minutes = sum(all_ints)
-    print(f"\nYou have clocked a total of {total_minutes} minutes practicing...")
+    print(f"\nYou have clocked a total of {total_minutes}"
+          " minutes practicing...")
     num_sessions = len(all_ints)
     sleep()
     print(f"\nOver the course of {num_sessions} practice sessions...")
     result = total_minutes / num_sessions
     sleep()
-    print(f"\nYour average time spent in each practice session is {result} minutes!")
+    print(f"\nYour average time spent in each practice session is {result}"
+          " minutes!")
     sleep()
     print("\nThat's not too shabby ;)")
 
@@ -409,10 +433,12 @@ def view_difficulties():
     for i in all_diffs:
         print(i)
 
+
 # 3. Submit Practice Ideas
 def submit_ideas():
     """
-
+    Main function for option 3 for the user to sumbit their own
+    practice ideas
     """
     tprint("Submit Practice Ideas!")
     print("\nYou have chosen to submit some practice ideas")
@@ -425,11 +451,11 @@ def submit_ideas():
     print("""
         General practice topics are classed as either:
 
-        1. Technical    - Developing technical skill through repeated 
-                          incremental exercises targeting specific 
+        1. Technical    - Developing technical skill through repeated
+                          incremental exercises targeting specific
                           motor movements
 
-        2. Musicianship - Developing musically intuitive skills 
+        2. Musicianship - Developing musically intuitive skills
                           (Aural, theory, harmony, rhythm, sight-reading
                           ensemble skills, voacbulary, etc)
 
@@ -440,29 +466,32 @@ def submit_ideas():
         4. Repertoire   - Learning new or refining already-known repertoire
                           (Transciption, memorisation, repertoire reserach)
     
-    """)    
+    """)
     sleep()
-    user_choice = input("\nWhich category do you want to log your practice idea under?\n")
+    user_choice = input("\nWhich category do you want to log your"
+                        " practice idea under?\n")
     if user_choice == "1":
-        print("\nTechnical, ok great! Good technique facilitates everything we do!")
+        print("\nTechnical, ok great! Good technique facilitates"
+              " everything we do!")
         global tech_data
         tech_idea = input("\nWhat details would you like to save?\n")
         tech_data = []
         tech_data.append(today)
         tech_data.append(tech_idea)
         sleep()
-        print("\nOk, I've got that. This is what I will save under the topic 'Technical':\n")
+        print("\nOk, I've got that. This is what I will save under the topic"
+              " 'Technical':\n")
         sleep()
         print(tech_idea)
-        user_confirm = input('\nShall I save that for you? (Hit "y" to save, "n" to edit, "d" to delete)\n')
+        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+                             ' "n" to edit, "d" to delete)\n')
         if user_confirm.lower() == "y":
             send_tech_exs(tech_data)
-       
+
 
 def send_tech_exs(tech_data):
     print("Saving...\n")
     tech_sheet.append_row(tech_data)
-
 
 
 # 5. Quit Program
@@ -522,6 +551,3 @@ def start():
 
 
 start()
-
-
-
