@@ -28,7 +28,8 @@ rep_sheet = SHEET.worksheet("my-repertoire-exercises")
 # Display Titles
 def main_title():
     tprint("Nick's")
-    tprint("Practice Log Book")
+    tprint("Practice")
+    tprint("Log")
 
 
 # General Functions
