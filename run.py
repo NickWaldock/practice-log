@@ -135,7 +135,7 @@ def log_exercises():
     in the practice session, saved in a variable
     """
     global user_exercises
-    user_exercises = input('\nWhat exercises did you work on in this practice session? (Seperate exercises with ",")\n')
+    user_exercises = input('\nWhat exercises did you work on in this practice session?\n(Seperate exercises with ",")\n')
     sleep()
     print("\nGreat work!\n")
     print(f"\nI have made a note of the following:\n {user_exercises}")
@@ -236,7 +236,8 @@ def collate_data():
     """
     global data
     print("Collating data...")
-    data = [str(session_date),
+    data = [
+        str(today),
         str(session_duration),
         str(prod_score),
         user_exercises,
