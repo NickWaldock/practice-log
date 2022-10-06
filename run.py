@@ -33,10 +33,16 @@ def main_title():
 
 # General Functions
 def sleep():
+    """
+    Set a general timer to slow text printing
+    """
     time.sleep(1.5)
 
 
 def get_date():
+    """
+    Get the current date to reference the users inputs in the spreadsheet
+    """
     global today
     date_today = date.today()
     today = date_today.strftime('%d/%m/%y')
