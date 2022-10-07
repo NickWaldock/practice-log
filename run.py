@@ -20,10 +20,10 @@ SHEET = GSPREAD_CLIENT.open("practice_log")
 
 # Variables for spreadsheet worksheets
 log = SHEET.worksheet("log")
-tech_sheet = SHEET.worksheet("my-technical-exercises")
-mus_sheet = SHEET.worksheet("my-musicianship-exercises")
-create_sheet = SHEET.worksheet("my-creative-exercises")
-rep_sheet = SHEET.worksheet("my-repertoire-exercises")
+technique_sheet = SHEET.worksheet("my-technical-exercises")
+musicianship_sheet = SHEET.worksheet("my-musicianship-exercises")
+creativity_sheet = SHEET.worksheet("my-creative-exercises")
+repertorie_sheet = SHEET.worksheet("my-repertoire-exercises")
 
 
 # Display Titles
@@ -514,52 +514,122 @@ def submit_ideas():
                         " practice idea under?\n")
     if user_choice == "1":
         clear_screen()
-        print("\nTechnical, ok great! Good technique facilitates"
+        print("Technical, ok great! Good technique facilitates"
               " everything we do!")
+        submit_tech()
+    elif user_choice == "2":
+        clear_screen()
+        print("Musicianship, FAB! Good musicianship skills are essential!")
+        submit_musicianship()
+
+
+def submit_musicianship():
+    """
+    To submit musicianship exercises to the spreadsheet, 
+    print back to the user and ask if they wish to save it to the
+    spreadsheet or try again. Validate agains incorrect inputs
+    """
+    sleep()
+    clear_screen()
+    global musicianship_data
+    loop = False
+    while loop == False:
+        musicianship_idea = input("\nWhat details would you like to save?\n")
+        musicianship_data = []
+        musicianship_data.append(today)
+        musicianship_data.append(musicianship_idea)
+        print("\nOk, I've got that.\n")
         sleep()
-        global tech_data
-        loop = False
-        while loop == False:
-            tech_idea = input("\nWhat details would you like to save?\n")
-            tech_data = []
-            tech_data.append(today)
-            tech_data.append(tech_idea)
-            print("\nOk, I've got that.\n")
-            sleep()
-            print("Just to confirm: Here's what you wrote:\n")
-            sleep()
-            print(f'\n"{tech_idea}"\n')
-            user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
-                                ' "n" to delete and return to the menu)\n')
-            if user_confirm.lower() == "y":
-                loop = True
-                clear_screen()
-                send_tech_exs(tech_data)
-            elif user_confirm.lower() == "n":
-                loop = True
-                print("Ok. Returning to menu...")
-                submit_ideas()
-            elif user_confirm.lower() != "y" or "n":
-                loop = True
-                confirm_loop = False
-                while confirm_loop == False:
-                    print("Sorry I didn't get that, please try again")
-                    confirm = input('"y" to save, "n" to delete and'
-                                    ' return to the menu')
-                    if confirm.lower() == "y":
-                        confirm_loop = True
-                        clear_screen()
-                        send_tech_exs(tech_data)
-                    elif confirm.lower() == "n":
-                        confirm_loop = True
-                        print("Returing to menu")
-                        sleep()
-                        submit_ideas()
-                        
+        print("Just to confirm: Here's what you wrote:\n")
+        sleep()
+        print(f'\n"{musicianship_idea}"\n')
+        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+                            ' "n" to delete and return to the menu)\n')
+        if user_confirm.lower() == "y":
+            loop = True
+            clear_screen()
+            send_music_exs(musicianship_data)
+        elif user_confirm.lower() == "n":
+            loop = True
+            print("Ok. Returning to menu...")
+            submit_ideas()
+        elif user_confirm.lower() != "y" or "n":
+            loop = True
+            confirm_loop = False
+            while confirm_loop == False:
+                print("\nSorry I didn't get that, please try again")
+                confirm = input('"y" to save, "n" to delete and'
+                                ' return to the menu')
+                if confirm.lower() == "y":
+                    confirm_loop = True
+                    clear_screen()
+                    send_music_exs(musicianship_data)
+                elif confirm.lower() == "n":
+                    confirm_loop = True
+                    print("Returing to menu")
+                    sleep()
+                    submit_ideas()
+
+
+
+def submit_tech():
+    """
+    To submit a technical exercise to the spreadsheet,
+    print back to the user and ask if they wish to save it to the
+    spreadsheet or try again. Validate against incorrect inputs
+    """
+    sleep()
+    clear_screen()
+    global tech_data
+    loop = False
+    while loop == False:
+        tech_idea = input("\nWhat details would you like to save?\n")
+        tech_data = []
+        tech_data.append(today)
+        tech_data.append(tech_idea)
+        print("\nOk, I've got that.\n")
+        sleep()
+        print("Just to confirm: Here's what you wrote:\n")
+        sleep()
+        print(f'\n"{tech_idea}"\n')
+        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+                            ' "n" to delete and return to the menu)\n')
+        if user_confirm.lower() == "y":
+            loop = True
+            clear_screen()
+            send_tech_exs(tech_data)
+        elif user_confirm.lower() == "n":
+            loop = True
+            print("Ok. Returning to menu...")
+            submit_ideas()
+        elif user_confirm.lower() != "y" or "n":
+            loop = True
+            confirm_loop = False
+            while confirm_loop == False:
+                print("\nSorry I didn't get that, please try again")
+                confirm = input('"y" to save, "n" to delete and'
+                                ' return to the menu')
+                if confirm.lower() == "y":
+                    confirm_loop = True
+                    clear_screen()
+                    send_tech_exs(tech_data)
+                elif confirm.lower() == "n":
+                    confirm_loop = True
+                    print("Returing to menu...")
+                    sleep()
+                    submit_ideas()
+                    
 
 def send_tech_exs(tech_data):
     print("Saving...\n")
-    tech_sheet.append_row(tech_data)
+    technique_sheet.append_row(tech_data)
+    sleep()
+    print("Save complete!")
+
+
+def send_music_exs(musicianship_data):
+    print("Saving...\n")
+    musicianship_sheet.append_row(musicianship_data)
     sleep()
     print("Save complete!")
 
