@@ -5,6 +5,9 @@ https://railsware.com/blog/python-for-machine-learning-indexing-and-slicing-for-
 https://www.edureka.co/blog/python-list-length/
 https://docs.gspread.org/en/latest/user-guide.html
 
+Clear screen
+https://www.geeksforgeeks.org/clear-screen-python/
+
 Datetime formatting
 https://pynative.com/python-datetime-format-strftime/
 

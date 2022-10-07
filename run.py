@@ -5,6 +5,7 @@ from datetime import date
 import re
 import time
 from art import *
+from os import system, name
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -38,6 +39,13 @@ def sleep():
     Set a general timer to slow text printing
     """
     time.sleep(1.5)
+
+
+def clear_screen():
+    """
+    Clear the user terminal
+    """
+    system('clear')
 
 
 def get_date():
@@ -77,10 +85,10 @@ def log_date():
             try:
                 session_date = input("\nPlease input the date of your practice"
                                      " session (DD/MM/YY):\n")
-                is_valid = re.match(
-                                    r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$", 
-                                    session_date)
-                valid_date = bool(is_valid)
+                valid = re.match(
+                    r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$",
+                    session_date)
+                valid_date = bool(valid)
                 if valid_date is False:
                     raise ValueError("Please enter a valid date in the correct"
                                      " format (DD/MM/YY):")
@@ -525,6 +533,8 @@ def start():
     get_date()
     main_title()
     print("\n ** Wecome to Nick's Practice Log! **\n")
+    time.sleep(2)
+    clear_screen()
     print("What would you like to do?\n")
     print("\n1. Log a practice session")
     print("2. Get insights on your practice")
