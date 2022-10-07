@@ -506,34 +506,62 @@ def submit_ideas():
     """)
     long_sleep()
     print("""
-     4. Repertoire   - Learning new or refining already-known repertoire
+        4. Repertoire   - Learning new or refining already-known repertoire
                           (Transciption, memorisation, repertoire reserach)
     """)
     long_sleep()
     user_choice = input("\nWhich category do you want to log your"
                         " practice idea under?\n")
     if user_choice == "1":
+        clear_screen()
         print("\nTechnical, ok great! Good technique facilitates"
               " everything we do!")
+        sleep()
         global tech_data
-        tech_idea = input("\nWhat details would you like to save?\n")
-        tech_data = []
-        tech_data.append(today)
-        tech_data.append(tech_idea)
-        sleep()
-        print("\nOk, I've got that. This is what I will save under the topic"
-              " 'Technical':\n")
-        sleep()
-        print(tech_idea)
-        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
-                             ' "n" to edit, "d" to delete)\n')
-        if user_confirm.lower() == "y":
-            send_tech_exs(tech_data)
-
+        loop = False
+        while loop == False:
+            tech_idea = input("\nWhat details would you like to save?\n")
+            tech_data = []
+            tech_data.append(today)
+            tech_data.append(tech_idea)
+            print("\nOk, I've got that.\n")
+            sleep()
+            print("Just to confirm: Here's what you wrote:\n")
+            sleep()
+            print(f'\n"{tech_idea}"\n')
+            user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+                                ' "n" to delete and return to the menu)\n')
+            if user_confirm.lower() == "y":
+                loop = True
+                clear_screen()
+                send_tech_exs(tech_data)
+            elif user_confirm.lower() == "n":
+                loop = True
+                print("Ok. Returning to menu...")
+                submit_ideas()
+            elif user_confirm.lower() != "y" or "n":
+                loop = True
+                confirm_loop = False
+                while confirm_loop == False:
+                    print("Sorry I didn't get that, please try again")
+                    confirm = input('"y" to save, "n" to delete and'
+                                    ' return to the menu')
+                    if confirm.lower() == "y":
+                        confirm_loop = True
+                        clear_screen()
+                        send_tech_exs(tech_data)
+                    elif confirm.lower() == "n":
+                        confirm_loop = True
+                        print("Returing to menu")
+                        sleep()
+                        submit_ideas()
+                        
 
 def send_tech_exs(tech_data):
     print("Saving...\n")
     tech_sheet.append_row(tech_data)
+    sleep()
+    print("Save complete!")
 
 
 # 5. Quit Program
