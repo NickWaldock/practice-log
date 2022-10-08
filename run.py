@@ -787,23 +787,23 @@ def get_practice():
     while menu_loop == False:
         user_choice = input("\nPlease choose an option with a number (1-5):\n")
         if user_choice == "1":
-            menu_loop == True
+            menu_loop = True
             print("\nYou have selected option 1")
             #insert function here
         elif user_choice == "2":
-            menu_loop == True
+            menu_loop = True
             print("\nYou have selected option 2")
             #insert function here
         elif user_choice == "3":
-            menu_loop == True
+            menu_loop = True
             print("\nYou have selected option 3")
             #insert function here
         elif user_choice == "4":
-            menu_loop == True
+            menu_loop = True
             print("\nYou have selected option 4")
             #insert function here
         elif user_choice == "5":
-            menu_loop == True
+            menu_loop = True
             print("\nYou have selected option 5")
             #insert function here
 
