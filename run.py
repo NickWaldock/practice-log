@@ -47,6 +47,12 @@ def long_sleep():
     """
     time.sleep(2.5)
 
+def short_sleep():
+    """
+    Set a longer timer to delay text printing
+    """
+    time.sleep(0.7)
+
 def clear_screen():
     """
     Clear the user terminal
@@ -789,26 +795,67 @@ def get_practice():
         user_choice = input("\nPlease choose an option with a number (1-5):\n")
         if user_choice == "1":
             menu_loop = True
-            print("\nYou have selected option 1")
-            #insert function here
+            print("\nYou have selected option 1...")
+            sleep()
+            view_technical_exercises()
         elif user_choice == "2":
             menu_loop = True
-            print("\nYou have selected option 2")
+            print("\nYou have selected option 2...")
+            sleep()
             #insert function here
         elif user_choice == "3":
             menu_loop = True
-            print("\nYou have selected option 3")
+            print("\nYou have selected option 3...")
+            sleep()
             #insert function here
         elif user_choice == "4":
             menu_loop = True
-            print("\nYou have selected option 4")
+            print("\nYou have selected option 4...")
+            sleep()
             #insert function here
         elif user_choice == "5":
             menu_loop = True
-            print("\nYou have selected option 5")
+            print("\nYou have selected option 5...")
+            sleep()
             random_practice()
 
 
+# 4. View Practice - 1. View Technical Exercises
+def view_technical_exercises():
+    clear_screen()
+    print("Alrighty then, hold on whilst I collect your technical "
+          "practice ideas...\n")
+    sleep()
+    technical_exercises = technique_sheet.col_values(2)
+    for exercise in technical_exercises:
+        print(exercise)
+        short_sleep()
+    print("\nPhew! That's everything I have...\n")
+    sleep()
+    print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
+          " Main Menu ;)\n")
+    sleep()
+    user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
+                        'or "m" to return to the Main Menu\n')
+    if user_choice.lower() == "v":
+        print("\nCoolio, returning...")
+        sleep()
+        get_practice()
+    elif user_choice.lower() == "m":
+        print("\nNo worries, follow me back to the Main Menu...")
+        long_sleep()
+        start()
+    elif user_choice.lower() != "v" or "m":
+        print("\nWhoops...\n")
+        sleep()
+        print("\nI'm sure you didn't mean...")
+        sleep()
+        print("\nTo not press...the buttons I said you could press...")
+        sleep()
+        print("\nMaybe I'll take you back to the santuary of the menu...")
+        long_sleep()
+        get_practice()
+        
 
 # 4. Get Practice Ideas - 5. View Random Selection
 def random_practice():
