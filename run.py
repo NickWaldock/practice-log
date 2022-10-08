@@ -6,6 +6,7 @@ import re
 import time
 from art import *
 from os import system, name
+import random
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -814,26 +815,39 @@ def random_practice():
     clear_screen()
     print(" * View Random Practice Ideas * ")
     sleep()
-    print("\nHere you can view a selection of random exercises from the\n"
-          "database that holds your previous exercise idea submissions")
+    print("\nSo, you're looking for some spontaneous practice ideas\n"
+          "for your next session? I can help!\n")
+    sleep()
+    print("I can retrive a selection of random exercises from the\n"
+          "database that holds your previous exercise idea submissions...")
     sleep()
     print('\nPress "g" and I will generate a list of 5 exercises,\n'
-          ' type "e" to exit to the menu\n')
+          'type "e" to exit to the menu')
     user_choice = input()
     generate_loop = False
     while generate_loop == False:
         if user_choice == "g":
             generate_loop = True
+            clear_screen()
+            print("\nOk! Here we go!...\n")
+            technique = technique_sheet.col_values(2)
+            technique.pop(0)
+            musicianship = musicianship_sheet.col_values(2)
+            musicianship.pop(0)
+            creativity = creativity_sheet.col_values(2)
+            creativity.pop(0)
+            repertoire = repertoire_sheet.col_values(2)
+            repertoire.pop(0)
             all_values = []
-            all_values.append(technique_sheet.col_values(2))
-            all_values.append(musicianship_sheet.col_values(2))
-            all_values.append(creativity_sheet.col_values(2))
-            all_values.append(repertoire_sheet.col_values(2))
-            print(all_values)
-
-
-
-
+            all_values.extend(technique)
+            all_values.extend(musicianship)
+            all_values.extend(creativity)
+            all_values.extend(repertoire)
+            new_list = 0
+            print("\nHere is your list of randomly selected exercises:\n")
+            while new_list < 5:
+                print(random.choice(all_values))
+                new_list += 1
 
 
 # 5. Quit Program
