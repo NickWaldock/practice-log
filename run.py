@@ -821,33 +821,67 @@ def random_practice():
     print("I can retrive a selection of random exercises from the\n"
           "database that holds your previous exercise idea submissions...")
     sleep()
-    print('\nPress "g" and I will generate a list of 5 exercises,\n'
-          'type "e" to exit to the menu')
-    user_choice = input()
+    random_generator_loop()
+    
+
+def random_generator_loop():
+    technique = technique_sheet.col_values(2)
+    technique.pop(0)
+    musicianship = musicianship_sheet.col_values(2)
+    musicianship.pop(0)
+    creativity = creativity_sheet.col_values(2)
+    creativity.pop(0)
+    repertoire = repertoire_sheet.col_values(2)
+    repertoire.pop(0)
+    all_values = []
+    all_values.extend(technique)
+    all_values.extend(musicianship)
+    all_values.extend(creativity)
+    all_values.extend(repertoire)
+    user_choice = input('\nPress "g" and I will generate a list of 5 exercises,\n'
+                        'type "e" to exit to the menu\n')
+    sleep()
     generate_loop = False
     while generate_loop == False:
-        if user_choice == "g":
+        if user_choice == "e":
+            generate_loop = True
+            print("Ok! Returning to menu...")
+            sleep()
+            get_practice()
+        elif user_choice == "g":
             generate_loop = True
             clear_screen()
             print("\nOk! Here we go!...\n")
-            technique = technique_sheet.col_values(2)
-            technique.pop(0)
-            musicianship = musicianship_sheet.col_values(2)
-            musicianship.pop(0)
-            creativity = creativity_sheet.col_values(2)
-            creativity.pop(0)
-            repertoire = repertoire_sheet.col_values(2)
-            repertoire.pop(0)
-            all_values = []
-            all_values.extend(technique)
-            all_values.extend(musicianship)
-            all_values.extend(creativity)
-            all_values.extend(repertoire)
+            sleep()
+            random_list_loop = False
             new_list = 0
-            print("\nHere is your list of randomly selected exercises:\n")
-            while new_list < 5:
-                print(random.choice(all_values))
-                new_list += 1
+            while random_list_loop == False:
+                clear_screen()
+                print("\nHere is your list of 3 randomly selected exercises:\n")
+                while new_list < 3:
+                    sleep()
+                    print(random.choice(all_values))
+                    new_list += 1
+                sleep()
+                print("\nDoes that inspire your practice??\n")
+                sleep()
+                user_confirm = input('\n"y" All good, lets go! or "g" Generate'
+                                     ' another random list\n')
+                if user_confirm.lower() == "y":
+                    random_list_loop = True
+                    print("\nRight on! Have a great practice session!\n")
+                    print("\nReturning to menu...")
+                    sleep()
+                    get_practice()
+                elif user_confirm.lower() == "g":
+                    print("\nOk, Hold on...")
+                    generate_loop = False
+                    new_list = 0
+                    sleep()
+                    
+                    
+
+
 
 
 # 5. Quit Program

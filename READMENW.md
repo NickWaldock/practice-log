@@ -30,5 +30,8 @@ https://docs.python.org/3/library/pprint.html
 Console Art
 https://github.com/sepandhaghighi/art
 
+Random
+https://pynative.com/python-random-choice/
+
 BUGS
 Data not pushing to spreadsheet - due to attemping to send dictionary objects across. Topics dicts function removed and replaced with a log_exercises function
