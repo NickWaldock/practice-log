@@ -805,14 +805,31 @@ def get_practice():
         elif user_choice == "5":
             menu_loop = True
             print("\nYou have selected option 5")
-            #insert function here
+            random_practice()
 
 
 
 # 4. Get Practice Ideas - 5. View Random Selection
 def random_practice():
-    
-
+    clear_screen()
+    print(" * View Random Practice Ideas * ")
+    sleep()
+    print("\nHere you can view a selection of random exercises from the\n"
+          "database that holds your previous exercise idea submissions")
+    sleep()
+    print('\nPress "g" and I will generate a list of 5 exercises,\n'
+          ' type "e" to exit to the menu\n')
+    user_choice = input()
+    generate_loop = False
+    while generate_loop == False:
+        if user_choice == "g":
+            generate_loop = True
+            all_values = []
+            all_values.append(technique_sheet.col_values(2))
+            all_values.append(musicianship_sheet.col_values(2))
+            all_values.append(creativity_sheet.col_values(2))
+            all_values.append(repertoire_sheet.col_values(2))
+            print(all_values)
 
 
 
