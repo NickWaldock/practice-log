@@ -802,7 +802,7 @@ def get_practice():
             menu_loop = True
             print("\nYou have selected option 2...")
             sleep()
-            #insert function here
+            view_musicianship_exercises()
         elif user_choice == "3":
             menu_loop = True
             print("\nYou have selected option 3...")
@@ -824,7 +824,7 @@ def get_practice():
 def view_technical_exercises():
     clear_screen()
     print("Alrighty then, hold on whilst I collect your technical "
-          "practice ideas...\n")
+          "exercise ideas...\n")
     sleep()
     technical_exercises = technique_sheet.col_values(2)
     for exercise in technical_exercises:
@@ -856,6 +856,42 @@ def view_technical_exercises():
         long_sleep()
         get_practice()
         
+
+# 4. View Practice - 2. View Musicianship Exercises
+def view_musicianship_exercises():
+    clear_screen()
+    print("Alrighty then, hold on whilst I collect your Musicianship "
+          "practice ideas...\n")
+    sleep()
+    musicianship_exercises = musicianship_sheet.col_values(2)
+    for exercise in musicianship_exercises:
+        print(exercise)
+        short_sleep()
+    print("\nPhew! That's everything I have...\n")
+    sleep()
+    print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
+          " Main Menu ;)\n")
+    sleep()
+    user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
+                        'or "m" to return to the Main Menu\n')
+    if user_choice.lower() == "v":
+        print("\Rad, returning...")
+        sleep()
+        get_practice()
+    elif user_choice.lower() == "m":
+        print("\nRighty-ho, follow me back to the Main Menu...")
+        long_sleep()
+        start()
+    elif user_choice.lower() != "v" or "m":
+        print("\nWhoops...\n")
+        sleep()
+        print("\nI'm sure you didn't mean...")
+        sleep()
+        print("\nTo not press...the buttons I said you could press...")
+        sleep()
+        print("\nMaybe I'll take you back to the santuary of the menu...")
+        long_sleep()
+        get_practice()
 
 # 4. Get Practice Ideas - 5. View Random Selection
 def random_practice():
