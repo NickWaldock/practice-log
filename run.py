@@ -830,7 +830,7 @@ def view_technical_exercises():
     for exercise in technical_exercises:
         print(exercise)
         short_sleep()
-    print("\nPhew! That's everything I have...\n")
+    print("\nPhew! That's some GAINS material right there!\n")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
           " Main Menu ;)\n")
@@ -892,6 +892,44 @@ def view_musicianship_exercises():
         print("\nMaybe I'll take you back to the santuary of the menu...")
         long_sleep()
         get_practice()
+
+
+# 4. View Practice - 3. View Creativity Exercises
+def view_creativity_exercises():
+    clear_screen()
+    print("Alrighty then, hold on whilst I collect your creative "
+          "practice ideas...\n")
+    sleep()
+    creativity_exercises = creativity_sheet.col_values(2)
+    for exercise in creativity_exercises:
+        print(exercise)
+        short_sleep()
+    print("\nPhew! Some good stuff in there!\n")
+    sleep()
+    print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
+          " Main Menu ;)\n")
+    sleep()
+    user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
+                        'or "m" to return to the Main Menu\n')
+    if user_choice.lower() == "v":
+        print("\Rad, returning...")
+        sleep()
+        get_practice()
+    elif user_choice.lower() == "m":
+        print("\nRighty-ho, follow me back to the Main Menu...")
+        long_sleep()
+        start()
+    elif user_choice.lower() != "v" or "m":
+        print("\nWhoops...\n")
+        sleep()
+        print("\nI'm sure you didn't mean...")
+        sleep()
+        print("\nTo not press...the buttons I said you could press...")
+        sleep()
+        print("\nMaybe I'll take you back to the santuary of the menu...")
+        long_sleep()
+        get_practice()
+
 
 # 4. Get Practice Ideas - 5. View Random Selection
 def random_practice():
