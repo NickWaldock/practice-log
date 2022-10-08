@@ -554,7 +554,7 @@ def submit_tech():
         sleep()
         print(f'\n"{tech_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
-                            ' "n" to delete and return to the menu)\n')
+                             ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y":
             loop = True
             clear_screen()
@@ -765,6 +765,60 @@ def send_repertoire_exe(repertoire_data):
     start()
 
 
+# 4. Get Practice
+def get_practice():
+    """
+    Ask user which practice topics they would like to view the logged
+    exercises for, error-proof input, and display the requested data
+    """
+    clear_screen()
+    tprint("View Exercices")
+    sleep()
+    print("\nYou have chosen to view your previously logged practice ideas")
+    sleep()
+    print("""\n * Menu *\n
+          1. View Technical Exercises
+          2. View Musicianship Exercises
+          3. View Creative Exercises
+          4. View Repertoire Exercises
+          5. View a Random Selection From All Categories
+    """)
+    menu_loop = False
+    while menu_loop == False:
+        user_choice = input("\nPlease choose an option with a number (1-5):\n")
+        if user_choice == "1":
+            menu_loop == True
+            print("\nYou have selected option 1")
+            #insert function here
+        elif user_choice == "2":
+            menu_loop == True
+            print("\nYou have selected option 2")
+            #insert function here
+        elif user_choice == "3":
+            menu_loop == True
+            print("\nYou have selected option 3")
+            #insert function here
+        elif user_choice == "4":
+            menu_loop == True
+            print("\nYou have selected option 4")
+            #insert function here
+        elif user_choice == "5":
+            menu_loop == True
+            print("\nYou have selected option 5")
+            #insert function here
+
+
+
+# 4. Get Practice Ideas - 5. View Random Selection
+def random_practice():
+    
+
+
+
+
+
+
+
 # 5. Quit Program
 def quit_program():
     """
@@ -806,7 +860,7 @@ def start():
     print("\n1. Log a practice session")
     print("2. Get insights on your practice")
     print("3. Submit practice ideas")
-    print("4. Get practice ideas")
+    print("4. View your practice ideas")
     print("5. Quit\n")
     print("\nMake your selection with a number:")
     start_choice = int(input())
@@ -826,6 +880,9 @@ def start():
     elif start_choice == 3:
         clear_screen()
         submit_ideas()
+    elif start_choice == 4:
+        clear_screen()
+        get_practice()
     elif start_choice == 5:
         clear_screen()
         quit_program()
