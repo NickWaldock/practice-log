@@ -795,28 +795,30 @@ def get_practice():
         user_choice = input("\nPlease choose an option with a number (1-5):\n")
         if user_choice == "1":
             menu_loop = True
-            print("\nYou have selected option 1...")
-            sleep()
+            print("\nI ammmmmm, the [option] 1 and only...")
+            long_sleep()
             view_technical_exercises()
         elif user_choice == "2":
             menu_loop = True
-            print("\nYou have selected option 2...")
-            sleep()
+            print("\nJust the [option] 2 of us...")
+            long_sleep()
             view_musicianship_exercises()
         elif user_choice == "3":
             menu_loop = True
-            print("\nYou have selected option 3...")
-            sleep()
-            #insert function here
+            print('\nJust like the band that sang "All Right Now"...'
+                  'Here is option 3...')
+            long_sleep()
+            view_creativity_exercises()
         elif user_choice == "4":
             menu_loop = True
-            print("\nYou have selected option 4...")
-            sleep()
-            #insert function here
+            print("\nFaith no more? Here's option 4...")
+            long_sleep()
+            view_repertoire_exercises()
         elif user_choice == "5":
             menu_loop = True
-            print("\nYou have selected option 5...")
-            sleep()
+            print("\n[Option] 5 will make you get down now... \n")
+            long_sleep()
+            print("\nSorry......... That was the worst pun in this program")
             random_practice()
 
 
@@ -925,6 +927,43 @@ def view_creativity_exercises():
         print("\nI'm sure you didn't mean...")
         sleep()
         print("\nTo not press...the buttons I said you could press...")
+        sleep()
+        print("\nMaybe I'll take you back to the santuary of the menu...")
+        long_sleep()
+        get_practice()
+
+
+# 4. View Practice - 4. View Repertoire Exercises
+def view_repertoire_exercises():
+    clear_screen()
+    print("Roger Roger, hold on whilst I collect your repertoire "
+          "practice ideas...\n")
+    sleep()
+    repertoire_exercises = repertoire_sheet.col_values(2)
+    for exercise in repertoire_exercises:
+        print(exercise)
+        short_sleep()
+    print("\nWhat a collection of BANGERS! You have good taste!\n")
+    sleep()
+    print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
+          " Main Menu ;)\n")
+    sleep()
+    user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
+                        'or "m" to return to the Main Menu\n')
+    if user_choice.lower() == "v":
+        print("\Rad, returning...")
+        sleep()
+        get_practice()
+    elif user_choice.lower() == "m":
+        print("\nRighty-ho, follow me back to the Main Menu...")
+        long_sleep()
+        start()
+    elif user_choice.lower() != "v" or "m":
+        print("\nWhoops...\n")
+        sleep()
+        print("\nYou are great at choosing tunes to play...")
+        sleep()
+        print("\nBut not at pressing the buttons I said you could press...")
         sleep()
         print("\nMaybe I'll take you back to the santuary of the menu...")
         long_sleep()
