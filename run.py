@@ -1060,23 +1060,25 @@ def quit_program():
     Function to allow the user to safely quit the program
     """
     clear_screen()
-    print("\nYou have chosen to quit Nick's Practice Log\n")
-    quit_choice = input("\nAre you sure? (y/n)\n")
-    if quit_choice.lower() == "y":
+    tprint("Quit...")
+    print("\nShould you stay or should you go...?\n")
+    quit_choice = input('\nStay "y", Go "n":\n')
+    if quit_choice.lower() == "n":
         print("\nQuitting...\n")
-        tprint("See you next time!")
+        tprint("Bye, Bye, Bye!")
         exit()
-    elif quit_choice.lower() == "n":
+    elif quit_choice.lower() == "y":
         print("\nGreat! Returning to main menu...")
         sleep()
         clear_screen()
         start()
     else:
-        print("\nSorry, I didn't understand your input\n")
+        print('\nYou, you, you, oughta know...\n')
         sleep()
-        print("\nReturning to main menu...\n")
+        print("\nYou should have pressed yes or no...")
         sleep()
-        clear_screen()
+        print("\nSo...let me take you down to the paradise city....I mean...")
+        sleep()
         start()
 
 
@@ -1085,6 +1087,7 @@ def start():
     Save today's date as global variable,
     Welcome message and user choice input to proceed
     """
+    clear_screen()
     get_date()
     main_title()
     long_sleep()
