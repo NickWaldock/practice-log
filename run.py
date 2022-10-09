@@ -789,6 +789,7 @@ def get_practice():
           3. View Creative Exercises
           4. View Repertoire Exercises
           5. View a Random Selection From All Categories
+          6. Return to the Main Menu
     """)
     menu_loop = False
     while menu_loop == False:
@@ -820,7 +821,16 @@ def get_practice():
             long_sleep()
             print("\nSorry......... That was the worst pun in this program")
             random_practice()
-
+        elif user_choice == "6":
+            menu_loop = True
+            print("\nTurn Around.... Every now and then I..." 
+                  "...go back to the Main Menu")
+            long_sleep()
+            start()
+        else:
+            print("\nWhoops, you did it again... have another go\n")
+            long_sleep()
+            get_practice()
 
 # 4. View Practice - 1. View Technical Exercises
 def view_technical_exercises():
