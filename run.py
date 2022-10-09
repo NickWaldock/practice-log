@@ -171,8 +171,9 @@ def log_exercises():
                            ' session?\n(Seperate exercises with ",")\n')
     sleep()
     print("\nGreat work!\n")
-    print(f"\nI have made a note of the following:\n {user_exercises}")
     sleep()
+    print(f"\nI have made a note of the following:\n {user_exercises}")
+    long_sleep()
 
 
 def log_wins():
@@ -186,6 +187,7 @@ def log_wins():
     global user_wins
 
     # Ask for info on difficulties in the practice session
+    tprint("Difficulties")
     user_diffs_yn = input("\nDid you experience any particular difficulties"
                           " during this practice session? (y/n)\n")
     if user_diffs_yn.lower() == "y":
@@ -196,11 +198,12 @@ def log_wins():
               " practice session is a natural part of the learning process!\n")
     elif user_diffs_yn.lower() == "n":
         user_diffs = "None"
-        print("\nGreat! Moving on...")
+        print("\nGreat! Moving on up...")
     sleep()
 
     # Ask for info on wins in the practice session
     clear_screen()
+    tprint("Wins")
     user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
     if user_wins_yn.lower() == "y":
         user_wins = input('Amazing! What were they? '
@@ -213,14 +216,14 @@ def log_wins():
 
     sleep()
     clear_screen()
-    print("\nYou logged the following difficulties and wins:\n")
+    print("\nOk, let me reflect those back to you:\n")
     sleep()
     print(f"Difficulties -\n {user_diffs}\n")
     sleep()
     print(f"Wins         -\n {user_wins}\n")
     sleep()
-    print("\nThis completes your log. Thank you and great work!\n")
-    sleep()
+    print("\nYou completed another log, you are SMASHING IT!\n")
+    long_sleep()
     clear_screen()
 
     # Commit log to spreadsheet
@@ -234,48 +237,46 @@ def log_wins():
             print("\nSaving log...")
             push_log_data(data)
             sleep()
-            print("\nReturning to main menu...")
+            print("\nDone. Let's go back...")
             sleep()
             start()
         elif push.lower() == "n":
-            print("\nAre you sure you do not want to save this log?")
-            confirm = input('\n"y" = quit and lose all changes.'
-                            ' "n" = save and return to main menu.\n')
+            print("\nAre you sure?? You've come all this way!")
+            confirm = input('\n"y" = Quit and lose all changes.'
+                            ' "n" = Save and return to Main Menu.\n')
             if confirm.lower() == "y":
                 quit_program()
             elif confirm.lower() == "n":
                 collate_data()
-                print("\nSaving log...")
+                print("\nPhew! That was a close one! Saving log...")
                 sleep()
                 push_log_data(data)
-                print("\nReturning to main menu...")
-                sleep()
-                clear_screen()
+                print("\nDone. Let's go back now...")
+                long_sleep()
                 start()
 
     # Check if user wishes to quit or return to the main menu
     menu_choice = input('\nType "menu" or "quit" to return to the main menu'
                         ' or exit the program.\n')
-    if menu_choice.lower() == "menu":
+    if menu_choice.lower() == "menu" or "m":
         print("\nReturning to main menu...\n")
         sleep()
         clear_screen()
         start()
-    elif menu_choice.lower == "quit" or "exit":
-        choice = input("\nAre you sure you want to quit? (y/n)\n")
+    elif menu_choice.lower == "quit" or "exit" or "q" or "e":
+        choice = input("\nHold on... Are you sure? (y/n)\n")
         if choice.lower() == "y":
             print("\nQuitting, thank you for logging your practice!"
-                  "See you next time!")
+                  "See you later alligator! ;)")
         elif choice.lower() == "n":
-            print("Returning to main menu...")
+            print("Alright, Returning to main menu...")
             sleep()
             clear_screen()
             start()
         else:
-            print("\nSorry I didn't understand that." 
-                  "Returning to main menu...\n")
+            print("\nSorry I didn't understand that..."
+                  "Let's just go back...\n")
             sleep()
-            clear_screen()
             start()
 
 
@@ -285,7 +286,7 @@ def collate_data():
     and converts ints to strings.
     """
     global data
-    print("Collating data...")
+    print("Pickin' up the pieces...")
     data = [
         str(today),
         str(session_duration),
@@ -294,7 +295,8 @@ def collate_data():
         user_diffs,
         user_wins]
     print(data)
-    print("Data successfully collated")
+    sleep()
+    print("Pieces succesfully picked up :)")
 
 
 def push_log_data(data):
@@ -302,10 +304,11 @@ def push_log_data(data):
     Update log worksheet, add new row with the data provided
     by the user in the log program
     """
-    print("Updating log worksheet...\n")
+    print("Giving your log to Mr Postman...\n")
     log_worksheet = SHEET.worksheet("log")
     log_worksheet.append_row(data)
-    print("Logged sucessfully updated")
+    sleep()
+    print("Signed, sealed, delivered. Log saved! ")
 
 
 # 2. Get Insights Menu
@@ -321,6 +324,7 @@ def get_insights():
     print(
         """
         Insights Menu:
+        _ _ _ _ _ _ _
 
         1. View Last Recorded Log
         2. View Last 3 Logs
@@ -328,7 +332,7 @@ def get_insights():
         4. View List of Exercises Practiced
         5. View List of Difficulties Encounterd
         """)
-    user_choice = input("What would you like to do? (Enter a number)\n")
+    user_choice = input("Pick a number, any number...\n")
     if user_choice == "1":
         view_last_Log()
     if user_choice == "2":
@@ -339,6 +343,10 @@ def get_insights():
         view_exercises()
     if user_choice == "5":
         view_difficulties()
+    else:
+        print("Any number BUT that one! Try again...")
+        sleep()
+        get_insights()
 
 
 # 2. Get Insights - 1. View Last Log
@@ -353,6 +361,7 @@ def view_last_Log():
     last_log = list.pop(all_data)
     sleep()
     clear_screen()
+    tprint("Last Log")
     print("\nHere is you last recorded log:\n")
     sleep()
     print(f"\nDate: {last_log[0]}")
@@ -380,6 +389,7 @@ def view_3_logs():
     print("\nGetting last 3 entries...")
     sleep()
     clear_screen()
+    tprint("Logs")
     print("\nMost Recent Log:")
     print(f"\nDate: {most_recent[0]}")
     print(f"\nYou practiced for {most_recent[1]} mins")
@@ -421,23 +431,30 @@ def average_time():
     Calculate average and print to the user
     """
     clear_screen()
-    print("\nGetting practice data...")
+    print("\nHold on, won't be long...")
     all_values = log.col_values(2)
     all_nums = all_values[1:]
     all_ints = [int(i) for i in all_nums]
     total_minutes = sum(all_ints)
+    long_sleep()
+    clear_screen()
+    tprint("Average Time")
+    sleep()
     print(f"\nYou have clocked a total of {total_minutes}"
           " minutes practicing...")
     num_sessions = len(all_ints)
     sleep()
     print(f"\nOver the course of {num_sessions} practice sessions...")
     result = total_minutes / num_sessions
+    result_round = round(result)
     sleep()
-    print(f"\nYour average time spent in each practice session is {result}"
+    print(f"\nYour average time spent in each practice session is {result_round}"
           " minutes!")
     sleep()
     print("\nThat's not too shabby ;)")
-
+    sleep()
+    input('\nHit "Enter" to continue')
+    get_insights()
 
 # 2. Get Insights - 4. Get List of Exercises
 def view_exercises():
