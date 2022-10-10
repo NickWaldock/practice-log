@@ -29,9 +29,9 @@ repertoire_sheet = SHEET.worksheet("my-repertoire-exercises")
 
 # Display Titles
 def main_title():
-    tprint("Nick's")
+    tprint("        Nick's")
     tprint("Practice")
-    tprint("Log")
+    tprint("           Log")
 
 
 # General Functions
@@ -82,37 +82,43 @@ def log_practice():
 def log_date():
     """
     Ask user if their practice date was today,
-    if yes - store today's date,
-    if no - ask for date input and validate for correct format
+    If yes - store today's date,
+    If no - ask for date input and validate for correct format,
+    Validate for y/n correct input
     """
     global session_date
     session_date = ""
-    session_today = input("\nWas your practice session today? (y/n)\n")
-
-    if session_today.lower() == "y":
-        print(f"\nToday's date is {today}\n")
-
-    elif session_today.lower() == "n":
-        # Validate for correct date input format (Code Ref.1)
-        while True:
-            try:
-                session_date = input("\nPlease input the date of your practice"
-                                     " session (DD/MM/YY):\n")
-                valid = re.match(
-                    r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$",
-                    session_date)
-                valid_date = bool(valid)
-                if valid_date is False:
-                    raise ValueError("Please enter a valid date in the correct"
-                                     " format (DD/MM/YY):")
-                else:
-                    break
-
-            except ValueError as e:
-                print(f"Invalid Date Format: {e}")
-
-        if valid_date is True:
-            print(f"\nOk, I'll log that you practiced on {session_date}\n")
+    user_input = False
+    while user_input == False:
+        clear_screen()
+        session_today = input("\nWas your practice session today? (y/n)\n")
+        if session_today.lower() == "y":
+            user_input = True
+            print(f"\nCoolio, Today's date is {today}. I'll log that...\n")
+        elif session_today.lower() == "n":
+            # Validate for correct date input format (Code Ref.1)
+            user_input = True
+            while True:
+                try:
+                    session_date = input("\nPlease input the date of your"
+                                         " practice session (DD/MM/YY):\n")
+                    valid = re.match(
+                        r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$",
+                        session_date)
+                    valid_date = bool(valid)
+                    if valid_date is False:
+                        raise ValueError("Please enter a valid date in the"
+                                         " correct format (DD/MM/YY):")
+                    else:
+                        break
+                except ValueError as e:
+                    print(f"\nInvalid Date Format: {e}")
+            if valid_date is True:
+                print("\nNice, I'll log that you practiced on "
+                     f"{session_date}\n")
+        elif session_today.lower() != "y" or "n":
+            input('\n"Please, please, please"..... either "y" or "n"...'
+                  '\nPress "Enter" to try again...')
     sleep()
 
 
@@ -128,7 +134,8 @@ def log_duration():
             session_duration = int(input("How long was your practice session"
                                          " in minutes?\n"))
         except ValueError:
-            print("\nPlease enter a number\n")
+            print("\n6, 3, 4, 5, 7, 8, 9... That's my number....."
+                  "Please enter yours\n")
         else:
             print(f"\nWell done! You practiced for {session_duration} mins!")
             break
