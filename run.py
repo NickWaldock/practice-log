@@ -394,12 +394,14 @@ def view_3_logs():
     second_recent = all_data[-2]
     third_recent = all_data[-3]
 
-    # Printing most latest entry
+    # Printing most recent entry
     print("\nGetting last 3 entries...")
     sleep()
     clear_screen()
     tprint("Logs")
-    print("\nMost Recent Log:")
+    sleep()
+    tprint("1")
+    print("Most Recent Log:")
     print(f"\nDate: {most_recent[0]}")
     print(f"\nYou practiced for {most_recent[1]} mins")
     print(f"\nYou scored your productivity at {most_recent[2]}")
@@ -407,10 +409,11 @@ def view_3_logs():
     print("\nYou expressed the difficulties you encountered as:"
           f"\n{most_recent[4]}")
     print(f"\nYou expressed your successes as:\n{most_recent[5]}")
+    input('\nHit "Enter" to continue\n')
     
     # Printing second most recent entry
-    sleep()
-    print("\nSecond Most Recent Log:")
+    tprint("2")
+    print("Second Most Recent Log:")
     print(f"\nDate: {second_recent[0]}")
     print(f"\nYou practiced for {second_recent[1]} mins")
     print(f"\nYou scored your productivity at {second_recent[2]}")
@@ -418,10 +421,11 @@ def view_3_logs():
     print("\nYou expressed the difficulties you encountered as:"
           f"\n{second_recent[4]}")
     print(f"\nYou expressed your successes as:\n{second_recent[5]}")
+    input('\nHit "Enter" to continue\n')
 
     # Printing third most recent entry
-    sleep()
-    print("\nThird Most Recent Log:")
+    tprint("3")
+    print("Third Most Recent Log:")
     print(f"\nDate: {third_recent[0]}")
     print(f"\nYou practiced for {third_recent[1]} mins")
     print(f"\nYou scored your productivity at {third_recent[2]}")
@@ -429,7 +433,8 @@ def view_3_logs():
     print("\nYou expressed the difficulties you encountered as:"
           f"\n{third_recent[4]}")
     print(f"\nYou expressed your successes as:\n{third_recent[5]}")
-
+    input('\nHit "Enter" to return\n')
+    get_insights()
 
 # 2. Get Insights - 3. Calculate Average Practice Time
 def average_time():
