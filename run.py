@@ -145,7 +145,7 @@ def log_duration():
 def log_score():
     """
     Ask user for self-assesed productivity score input,
-    and validate for an integer 
+    and validate for an integer
     """
     clear_screen()
     global prod_score
@@ -225,7 +225,7 @@ def log_wins():
     clear_screen()
     print("\nOk, let me reflect those back to you:\n")
     sleep()
-    print(f"Difficulties -\n {user_diffs}\n")
+    print(f"\nDifficulties -\n {user_diffs}\n")
     sleep()
     print(f"Wins         -\n {user_wins}\n")
     sleep()
@@ -350,8 +350,8 @@ def get_insights():
         view_exercises()
     if user_choice == "5":
         view_difficulties()
-    else:
-        print("Any number BUT that one! Try again...")
+    elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
+        print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
         sleep()
         get_insights()
 
@@ -369,7 +369,7 @@ def view_last_Log():
     sleep()
     clear_screen()
     tprint("Last Log")
-    print("\nHere is you last recorded log:\n")
+    print("\nHere is your last recorded log:\n")
     sleep()
     print(f"\nDate: {last_log[0]}")
     print(f"\nPractice Time: {last_log[1]}")
@@ -377,7 +377,9 @@ def view_last_Log():
     print(f"\nExercises Worked On: {last_log[3]}")
     print(f"\nDifficulties Encountered: {last_log[4]}")
     print(f"\nPersonal Wins: {last_log[5]}")
-
+    input('\nHit "Enter" to continue')
+    get_insights()
+    
 
 # 2. Get Insights - 2. View Last Three Logs
 def view_3_logs():
