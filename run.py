@@ -1125,11 +1125,13 @@ def quit_program():
     print("\nShould you stay or should you go...?\n")
     quit_choice = input('\nStay "y", Go "n":\n')
     if quit_choice.lower() == "n":
+        clear_screen()
         print("\nQuitting...\n")
+        sleep()
         tprint("Bye, Bye, Bye!")
         exit()
     elif quit_choice.lower() == "y":
-        print("\nGreat! Returning to main menu...")
+        print("\nI knew you didn't mean to ;) Returning to main menu...")
         sleep()
         clear_screen()
         start()
