@@ -523,9 +523,10 @@ def submit_ideas():
     practice ideas
     """
     clear_screen()
-    tprint("Submit Practice Ideas!")
+    tprint("Submit   Practice")
+    tprint("Ideas")
     long_sleep()
-    print("\nYou have chosen to submit some practice ideas")
+    print("\nAlrighty then! You have chosen to submit some practice ideas")
     sleep()
     print("""
         \nHere I will ask you a series of questions to help me organise your
@@ -557,6 +558,7 @@ def submit_ideas():
         4. Repertoire   - Learning new or refining already-known repertoire
                           (Transciption, memorisation, repertoire reserach)
     """)
+    print("\n(Please only save one practice idea at a time)")
     long_sleep()
     user_choice = input("\nWhich category do you want to log your"
                         " practice idea under?\n")
@@ -615,16 +617,18 @@ def submit_tech():
             loop = True
             confirm_loop = False
             while confirm_loop == False:
-                print("\nSorry I didn't get that, please try again")
+                print("\nSorry I didn't get that, please try again\n")
                 confirm = input('"y" to save, "n" to delete and'
-                                ' return to the menu')
+                                ' return to the menu\n')
                 if confirm.lower() == "y":
                     confirm_loop = True
                     clear_screen()
                     send_tech_exs(tech_data)
                 elif confirm.lower() == "n":
                     confirm_loop = True
-                    print("Returing to menu...")
+                    print("\nTurn around...")
+                    short_sleep()
+                    print("Every now and then I get sent back to the menu...")
                     sleep()
                     submit_ideas()
 
@@ -673,7 +677,9 @@ def submit_musicianship():
                     send_music_exs(musicianship_data)
                 elif confirm.lower() == "n":
                     confirm_loop = True
-                    print("Returing to menu...")
+                    print("\nTurn around...")
+                    short_sleep()
+                    print("Every now and then I get sent back to the menu...")
                     sleep()
                     submit_ideas()
 
@@ -722,7 +728,9 @@ def submit_creative():
                     send_creative_exe(creative_data)
                 elif confirm.lower() == "n":
                     confirm_loop = True
-                    print("Returing to menu...")
+                    print("\nTurn around...")
+                    short_sleep()
+                    print("Every now and then I get sent back to the menu...")
                     sleep()
                     submit_ideas()
 
@@ -771,44 +779,46 @@ def submit_repertoire():
                     send_repertoire_exe(repertoire_data)
                 elif confirm.lower() == "n":
                     confirm_loop = True
-                    print("Returing to menu...")
+                    print("\nTurn around...")
+                    short_sleep()
+                    print("Every now and then I get sent back to the menu...")
                     sleep()
                     submit_ideas()
 
 
 # Functions to send user input data to the relevant spreadsheets
 def send_tech_exs(tech_data):
-    print("Saving...\n")
+    print("Signed, sealed...\n")
     technique_sheet.append_row(tech_data)
     sleep()
-    print("Save complete! Returning to main menu...")
+    print("Delivered! It's done. Returning to main menu...")
     sleep()
     start()
 
 
 def send_music_exs(musicianship_data):
-    print("Saving...\n")
+    print("Signed, sealed...\n")
     musicianship_sheet.append_row(musicianship_data)
     sleep()
-    print("Save complete! Returning to main menu...")
+    print("Delivered! It's done. Returning to main menu...")
     sleep()
     start()
 
 
 def send_creative_exe(creative_data):
-    print("Saving...\n")
+    print("Signed, sealed...\n")
     creativity_sheet.append_row(creative_data)
     sleep()
-    print("Save complete! Returning to main menu...")
+    print("Delivered! It's done. Returning to main menu...")
     sleep()
     start()
 
 
 def send_repertoire_exe(repertoire_data):
-    print("Saving...\n")
+    print("Signed, sealed...\n")
     repertoire_sheet.append_row(repertoire_data)
     sleep()
-    print("Save complete! Returning to main menu...")
+    print("Delivered! It's done. Returning to main menu...")
     sleep()
     start()
 
