@@ -1212,7 +1212,15 @@ def start():
     main_title()
     long_sleep()
     print("\n ** Wecome to Nick's Practice Log! **\n")
-    long_sleep()
+    sleep()
+    print("\nHi, my name is Nick and I'm a musician. For us musicians, our practice is essential.\n"
+          "So I've built this little program to help log and manage practice session information,\n"
+          "and keep track of progress.")
+    sleep()
+    print("All data is kept on a spreadsheet and is pre-populated with a few ideas.\n")
+    sleep()
+    print("Without further ado..... Let's get busy!\n")
+    input('\nPress "Enter" to continue')
     clear_screen()
     print("""
             * Main Menu *
