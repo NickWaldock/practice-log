@@ -1125,13 +1125,24 @@ def start():
     print("\n ** Wecome to Nick's Practice Log! **\n")
     long_sleep()
     clear_screen()
-    print("What would you like to do?\n")
-    print("\n1. Log a practice session")
-    print("2. Get insights on your practice")
-    print("3. Submit practice ideas")
-    print("4. View your practice ideas")
-    print("5. Quit\n")
-    print("\nMake your selection with a number:")
+    print("""
+            Main Menu
+            - - - - -
+
+            What would you like to do?
+
+            1. Log a practice session
+            2. Get insights on your practice
+            3. Submit your practice ideas
+            4. View your practice ideas
+            5. Quit
+
+            Make your selection with a number:'n
+    """)
+
+
+
+
     start_choice = int(input())
 
     if start_choice == 1:
