@@ -249,10 +249,10 @@ def log_wins():
         if push.lower() == "y":
             collate_data()
             sleep()
-            print("\nSaving log...")
+            print("\nSave me, save me, SAAAAVE ME...")
             push_log_data(data)
             sleep()
-            print("\nDone. Let's go back...")
+            print("\nReady Freddie, Let's go back...")
             sleep()
             start()
         elif push.lower() == "n":
@@ -263,10 +263,10 @@ def log_wins():
                 quit_program()
             elif confirm.lower() == "n":
                 collate_data()
-                print("\nPhew! That was a close one! Saving log...")
+                print("\nCaught in a trap... but you got out! Saving log...")
                 sleep()
                 push_log_data(data)
-                print("\nDone. Let's go back now...")
+                print("\nDone. Let's go back to...")
                 long_sleep()
                 start()
 
@@ -274,9 +274,10 @@ def log_wins():
     menu_choice = input('\nType "menu" or "quit" to return to the main menu'
                         ' or exit the program.\n')
     if menu_choice.lower() == "menu" or "m":
-        print("\nReturning to main menu...\n")
+        print("\nKeep the motor running... Head out on the highway...")
         sleep()
-        clear_screen()
+        print("Looking for adventure, and the Menu that's coming your way!...")
+        sleep()
         start()
     elif menu_choice.lower == "quit" or "exit" or "q" or "e":
         choice = input("\nHold on... Are you sure? (y/n)\n")
