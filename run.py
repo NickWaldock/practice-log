@@ -1,12 +1,12 @@
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-import gspread
-from google.oauth2.service_account import Credentials
-from datetime import date
+# Import Modules
 import re
 import time
-from art import *
-from os import system, name
+from datetime import date
 import random
+from art import tprint
+from os import system, name
+import gspread
+from google.oauth2.service_account import Credentials
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -26,20 +26,22 @@ musicianship_sheet = SHEET.worksheet("my-musicianship-exercises")
 creativity_sheet = SHEET.worksheet("my-creative-exercises")
 repertoire_sheet = SHEET.worksheet("my-repertoire-exercises")
 
-
-# Display Titles
+# General Functions
 def main_title():
+    """
+    Prints the program's main title using print art
+    """
     tprint("        Nick's")
     tprint("Practice")
     tprint("           Log")
 
 
-# General Functions
 def sleep():
     """
     Set a general timer to delay text printing
     """
     time.sleep(1.5)
+
 
 def long_sleep():
     """
@@ -47,11 +49,13 @@ def long_sleep():
     """
     time.sleep(2.5)
 
+
 def short_sleep():
     """
     Set a longer timer to delay text printing
     """
     time.sleep(0.7)
+
 
 def clear_screen():
     """
@@ -89,7 +93,7 @@ def log_date():
     global session_date
     session_date = ""
     user_input = False
-    while user_input == False:
+    while user_input is False:
         clear_screen()
         tprint("Date")
         session_today = input("\nWas your practice session today? (y/n)\n")
@@ -116,7 +120,7 @@ def log_date():
                     print(f"\nInvalid Date Format: {e}")
             if valid_date is True:
                 print("\nNice, I'll log that you practiced on "
-                     f"{session_date}\n")
+                      f"{session_date}\n")
         elif session_today.lower() != "y" or "n":
             input('\n"Please, please, please"..... either "y" or "n"...'
                   '\nPress "Enter" to try again...')
@@ -239,8 +243,6 @@ def log_wins():
     tprint("Log Complete!")
     print("\nYou completed another log, you are SMASHING IT!\n")
     long_sleep()
-    
-
     # Commit log to spreadsheet
     push = ""
     # Check for a valid input
@@ -386,9 +388,9 @@ def view_last_Log():
     print(f"\nExercises Worked On: {last_log[3]}")
     print(f"\nDifficulties Encountered: {last_log[4]}")
     print(f"\nPersonal Wins: {last_log[5]}")
-    input('\nHit "Enter" to continue')
+    input('\nHit "Enter" to continue..:')
     get_insights()
-    
+
 
 # 2. Get Insights - 2. View Last Three Logs
 def view_3_logs():
@@ -404,13 +406,13 @@ def view_3_logs():
     third_recent = all_data[-3]
 
     # Printing most recent entry
-    print("\nGetting last 3 entries...")
+    print("\nRunning to get your last 3 entries...")
     sleep()
     clear_screen()
     tprint("Logs")
     sleep()
     tprint("1")
-    print("Most Recent Log:")
+    print("* Most Recent Log *")
     print(f"\nDate: {most_recent[0]}")
     print(f"\nYou practiced for {most_recent[1]} mins")
     print(f"\nYou scored your productivity at {most_recent[2]}")
@@ -419,10 +421,10 @@ def view_3_logs():
           f"\n{most_recent[4]}")
     print(f"\nYou expressed your successes as:\n{most_recent[5]}")
     input('\nHit "Enter" to continue\n')
-    
+
     # Printing second most recent entry
     tprint("2")
-    print("Second Most Recent Log:")
+    print("* Second Most Recent Log *")
     print(f"\nDate: {second_recent[0]}")
     print(f"\nYou practiced for {second_recent[1]} mins")
     print(f"\nYou scored your productivity at {second_recent[2]}")
@@ -434,7 +436,7 @@ def view_3_logs():
 
     # Printing third most recent entry
     tprint("3")
-    print("Third Most Recent Log:")
+    print("* Third Most Recent Log *")
     print(f"\nDate: {third_recent[0]}")
     print(f"\nYou practiced for {third_recent[1]} mins")
     print(f"\nYou scored your productivity at {third_recent[2]}")
@@ -444,6 +446,7 @@ def view_3_logs():
     print(f"\nYou expressed your successes as:\n{third_recent[5]}")
     input('\nHit "Enter" to return\n')
     get_insights()
+
 
 # 2. Get Insights - 3. Calculate Average Practice Time
 def average_time():
@@ -471,13 +474,14 @@ def average_time():
     result = total_minutes / num_sessions
     result_round = round(result)
     sleep()
-    print(f"\nYour average time spent in each practice session is {result_round}"
-          " minutes!")
+    print("\nYour average time spent in each practice session is "
+          f"{result_round} minutes!")
     sleep()
     print("\nThat's not too shabby ;)")
     sleep()
-    input('\nHit "Enter" to continue')
+    input('\nHit "Enter" to continue:')
     get_insights()
+
 
 # 2. Get Insights - 4. Get List of Exercises
 def view_exercises():
@@ -496,7 +500,7 @@ def view_exercises():
     print("\nHere is a list of exercises you have logged:\n")
     for i in all_exercises:
         print(i)
-    input('\nPress "Enter" to continue')
+    input('\nPress "Enter" to continue..:')
     get_insights()
 
 
@@ -521,7 +525,7 @@ def view_difficulties():
     print("\nHere is a list of difficulties you have logged:\n")
     for i in all_diffs:
         print(i)
-    input('\nPress "Enter" to continue')
+    input('\nPress "Enter" to continue..:')
     get_insights()
 
 
@@ -570,7 +574,7 @@ def submit_ideas():
     print("\n(Please only save one practice idea at a time)")
     long_sleep()
     user_choice = input("\nWhich category do you want to log your"
-                        " practice idea under?\n")
+                        " practice idea under?:\n")
     if user_choice == "1":
         clear_screen()
         print("Technical, ok great!\n\nGood technique facilitates"
@@ -601,7 +605,7 @@ def submit_tech():
     clear_screen()
     global tech_data
     loop = False
-    while loop == False:
+    while loop is False:
         tech_idea = input("\nWhat details would you like to save?\n")
         tech_data = []
         tech_data.append(today)
@@ -625,7 +629,7 @@ def submit_tech():
         elif user_confirm.lower() != "y" or "n":
             loop = True
             confirm_loop = False
-            while confirm_loop == False:
+            while confirm_loop is False:
                 print("\nSorry I didn't get that, please try again\n")
                 confirm = input('"y" to save, "n" to delete and'
                                 ' return to the menu\n')
@@ -644,7 +648,7 @@ def submit_tech():
 
 def submit_musicianship():
     """
-    To submit musicianship exercises to the spreadsheet, 
+    To submit musicianship exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
     spreadsheet or try again. Validate agains incorrect inputs
     """
@@ -652,7 +656,7 @@ def submit_musicianship():
     clear_screen()
     global musicianship_data
     loop = False
-    while loop == False:
+    while loop is False:
         musicianship_idea = input("\nWhat details would you like to save?\n")
         musicianship_data = []
         musicianship_data.append(today)
@@ -664,7 +668,7 @@ def submit_musicianship():
         sleep()
         print(f'\n"{musicianship_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
-                            ' "n" to delete and return to the menu)\n')
+                             ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y":
             loop = True
             clear_screen()
@@ -676,7 +680,7 @@ def submit_musicianship():
         elif user_confirm.lower() != "y" or "n":
             loop = True
             confirm_loop = False
-            while confirm_loop == False:
+            while confirm_loop is False:
                 print("\nSorry I didn't get that, please try again")
                 confirm = input('"y" to save, "n" to delete and'
                                 ' return to the menu')
@@ -695,7 +699,7 @@ def submit_musicianship():
 
 def submit_creative():
     """
-    To submit creativity exercises to the spreadsheet, 
+    To submit creativity exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
     spreadsheet or try again. Validate agains incorrect inputs
     """
@@ -703,7 +707,7 @@ def submit_creative():
     clear_screen()
     global creative_data
     loop = False
-    while loop == False:
+    while loop is False:
         creative_idea = input("\nWhat details would you like to save?\n")
         creative_data = []
         creative_data.append(today)
@@ -715,7 +719,7 @@ def submit_creative():
         sleep()
         print(f'\n"{creative_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
-                            ' "n" to delete and return to the menu)\n')
+                             ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y":
             loop = True
             clear_screen()
@@ -727,7 +731,7 @@ def submit_creative():
         elif user_confirm.lower() != "y" or "n":
             loop = True
             confirm_loop = False
-            while confirm_loop == False:
+            while confirm_loop is False:
                 print("\nSorry I didn't get that, please try again")
                 confirm = input('"y" to save, "n" to delete and'
                                 ' return to the menu')
@@ -746,7 +750,7 @@ def submit_creative():
 
 def submit_repertoire():
     """
-    To submit repertoire exercises to the spreadsheet, 
+    To submit repertoire exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
     spreadsheet or try again. Validate agains incorrect inputs
     """
@@ -754,7 +758,7 @@ def submit_repertoire():
     clear_screen()
     global repertoire_data
     loop = False
-    while loop == False:
+    while loop is False:
         repertoire_idea = input("\nWhat details would you like to save?\n")
         repertoire_data = []
         repertoire_data.append(today)
@@ -766,7 +770,7 @@ def submit_repertoire():
         sleep()
         print(f'\n"{repertoire_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
-                            ' "n" to delete and return to the menu)\n')
+                             ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y":
             loop = True
             clear_screen()
@@ -778,7 +782,7 @@ def submit_repertoire():
         elif user_confirm.lower() != "y" or "n":
             loop = True
             confirm_loop = False
-            while confirm_loop == False:
+            while confirm_loop is False:
                 print("\nSorry I didn't get that, please try again")
                 confirm = input('"y" to save, "n" to delete and'
                                 ' return to the menu')
@@ -797,6 +801,9 @@ def submit_repertoire():
 
 # Functions to send user input data to the relevant spreadsheets
 def send_tech_exs(tech_data):
+    """
+    Sends technique exercises to the worksheet
+    """
     print("Signed, sealed...\n")
     technique_sheet.append_row(tech_data)
     sleep()
@@ -806,6 +813,9 @@ def send_tech_exs(tech_data):
 
 
 def send_music_exs(musicianship_data):
+    """
+    Sends musicianship exercises to the worksheet
+    """
     print("Signed, sealed...\n")
     musicianship_sheet.append_row(musicianship_data)
     sleep()
@@ -815,6 +825,9 @@ def send_music_exs(musicianship_data):
 
 
 def send_creative_exe(creative_data):
+    """
+    Sends creativity exercises to the worksheet
+    """
     print("Signed, sealed...\n")
     creativity_sheet.append_row(creative_data)
     sleep()
@@ -824,6 +837,9 @@ def send_creative_exe(creative_data):
 
 
 def send_repertoire_exe(repertoire_data):
+    """
+    Sends repertoire exercises to the worksheet
+    """
     print("Signed, sealed...\n")
     repertoire_sheet.append_row(repertoire_data)
     sleep()
@@ -854,7 +870,7 @@ def get_practice():
           6. Return to the Main Menu
     """)
     menu_loop = False
-    while menu_loop == False:
+    while menu_loop is False:
         user_choice = input("\nPlease choose an option with a number (1-5):\n")
         if user_choice == "1":
             menu_loop = True
@@ -884,7 +900,7 @@ def get_practice():
             random_practice()
         elif user_choice == "6":
             menu_loop = True
-            print("\nTurn Around.... Every now and then I..." 
+            print("\nTurn Around.... Every now and then I..."
                   "...go back to the Main Menu")
             long_sleep()
             start()
@@ -893,8 +909,13 @@ def get_practice():
             long_sleep()
             get_practice()
 
+
 # 4. View Practice - 1. View Technical Exercises
 def view_technical_exercises():
+    """
+    Retrieves all information from 'my-technical-exercises' worksheet
+    and prints to user. Validates a request to return to the menu
+    """
     clear_screen()
     print("Alrighty then, hold on whilst I collect your technical "
           "exercise ideas...\n")
@@ -929,10 +950,14 @@ def view_technical_exercises():
         print("\nMaybe I'll take you back to the santuary of the menu...")
         long_sleep()
         get_practice()
-        
+
 
 # 4. View Practice - 2. View Musicianship Exercises
 def view_musicianship_exercises():
+    """
+    Retrieves all information from 'my-musicianship-exercises' worksheet
+    and prints to user. Validates a request to return to the menu
+    """
     clear_screen()
     print("Alrighty then, hold on whilst I collect your Musicianship "
           "practice ideas...\n")
@@ -949,7 +974,7 @@ def view_musicianship_exercises():
     user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
                         'or "m" to return to the Main Menu\n')
     if user_choice.lower() == "v":
-        print("\Rad, returning...")
+        print("\nRad, returning...")
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
@@ -971,6 +996,10 @@ def view_musicianship_exercises():
 
 # 4. View Practice - 3. View Creativity Exercises
 def view_creativity_exercises():
+    """
+    Retrieves all information from 'my-creativity-exercises' worksheet
+    and prints to user. Validates a request to return to the menu
+    """
     clear_screen()
     print("Alrighty then, hold on whilst I collect your creative "
           "practice ideas...\n")
@@ -987,7 +1016,7 @@ def view_creativity_exercises():
     user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
                         'or "m" to return to the Main Menu\n')
     if user_choice.lower() == "v":
-        print("\Rad, returning...")
+        print("\nRad, returning...")
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
@@ -1009,6 +1038,10 @@ def view_creativity_exercises():
 
 # 4. View Practice - 4. View Repertoire Exercises
 def view_repertoire_exercises():
+    """
+    Retrieves all information from 'my-repertoire-exercises' worksheet
+    and prints to user. Validates a request to return to the menu.
+    """
     clear_screen()
     print("Roger Roger, hold on whilst I collect your repertoire "
           "practice ideas...\n")
@@ -1046,6 +1079,10 @@ def view_repertoire_exercises():
 
 # 4. Get Practice Ideas - 5. View Random Selection
 def random_practice():
+    """
+    Prints information about the random practice generation and
+    holds triggers the generator function
+    """
     clear_screen()
     print(" * View Random Practice Ideas * ")
     sleep()
@@ -1056,9 +1093,17 @@ def random_practice():
           "database that holds your previous exercise idea submissions...")
     sleep()
     random_generator_loop()
-    
+
 
 def random_generator_loop():
+    """
+    Retrieves all practice column values from 'my-technical-exercises',
+    'my-musicianship-exercises', 'my-creative-exercises,
+    'my-repertoire-exercises' worksheets from main spreadsheet;
+    Removes the column titles, add all values to a single list variable;
+    Give user the choice to generate a random selection of 3 exercises from
+    the list and validate to repeat or return to the menu
+    """
     technique = technique_sheet.col_values(2)
     technique.pop(0)
     musicianship = musicianship_sheet.col_values(2)
@@ -1073,11 +1118,11 @@ def random_generator_loop():
     all_values.extend(creativity)
     all_values.extend(repertoire)
     clear_screen()
-    user_choice = input('\nPress "g" and I will generate a list of 5 exercises,\n'
-                        'type "e" to exit to the menu:\n')
+    user_choice = input('\nPress "g" and I will generate a list of 5 '
+                        'exercises,\nType "e" to exit to the menu:\n')
     sleep()
     generate_loop = False
-    while generate_loop == False:
+    while generate_loop is False:
         if user_choice.lower() == "e":
             generate_loop = True
             print("Ok! Now running up that hill, to the Menu...")
@@ -1090,7 +1135,7 @@ def random_generator_loop():
             sleep()
             random_list_loop = False
             new_list = 0
-            while random_list_loop == False:
+            while random_list_loop is False:
                 clear_screen()
                 print("Here is your list of 3 randomly selected exercises:\n")
                 while new_list < 3:
@@ -1128,6 +1173,7 @@ def random_generator_loop():
 def quit_program():
     """
     Function to allow the user to safely quit the program
+    Validate for accidental quit
     """
     clear_screen()
     tprint("Quit...")
@@ -1137,7 +1183,11 @@ def quit_program():
         clear_screen()
         print("\nQuitting...\n")
         sleep()
-        tprint("Bye, Bye, Bye!")
+        tprint("Bye,")
+        short_sleep()
+        tprint("     Bye,")
+        short_sleep()
+        tprint("          Bye!")
         exit()
     elif quit_choice.lower() == "y":
         print("\nI knew you didn't mean to ;) Returning to main menu...")
