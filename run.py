@@ -1110,7 +1110,6 @@ def random_generator_loop():
                     long_sleep()
                     random_generator_loop()
         elif user_choice.lower() != "e" or "g":
-            
             print("\nOops, you did it [wrong] again... Try again")
             sleep()
             random_generator_loop()
@@ -1138,9 +1137,7 @@ def quit_program():
         print('\nYou, you, you, oughta know...\n')
         sleep()
         print("\nYou should have pressed yes or no...")
-        sleep()
-        print("\nSo...let me take you down to the paradise city....I mean...")
-        sleep()
+        long_sleep()
         start()
 
 
@@ -1170,9 +1167,6 @@ def start():
 
             Make your selection with a number:'n
     """)
-
-
-
 
     start_choice = int(input())
 
