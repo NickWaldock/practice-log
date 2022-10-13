@@ -91,6 +91,7 @@ def log_date():
     user_input = False
     while user_input == False:
         clear_screen()
+        tprint("Date")
         session_today = input("\nWas your practice session today? (y/n)\n")
         if session_today.lower() == "y":
             user_input = True
@@ -129,6 +130,7 @@ def log_duration():
     global session_duration
     session_duration = 0
     clear_screen()
+    tprint("Duration")
     while True:
         try:
             session_duration = int(input("How long was your practice session"
@@ -148,6 +150,7 @@ def log_score():
     and validate for an integer
     """
     clear_screen()
+    tprint("Score")
     global prod_score
     prod_score = int(input("\nOn a scale of 1 - 10, how productive do you"
                            " feel the session was?\n"))
@@ -173,11 +176,12 @@ def log_exercises():
     in the practice session, saved in a variable
     """
     clear_screen()
+    tprint("Exercises")
     global user_exercises
     user_exercises = input('\nWhat exercises did you work on in this practice'
                            ' session?\n(Seperate exercises with ",")\n')
     sleep()
-    print("\nGreat work!\n")
+    print("\nYou're simply the BEST!\n")
     sleep()
     print(f"\nI have made a note of the following:\n {user_exercises}")
     long_sleep()
@@ -216,22 +220,26 @@ def log_wins():
         user_wins = input('Amazing! What were they? '
                           '(seperate your wins with ",")\n')
         sleep()
-        print("\nWell done! You are making great progress!")
+        print("\nYou are the champion my friend! "
+              "You are making great progress!")
     elif user_wins_yn.lower() == "n":
-        print("\nThat's ok, you practiced! That's what counts!")
+        print("\nThat's ok, you practiced! Don't give up")
         user_wins = "None"
 
     sleep()
     clear_screen()
-    print("\nOk, let me reflect those back to you:\n")
+    print("\nOk, so let me reflect those back to you:\n")
     sleep()
     print(f"\nDifficulties -\n {user_diffs}\n")
     sleep()
     print(f"Wins         -\n {user_wins}\n")
     sleep()
+    input('Press "Enter" to complete your log')
+    clear_screen()
+    tprint("Log Complete!")
     print("\nYou completed another log, you are SMASHING IT!\n")
     long_sleep()
-    clear_screen()
+    
 
     # Commit log to spreadsheet
     push = ""
@@ -1167,7 +1175,7 @@ def start():
             4. View your practice ideas
             5. Quit
 
-            Make your selection with a number:'n
+            Make your selection with a number:\n
     """)
 
     start_choice = int(input())
