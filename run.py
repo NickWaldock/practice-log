@@ -479,13 +479,16 @@ def view_exercises():
     clear_screen()
     print("\nYou have chosen to view your logged exercises.")
     sleep()
-    print("\nRetrieving data...")
+    print("\nHold on, won't be long...")
     sleep()
     all_values = log.col_values(4)
     all_exercises = all_values[1:]
+    clear_screen()
     print("\nHere is a list of exercises you have logged:\n")
     for i in all_exercises:
         print(i)
+    input('\nPress "Enter" to continue')
+    get_insights()
 
 
 # 2. Get Insights - 4. Get List of Difficulties
@@ -497,13 +500,20 @@ def view_difficulties():
     clear_screen()
     print("\nYou have chosen to view your logged difficulties")
     sleep()
-    print("\nRetrieving data...\n")
+    print("\n\nHold on, won't be long...\n")
     sleep()
     clear_screen()
     all_values = log.col_values(5)
     all_diffs = all_values[1:]
+    print("Remember! These are useful to help you understand things you "
+          "should be working on or ways to develop your practice in future"
+          " sessions")
+    sleep()
+    print("\nHere is a list of difficulties you have logged:\n")
     for i in all_diffs:
         print(i)
+    input('\nPress "Enter" to continue')
+    get_insights()
 
 
 # 3. Submit Practice Ideas
@@ -1058,7 +1068,7 @@ def random_generator_loop():
             new_list = 0
             while random_list_loop == False:
                 clear_screen()
-                print("\nHere is your list of 3 randomly selected exercises:\n")
+                print("Here is your list of 3 randomly selected exercises:\n")
                 while new_list < 3:
                     sleep()
                     print(random.choice(all_values))
@@ -1079,11 +1089,6 @@ def random_generator_loop():
                     generate_loop = False
                     new_list = 0
                     sleep()
-                    
-                    
-
-
-
 
 # 5. Quit Program
 def quit_program():
