@@ -834,7 +834,9 @@ def get_practice():
     sleep()
     print("\nYou have chosen to view your previously logged practice ideas")
     sleep()
-    print("""\n * Menu *\n
+    print("""\n
+                * Menu *
+                  ----\n
           1. View Technical Exercises
           2. View Musicianship Exercises
           3. View Creative Exercises
@@ -857,19 +859,18 @@ def get_practice():
             view_musicianship_exercises()
         elif user_choice == "3":
             menu_loop = True
-            print('\nJust like the band that sang "All Right Now"...'
-                  'Here is option 3...')
+            print('\n3 is the magic number')
             long_sleep()
             view_creativity_exercises()
         elif user_choice == "4":
             menu_loop = True
-            print("\nFaith no more? Here's option 4...")
+            print("\nFaith no more, here's option 4...")
             long_sleep()
             view_repertoire_exercises()
         elif user_choice == "5":
             menu_loop = True
             print("\n[Option] 5 will make you get down now... \n")
-            long_sleep()
+            sleep()
             print("\nSorry......... That was the worst pun in this program")
             random_practice()
         elif user_choice == "6":
@@ -893,7 +894,7 @@ def view_technical_exercises():
     for exercise in technical_exercises:
         print(exercise)
         short_sleep()
-    print("\nPhew! That's some GAINS material right there!\n")
+    print("\nPhew! That's some GAINS material right there!")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
           " Main Menu ;)\n")
@@ -905,11 +906,12 @@ def view_technical_exercises():
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
-        print("\nNo worries, follow me back to the Main Menu...")
+        print("\nDrivin' home, for practice...")
         long_sleep()
         start()
     elif user_choice.lower() != "v" or "m":
-        print("\nWhoops...\n")
+        clear_screen()
+        print("\nWhoops...")
         sleep()
         print("\nI'm sure you didn't mean...")
         sleep()
@@ -946,6 +948,7 @@ def view_musicianship_exercises():
         long_sleep()
         start()
     elif user_choice.lower() != "v" or "m":
+        clear_screen()
         print("\nWhoops...\n")
         sleep()
         print("\nI'm sure you didn't mean...")
@@ -983,6 +986,7 @@ def view_creativity_exercises():
         long_sleep()
         start()
     elif user_choice.lower() != "v" or "m":
+        clear_screen()
         print("\nWhoops...\n")
         sleep()
         print("\nI'm sure you didn't mean...")
@@ -1012,7 +1016,7 @@ def view_repertoire_exercises():
     user_choice = input('\nPress "v" to return to the "View Exercises" menu\n'
                         'or "m" to return to the Main Menu\n')
     if user_choice.lower() == "v":
-        print("\Rad, returning...")
+        print("\nRad, returning...")
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
@@ -1059,20 +1063,21 @@ def random_generator_loop():
     all_values.extend(musicianship)
     all_values.extend(creativity)
     all_values.extend(repertoire)
+    clear_screen()
     user_choice = input('\nPress "g" and I will generate a list of 5 exercises,\n'
-                        'type "e" to exit to the menu\n')
+                        'type "e" to exit to the menu:\n')
     sleep()
     generate_loop = False
     while generate_loop == False:
-        if user_choice == "e":
+        if user_choice.lower() == "e":
             generate_loop = True
-            print("Ok! Returning to menu...")
+            print("Ok! Now running up that hill, to the Menu...")
             sleep()
             get_practice()
-        elif user_choice == "g":
+        elif user_choice.lower() == "g":
             generate_loop = True
             clear_screen()
-            print("\nOk! Here we go!...\n")
+            print("\nSuperstar DJ, here we go!...\n")
             sleep()
             random_list_loop = False
             new_list = 0
@@ -1087,11 +1092,12 @@ def random_generator_loop():
                 print("\nDoes that inspire your practice??\n")
                 sleep()
                 user_confirm = input('\n"y" All good, lets go! or "g" Generate'
-                                     ' another random list\n')
+                                     ' another random list:\n')
                 if user_confirm.lower() == "y":
                     random_list_loop = True
-                    print("\nRight on! Have a great practice session!\n")
-                    print("\nReturning to menu...")
+                    print("\nYou're Simply the BEST! "
+                          "Have a great practice session!\n")
+                    print("\nReturning to the Menu...")
                     sleep()
                     get_practice()
                 elif user_confirm.lower() == "g":
@@ -1099,6 +1105,16 @@ def random_generator_loop():
                     generate_loop = False
                     new_list = 0
                     sleep()
+                elif user_confirm.lower() != "y" or "g":
+                    print("\nWhoops, you did it [wrong] again... Try again")
+                    long_sleep()
+                    random_generator_loop()
+        elif user_choice.lower() != "e" or "g":
+            
+            print("\nOops, you did it [wrong] again... Try again")
+            sleep()
+            random_generator_loop()
+
 
 # 5. Quit Program
 def quit_program():
@@ -1141,8 +1157,8 @@ def start():
     long_sleep()
     clear_screen()
     print("""
-            Main Menu
-            - - - - -
+            * Main Menu *
+              - - - - -
 
             What would you like to do?
 
