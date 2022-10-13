@@ -26,6 +26,7 @@ musicianship_sheet = SHEET.worksheet("my-musicianship-exercises")
 creativity_sheet = SHEET.worksheet("my-creative-exercises")
 repertoire_sheet = SHEET.worksheet("my-repertoire-exercises")
 
+
 # General Functions
 def main_title():
     """
@@ -80,7 +81,18 @@ def log_practice():
     Log duration and date of session and productivity score
     """
     clear_screen()
-    print("\n** LOG PRACTICE **\n")
+    print("\n* Log Practice *\n")
+    short_sleep()
+    print("""
+          Alright now! In this menu option I will take you through a number
+          of questions for you to answer about your practice session.
+          This will include date, duration, a self-productivity score,
+          a list of exercises worked on, any particular difficulties experienced,
+          and anything to claim as a win!
+    """)
+    long_sleep()
+    print("Let's get this party started!")
+    input('Press "Enter" to continue')
 
 
 def log_date():
