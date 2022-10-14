@@ -589,8 +589,22 @@ def submit_ideas():
         4. Repertoire   - Learning new or refining already-known repertoire
                           (Transciption, memorisation, repertoire reserach)
     """)
-    print("\n(Please only save one practice idea at a time)")
+    short_sleep()
+    print("""
+        (Please only save one practice idea at a time)
+
+        Press "5" to return to the Main Menu
+    """)
     long_sleep()
+    submit_ideas_menu()
+
+
+def submit_ideas_menu():
+    """
+    The menu for the submit ideas menu.
+    Validating user input for menu choice and directing
+    the program to run the relevant function
+    """
     user_choice = input("\nWhich category do you want to log your"
                         " practice idea under?:\n")
     if user_choice == "1":
@@ -611,6 +625,15 @@ def submit_ideas():
         clear_screen()
         print("Repertoire, ROCK ON!\n\nGet ready for the gigs!")
         submit_repertoire()
+    elif user_choice == "5":
+        clear_screen()
+        print("Returning to up where we belong...")
+        long_sleep()
+        start()
+    elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
+        print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
+        long_sleep()
+        submit_ideas_menu()
 
 
 def submit_tech():
