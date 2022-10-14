@@ -3,8 +3,8 @@ import re
 import time
 from datetime import date
 import random
+from os import system
 from art import tprint
-from os import system, name
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -102,7 +102,7 @@ def log_date():
     If no - ask for date input and validate for correct format,
     Validate for y/n correct input
     """
-    global session_date
+    # global session_date
     session_date = ""
     user_input = False
     while user_input is False:
