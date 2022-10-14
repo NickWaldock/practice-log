@@ -76,7 +76,7 @@
 ## Future Developments
 This project has a great deal of developmental potential in features that could eventually add increased functionality and a deeper user experiece. 
 The following are a few examples:
--  
+-  Get logs with certain scores
 <br />
 <br />
 

@@ -112,7 +112,7 @@ def log_practice():
     Log duration and date of session and productivity score
     """
     clear_screen()
-    tprint("Log Practice\n\n")
+    tprint("Log  Practice\n\n")
     short_sleep()
     print("""
           Alright now! In this menu option I will take you through a number
@@ -147,6 +147,8 @@ def log_date():
             user_input = True
             while True:
                 try:
+                    clear_screen()
+                    tprint("Date")
                     # Validate for correct date input format (Code Ref.1)
                     session_date = input("\nPlease input the date of your"
                                          " practice session (DD/MM/YY):\n")
@@ -199,7 +201,7 @@ def log_score():
     clear_screen()
     tprint("Score")
     global prod_score
-    prod_score = int(input("\nOn a scale of 1 - 10, how productive do you"
+    prod_score = int(input("\nOn a scale of 0 - 10, how productive do you"
                            " feel the session was?\n"))
     if prod_score <= 3:
         print(f"\n{prod_score} is ok, you still practiced!\n"
@@ -215,6 +217,12 @@ def log_score():
     elif prod_score <= 10:
         print(f"\n{prod_score} is awesome! You are smashing it!\n")
         sleep()
+    elif prod_score > 10:
+        print("Whoa there! More than 10? Let's stay within the bounds ;)")
+        sleep()
+    if prod_score != int():
+        print("Whoops, 0-10 needs a number...")
+
 
 
 def log_exercises():
@@ -390,7 +398,7 @@ def get_insights():
         2. View Last 3 Logs
         3. Calculate Average Practice Time
         4. View List of Exercises Practiced
-        5. View List of Difficulties Encounterd
+        5. View List of Difficulties Encountered
         6. Return to the Main Menu
         """)
     user_choice = input("Pick a number, any number...\n")
@@ -1276,7 +1284,7 @@ def start():
     print("Without further agadoo..... Let's get busy!\n")
     input('\nPress "Enter" to continue\n')
     clear_screen()
-    tprint("Main Menu")
+    tprint("Main  Menu")
     print("""
         What would you like to do?
 
