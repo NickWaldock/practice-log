@@ -361,6 +361,7 @@ def get_insights():
         3. Calculate Average Practice Time
         4. View List of Exercises Practiced
         5. View List of Difficulties Encounterd
+        6. Return to the Main Menu
         """)
     user_choice = input("Pick a number, any number...\n")
     if user_choice == "1":
@@ -373,9 +374,14 @@ def get_insights():
         view_exercises()
     if user_choice == "5":
         view_difficulties()
-    elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
-        print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
-        sleep()
+    if user_choice == "6":
+        clear_screen()
+        print("Returning to up where we belong...")
+        long_sleep()
+        start()
+    elif user_choice != "1" or "2" or "3" or "4" or "5" or "6" or "":
+        print("\nGimme, Gimme, Gimme a number between 1 and 6: Try again...")
+        long_sleep()
         get_insights()
 
 
