@@ -10,7 +10,7 @@ from art import tprint
 import gspread
 from google.oauth2.service_account import Credentials
 from helper import sleep, short_sleep, long_sleep
-from helper import clear_screen, main_title
+from helper import clear_screen, main_title, return_to_main
 
 # API
 SCOPE = [
@@ -73,8 +73,8 @@ def log_practice():
           experienced, and anything to claim as a win!
     """)
     long_sleep()
-    print("Let's get this party started!")
-    input('Press "Enter" to continue')
+    print("\nLet's get this party started!")
+    input('\nPress "Enter" to continue...\n')
 
 
 def log_date():
@@ -189,7 +189,7 @@ def log_wins():
     """
     Asks the user to detail particular problems experienced in the
     practice session, then asks for details on what positive
-    outcomes they achieved.
+    outcomes they achieved. 
     """
     clear_screen()
     tprint("Difficulties")
@@ -238,6 +238,7 @@ def log_wins():
     tprint("Log Complete!")
     print("\nYou completed another log, you are SMASHING IT!\n")
     long_sleep()
+
     # Commit log to spreadsheet
     push = ""
     # Check for a valid input
@@ -282,10 +283,7 @@ def log_wins():
             print("\nQuitting, thank you for logging your practice!"
                   "See you later alligator! ;)")
         elif choice.lower() == "n":
-            print("Alright, Returning to main menu...")
-            sleep()
-            clear_screen()
-            start()
+            return_to_main()
         else:
             print("\nSorry I didn't understand that..."
                   "Let's just go back...\n")
@@ -358,10 +356,7 @@ def get_insights():
     if user_choice == "5":
         view_difficulties()
     if user_choice == "6":
-        clear_screen()
-        print("Returning to up where we belong...")
-        long_sleep()
-        start()
+        return_to_main()
     elif user_choice != "1" or "2" or "3" or "4" or "5" or "6" or "":
         print("\nGimme, Gimme, Gimme a number between 1 and 6: Try again...")
         long_sleep()
@@ -609,10 +604,7 @@ def submit_ideas_menu():
         print("Repertoire, ROCK ON!\n\nGet ready for the gigs!")
         submit_repertoire()
     elif user_choice == "5":
-        clear_screen()
-        print("Returning to up where we belong...")
-        long_sleep()
-        start()
+        return_to_main()
     elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
         print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
         long_sleep()
@@ -924,10 +916,7 @@ def get_practice():
             random_practice()
         elif user_choice == "6":
             menu_loop = True
-            print("\nTurn Around.... Every now and then I..."
-                  "...go back to the Main Menu")
-            long_sleep()
-            start()
+            return_to_main()
         else:
             print("\nWhoops, you did it again... have another go\n")
             long_sleep()
@@ -960,9 +949,7 @@ def view_technical_exercises():
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
-        print("\nDrivin' home, for practice...")
-        long_sleep()
-        start()
+        return_to_main()
     elif user_choice.lower() != "v" or "m":
         clear_screen()
         print("\nWhoops...")
@@ -971,7 +958,7 @@ def view_technical_exercises():
         sleep()
         print("\nTo not press...the buttons I said you could press...")
         sleep()
-        print("\nMaybe I'll take you back to the santuary of the menu...")
+        print("\nLet's try again...")
         long_sleep()
         get_practice()
 
@@ -1002,9 +989,7 @@ def view_musicianship_exercises():
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
-        print("\nRighty-ho, follow me back to the Main Menu...")
-        long_sleep()
-        start()
+        return_to_main()
     elif user_choice.lower() != "v" or "m":
         clear_screen()
         print("\nWhoops...\n")
@@ -1044,9 +1029,7 @@ def view_creativity_exercises():
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
-        print("\nRighty-ho, follow me back to the Main Menu...")
-        long_sleep()
-        start()
+        return_to_main()
     elif user_choice.lower() != "v" or "m":
         clear_screen()
         print("\nWhoops...\n")
@@ -1086,9 +1069,7 @@ def view_repertoire_exercises():
         sleep()
         get_practice()
     elif user_choice.lower() == "m":
-        print("\nRighty-ho, follow me back to the Main Menu...")
-        long_sleep()
-        start()
+        return_to_main()
     elif user_choice.lower() != "v" or "m":
         print("\nWhoops...\n")
         sleep()
@@ -1214,10 +1195,7 @@ def quit_program():
         tprint("          Bye!")
         exit()
     elif quit_choice.lower() == "y":
-        print("\nI knew you didn't mean to ;) Returning to main menu...")
-        sleep()
-        clear_screen()
-        start()
+        return_to_main()
     else:
         print('\nYou, you, you, oughta know...\n')
         sleep()

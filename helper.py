@@ -4,6 +4,7 @@ General Helper Functions
 from os import system
 import time
 from art import tprint
+from run import start
 
 
 def main_title():
@@ -41,3 +42,11 @@ def clear_screen():
     Clear the user terminal
     """
     system('clear')
+
+
+def return_to_main():
+    clear_screen()
+    tprint("Returning...")
+    print("\n\nTakin' it to the bridge...... (Main Menu)")
+    long_sleep()
+    start()
