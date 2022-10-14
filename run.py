@@ -1245,8 +1245,6 @@ def start():
     start_choice = int(input())
 
     if start_choice == 1:
-        clear_screen()
-        print("\n You have chosen to log a new practice session.\n")
         log_practice()
         log_date()
         log_duration()
@@ -1265,6 +1263,14 @@ def start():
     elif start_choice == 5:
         clear_screen()
         quit_program()
+    else:
+        print("""\n
+        Oops you did it [wrong] again... 
+        
+        Let's go back to the very beginning....
+        """)
+        long_sleep()
+        start()
 
 
 start()
