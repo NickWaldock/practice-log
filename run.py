@@ -1,16 +1,16 @@
 """
 Main python file for defining and running the functions of the program
 """
-
 # Modules
 import re
 from datetime import date
 import random
+import time
+from os import system
 from art import tprint
 import gspread
 from google.oauth2.service_account import Credentials
-from helper import sleep, short_sleep, long_sleep
-from helper import clear_screen, main_title, return_to_main
+
 
 # API
 SCOPE = [
@@ -46,6 +46,55 @@ creative_data = None
 repertoire_data = None
 
 
+# General Functions
+def sleep():
+    """
+    Set a general timer to delay text printing
+    """
+    time.sleep(1.5)
+
+
+def long_sleep():
+    """
+    Set a longer timer to delay text printing
+    """
+    time.sleep(2.5)
+
+
+def short_sleep():
+    """
+    Set a longer timer to delay text printing
+    """
+    time.sleep(0.7)
+
+
+def clear_screen():
+    """
+    Clear the user terminal
+    """
+    system('clear')
+
+
+def return_to_main():
+    """
+    Clear the screen of content and return to the beginning of the program
+    """
+    clear_screen()
+    tprint("Returning...")
+    print("\n\nTakin' it to the bridge...... (Main Menu)")
+    long_sleep()
+    start()
+
+
+def main_title():
+    """
+    Prints the program's main title using print art
+    """
+    tprint("        Nick's")
+    tprint("Practice")
+    tprint("           Log")
+
+
 # 1. Log Practice Functions
 def get_date():
     """
@@ -63,7 +112,7 @@ def log_practice():
     Log duration and date of session and productivity score
     """
     clear_screen()
-    print("\n* Log Practice *\n")
+    tprint("Log Practice\n\n")
     short_sleep()
     print("""
           Alright now! In this menu option I will take you through a number
@@ -1221,52 +1270,42 @@ def start():
           " session information,\n"
           "and keep track of progress.")
     sleep()
-    print("All data is kept on a spreadsheet and is pre-populated with"
+    print("\nAll data is kept on a spreadsheet and is pre-populated with"
           " a few ideas.\n")
     sleep()
     print("Without further agadoo..... Let's get busy!\n")
-    input('\nPress "Enter" to continue')
+    input('\nPress "Enter" to continue\n')
     clear_screen()
+    tprint("Main Menu")
     print("""
-            * Main Menu *
-              - - - - -
+        What would you like to do?
 
-            What would you like to do?
-
-            1. Log a practice session
-            2. Get insights on your practice
-            3. Submit your practice ideas
-            4. View your practice ideas
-            5. Quit
-
-            Make your selection with a number:\n
+        1. Log a practice session
+        2. Get insights on your practice
+        3. Submit your practice ideas
+        4. View your practice ideas
+        5. Quit
     """)
-
-    start_choice = int(input())
-
-    if start_choice == 1:
+    start_choice = input("\nMake your selection with a number:\n")
+    if start_choice == "1":
         log_practice()
         log_date()
         log_duration()
         log_score()
         log_exercises()
         log_wins()
-    elif start_choice == 2:
-        clear_screen()
+    elif start_choice == "2":
         get_insights()
-    elif start_choice == 3:
-        clear_screen()
+    elif start_choice == "3":
         submit_ideas()
-    elif start_choice == 4:
-        clear_screen()
+    elif start_choice == "4":
         get_practice()
-    elif start_choice == 5:
-        clear_screen()
+    elif start_choice == "5":
         quit_program()
     else:
         print("""\n
-        Oops you did it [wrong] again... 
-        
+        Oops you did it [wrong] again...
+
         Let's go back to the very beginning....
         """)
         long_sleep()
