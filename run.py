@@ -1,13 +1,18 @@
-# Import Modules
+"""
+Main python file for defining and running the functions of the program
+"""
+
+# Modules
 import re
-import time
 from datetime import date
 import random
-from os import system
 from art import tprint
 import gspread
 from google.oauth2.service_account import Credentials
+from helper import sleep, short_sleep, long_sleep
+from helper import clear_screen, main_title
 
+# API
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -26,45 +31,22 @@ musicianship_sheet = SHEET.worksheet("my-musicianship-exercises")
 creativity_sheet = SHEET.worksheet("my-creative-exercises")
 repertoire_sheet = SHEET.worksheet("my-repertoire-exercises")
 
-
-# General Functions
-def main_title():
-    """
-    Prints the program's main title using print art
-    """
-    tprint("        Nick's")
-    tprint("Practice")
-    tprint("           Log")
-
-
-def sleep():
-    """
-    Set a general timer to delay text printing
-    """
-    time.sleep(1.5)
+# Global Variables
+today = None
+session_date = None
+session_duration = None
+prod_score = None
+user_exercises = None
+user_diffs = None
+user_wins = None
+data = None
+tech_data = None
+musicianship_data = None
+creative_data = None
+repertoire_data = None
 
 
-def long_sleep():
-    """
-    Set a longer timer to delay text printing
-    """
-    time.sleep(2.5)
-
-
-def short_sleep():
-    """
-    Set a longer timer to delay text printing
-    """
-    time.sleep(0.7)
-
-
-def clear_screen():
-    """
-    Clear the user terminal
-    """
-    system('clear')
-
-
+# 1. Log Practice Functions
 def get_date():
     """
     Get the current date to reference the users inputs in the spreadsheet
@@ -72,9 +54,9 @@ def get_date():
     global today
     date_today = date.today()
     today = date_today.strftime('%d/%m/%y')
+    return today
 
 
-# 1. Log Practice
 def log_practice():
     """
     Log a new practice session.
@@ -102,8 +84,8 @@ def log_date():
     If no - ask for date input and validate for correct format,
     Validate for y/n correct input
     """
-    # global session_date
-    session_date = ""
+    global session_date
+    # session_date = ""
     user_input = False
     while user_input is False:
         clear_screen()
@@ -113,10 +95,10 @@ def log_date():
             user_input = True
             print(f"\nCoolio, Today's date is {today}. I'll log that...\n")
         elif session_today.lower() == "n":
-            # Validate for correct date input format (Code Ref.1)
             user_input = True
             while True:
                 try:
+                    # Validate for correct date input format (Code Ref.1)
                     session_date = input("\nPlease input the date of your"
                                          " practice session (DD/MM/YY):\n")
                     valid = re.match(
@@ -210,11 +192,10 @@ def log_wins():
     outcomes they achieved.
     """
     clear_screen()
+    tprint("Difficulties")
     global user_diffs
     global user_wins
-
     # Ask for info on difficulties in the practice session
-    tprint("Difficulties")
     user_diffs_yn = input("\nDid you experience any particular difficulties"
                           " during this practice session? (y/n)\n")
     if user_diffs_yn.lower() == "y":
@@ -246,9 +227,11 @@ def log_wins():
     clear_screen()
     print("\nOk, so let me reflect those back to you:\n")
     sleep()
-    print(f"\nDifficulties -\n {user_diffs}\n")
+    print("\nDifficulties:")
+    print(f"\n{user_diffs}\n")
     sleep()
-    print(f"Wins         -\n {user_wins}\n")
+    print("\nWins:")
+    print(f"\n{user_wins}\n")
     sleep()
     input('Press "Enter" to complete your log')
     clear_screen()
