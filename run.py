@@ -337,20 +337,7 @@ def log_wins():
         user_wins = "None"
 
     sleep()
-    clear_screen()
-    print("\nOk, so let me reflect those back to you:\n")
-    sleep()
-    print("\nDifficulties:")
-    print(f"\n{user_diffs}\n")
-    sleep()
-    print("\nWins:")
-    print(f"\n{user_wins}\n")
-    sleep()
-    input('Press "Enter" to complete your log')
-    clear_screen()
-    tprint("Log Complete!")
-    print("\nYou completed another log, you are SMASHING IT!\n")
-    long_sleep()
+    
 
     # Commit log to spreadsheet
     push = ""
@@ -380,7 +367,10 @@ def log_wins():
                 print("\nDone. Let's go back to...")
                 long_sleep()
                 start()
+    menu()
+    
 
+def menu():
     # Check if user wishes to quit or return to the main menu
     menu_choice = input('\nType "menu" or "quit" to return to the main menu'
                         ' or exit the program.\n')
@@ -393,8 +383,7 @@ def log_wins():
     elif menu_choice.lower == "quit" or "exit" or "q" or "e":
         choice = input("\nHold on... Are you sure? (y/n)\n")
         if choice.lower() == "y":
-            print("\nQuitting, thank you for logging your practice!"
-                  "See you later alligator! ;)")
+            quit_program()
         elif choice.lower() == "n":
             return_to_main()
         else:
@@ -402,6 +391,23 @@ def log_wins():
                   "Let's just go back...\n")
             sleep()
             start()
+
+
+def complete_log():
+    clear_screen()
+    print("\nOk, so let me reflect your log back to you:\n")
+    sleep()
+    print("\nDifficulties:")
+    print(f"\n{user_diffs}\n")
+    sleep()
+    print("\nWins:")
+    print(f"\n{user_wins}\n")
+    sleep()
+    input('Press "Enter" to complete your log')
+    clear_screen()
+    tprint("Log Complete!")
+    print("\nYou completed another log, you are SMASHING IT!\n")
+    long_sleep()
 
 
 def collate_data():
@@ -1359,6 +1365,7 @@ def start():
         log_exercises()
         log_difficulties()
         log_wins()
+        complete_log()
     elif start_choice == "2":
         get_insights()
     elif start_choice == "3":
