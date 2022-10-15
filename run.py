@@ -399,17 +399,18 @@ def complete_log():
 def save_log():
     """"""
     push = ""
-    while push != 'y' or push != 'n':
+    while True:
         clear_screen()
         tprint("Log   Complete!")
-        push = input("\nWould you like to save me, save me, SAAAAVE ME...? (y/n)\n")
+        push = input("\nWould you like to save me, save me, SAAAAVE ME...?"
+                     " (y/n)\n")
         if push.lower() == "y" or push.lower() == "yes":
             collate_data()
             push_log_data(data)
             sleep()
             input('\nReady Freddie? Lets go back to the Main Menu... ("Hit Enter")\n')
             return_to_main()
-        elif push.lower() == "n":
+        elif push.lower() == "n" or push.lower() == "no":
             print("\nAre you sure?? You've come all this way!")
             confirm = input('\n"y" = Quit and lose all changes.'
                             ' "n" = Save and return to Main Menu.\n')
