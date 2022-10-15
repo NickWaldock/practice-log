@@ -224,18 +224,22 @@ def check_num():
     while True:
         clear_screen()
         tprint("Score")
-        prod_score = input("\nOn a scale of 0 - 10, how productive do you"
+        prod_score = input("\nOn a scale of 1 - 10, how productive do you"
                            " feel the session was?\n")
         if prod_score.isnumeric():
             prod_score = int(prod_score)
             if prod_score > 10:
-                print("\nWhoa there! More than 10? Let's stay within the bounds ;)")
+                print("\nWhoa there! This one doesn't go up to 11."
+                      "\nLet's stay within the bounds eh? ;)")
+                sleep()
+            elif prod_score == 0:
+                print("\nSurly it wasn't so bad it deserves a 0...")
                 sleep()
             else:
                 return prod_score
                 break
         else:
-            print("\nWhoops, 0-10 needs a number...")
+            print("\nWhoops, 1-10 needs a whole number...")
             sleep()
 
 
@@ -274,7 +278,7 @@ def log_exercises():
     sleep()
     print("\nYou're simply the BEST!\n")
     sleep()
-    print(f"\nI have made a note of the following:\n {user_exercises}")
+    print(f"\nI have made a note of the following:\n\n  {user_exercises}")
     long_sleep()
 
 
@@ -282,7 +286,7 @@ def log_wins():
     """
     Asks the user to detail particular problems experienced in the
     practice session, then asks for details on what positive
-    outcomes they achieved. 
+    outcomes they achieved.
     """
     clear_screen()
     tprint("Difficulties")
@@ -1358,4 +1362,4 @@ def start():
 
 
 # start()
-log_duration()
+log_exercises()

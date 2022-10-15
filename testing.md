@@ -50,23 +50,23 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Input error handled as expected, correct format continues code</td>
     <td>Pass</td>
   <tr><tr>
-    <td>Optino 1 - Duration Input</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Duration Input</td>
+    <td>"sdf", "", "';", "555", "1234567890"</td>
+    <td>Request input, if > 420 or not int display error and request input again</td>
+    <td>Input error handled as expected, correct format continues code</td>
+    <td>Pass</td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Score Input</td>
+    <td>"fgh", "23","0000", "4"</td>
+    <td>Request number input between 1 and 10. If number is 0, > 10, or not an number- display error and repeat request<td>
+    <td>Input error handled as expected, correct input continues code</td>
+    <td>Pass</td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Exercises Input</td>
+    <td>"String 1234" "Strings, 1234, more strings"</td>
+    <td>Input takes any sort of string input from the user, displays it back to the user and continues</td>
+    <td>Input acts as intended</td>
+    <td>Pass </td>
   </tr><tr>
     <td></td>
     <td></td>
