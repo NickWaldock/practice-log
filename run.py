@@ -282,7 +282,7 @@ def log_exercises():
     long_sleep()
 
 
-def log_wins():
+def log_difficulties():
     """
     Asks the user to detail particular problems experienced in the
     practice session, then asks for details on what positive
@@ -306,6 +306,8 @@ def log_wins():
         print("\nGreat! Moving on up...")
     sleep()
 
+
+def log_wins():
     # Ask for info on wins in the practice session
     clear_screen()
     tprint("Wins")
@@ -1341,6 +1343,7 @@ def start():
         log_duration()
         log_score()
         log_exercises()
+        log_difficulties()
         log_wins()
     elif start_choice == "2":
         get_insights()
@@ -1362,4 +1365,4 @@ def start():
 
 
 # start()
-log_exercises()
+log_wins()
