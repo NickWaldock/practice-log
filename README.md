@@ -232,5 +232,8 @@ https://kodify.net/python/math/round-integers/
 Random
 https://pynative.com/python-random-choice/
 
+Conditionals
+https://www.openbookproject.net/books/bpp4awd/ch04.html
+
 BUGS
 Data not pushing to spreadsheet - due to attemping to send dictionary objects across. Topics dicts function removed and replaced with a log_exercises function
