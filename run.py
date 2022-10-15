@@ -193,16 +193,36 @@ def log_duration():
     sleep()
 
 
+def check_num():
+    """
+    Validate for a number for the log_score function
+    """
+    global prod_score
+    while True:
+        clear_screen()
+        tprint("Score")
+        prod_score = input("\nOn a scale of 0 - 10, how productive do you"
+                           " feel the session was?\n")
+        if prod_score.isnumeric():
+            prod_score = int(prod_score)
+            if prod_score > 10:
+                print("\nWhoa there! More than 10? Let's stay within the bounds ;)")
+                sleep()
+            else:
+                return prod_score
+                break
+        else:
+            print("\nWhoops, 0-10 needs a number...")
+            sleep()
+
+
 def log_score():
     """
     Ask user for self-assesed productivity score input,
     and validate for an integer
     """
-    clear_screen()
-    tprint("Score")
-    global prod_score
-    prod_score = int(input("\nOn a scale of 0 - 10, how productive do you"
-                           " feel the session was?\n"))
+    
+    check_num()
     if prod_score <= 3:
         print(f"\n{prod_score} is ok, you still practiced!\n"
               "It's the consistency that counts\n")
@@ -217,11 +237,13 @@ def log_score():
     elif prod_score <= 10:
         print(f"\n{prod_score} is awesome! You are smashing it!\n")
         sleep()
-    elif prod_score > 10:
-        print("Whoa there! More than 10? Let's stay within the bounds ;)")
+   
         sleep()
-    if prod_score != int():
-        print("Whoops, 0-10 needs a number...")
+        
+    
+
+        
+
 
 
 
