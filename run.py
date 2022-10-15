@@ -142,6 +142,7 @@ def log_date():
         session_today = input("\nWas your practice session today? (y/n)\n")
         if session_today.lower() == "y" or session_today.lower() == "yes":
             print(f"\nCoolio, Today's date is {today}. I'll log that...\n")
+            session_date = today
             loop = False
             sleep()
         elif session_today.lower() == "n" or session_today.lower() == "no":
@@ -153,24 +154,30 @@ def log_date():
 
 
 def request_date():
+    """
+    If user's date input is not today then this function will request a valid
+    date input from the user to be stored in the session_date variable.
+    Validation for correct input format
+    """
     while True:
         try:
             clear_screen()
             tprint("Date")
             # Validate for correct date input format (Code Ref.1)
             session_date = input("\nPlease input the date of your"
-                                    " practice session (DD/MM/YY):\n")
+                                 " practice session (DD/MM/YY):\n")
             valid = re.match(
                 r"^[0-3][0-9]['/'][0-1][0-9]['/'][2][2-3]$",
                 session_date)
             valid_date = bool(valid)
             if valid_date is False:
                 raise ValueError("Please enter a valid date in the"
-                                    " correct format (DD/MM/YY):")
+                                 " correct format (DD/MM/YY):")
             else:
                 break
         except ValueError as e:
             print(f"\nInvalid Date Format: {e}")
+            sleep()
     if valid_date is True:
         print("\nNice, I'll log that you practiced on "
                 f"{session_date}\n")
@@ -373,7 +380,7 @@ def collate_data():
     global data
     print("Pickin' up the pieces...")
     data = [
-        str(today),
+        str(session_date),
         str(session_duration),
         str(prod_score),
         user_exercises,
@@ -1339,5 +1346,4 @@ def start():
 
 
 # start()
-get_date()
-log_date()
+request_date()
