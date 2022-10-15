@@ -284,33 +284,47 @@ def log_exercises():
 
 def log_difficulties():
     """
-    Asks the user to detail particular problems experienced in the
-    practice session, then asks for details on what positive
-    outcomes they achieved.
+    Asks the user if they have any difficulties to log here,
+    Validate for y/n input,
+    If no, move on. If yes, request detail of particular problems experienced
+    in the practice session.
     """
     clear_screen()
     tprint("Difficulties")
     global user_diffs
-    global user_wins
     # Ask for info on difficulties in the practice session
     user_diffs_yn = input("\nDid you experience any particular difficulties"
                           " during this practice session? (y/n)\n")
-    if user_diffs_yn.lower() == "y":
+    short_sleep()
+    if user_diffs_yn.lower() == "y" or user_diffs_yn.lower() == "yes":
+        clear_screen()
+        tprint("Difficulties")
         user_diffs = input("\nPlease detail them here"
                            " (seperate them with ','):\n")
-        sleep()
+        short_sleep()
         print("\nThank you. Remember that experiencing difficulties in your"
               " practice session is a natural part of the learning process!\n")
-    elif user_diffs_yn.lower() == "n":
+        long_sleep()
+    elif user_diffs_yn.lower() == "n" or user_diffs_yn.lower() == "no":
         user_diffs = "None"
         print("\nGreat! Moving on up...")
-    sleep()
+        sleep()
+    else:
+        print('\nPlease input "y" or "n" :)')
+        sleep()
+        log_difficulties()
 
 
 def log_wins():
+    """
+    Asks the user if they have any wins to log here. Validate for y/n input,
+    If no, move on. If yes, request detail of particular problems experienced
+    in the practice session.
+    """
     # Ask for info on wins in the practice session
     clear_screen()
     tprint("Wins")
+    global user_wins
     user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
     if user_wins_yn.lower() == "y":
         user_wins = input('Amazing! What were they? '
@@ -1365,4 +1379,5 @@ def start():
 
 
 # start()
+log_difficulties()
 log_wins()

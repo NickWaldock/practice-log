@@ -68,9 +68,9 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Input acts as intended</td>
     <td>Pass </td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Difficulties Input</td>
+    <td>"fgh", "45", "", "YES", "No"</td>
+    <td>Requires "y/n" input. Will accept any capitalisation of: "y", "n", "yes", "no". Other inputs display an error and repeat reques</td>
     <td></td>
     <td></td>
   </tr><tr>
