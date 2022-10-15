@@ -70,15 +70,15 @@ Below is reasonable test I could imagine to check every validation and all resul
   </tr><tr>
     <td>Option 1 - Difficulties Input</td>
     <td>"fgh", "45", "", "YES", "No"</td>
-    <td>Requires "y/n" input. Will accept any capitalisation of: "y", "n", "yes", "no". Other inputs display an error and repeat reques</td>
-    <td></td>
-    <td></td>
+    <td>Requires "y/n" input. Will accept any capitalisation of: "y", "n", "yes", "no". Other inputs display an error and repeat request</td>
+    <td>Input validation acts as intended</td>
+    <td>Pass</td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Difficulties Details Input</td>
+    <td>"String 1234" "Strings, 1234, more strings"</td>
+    <td>Input takes any sort of string input from the user, displays it back to the user and continues</td>
+    <td>Input acts as intended</td>
+    <td>Pass</td>
   </tr><tr>
     <td></td>
     <td></td>

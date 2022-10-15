@@ -1379,5 +1379,4 @@ def start():
 
 
 # start()
-log_difficulties()
 log_wins()
