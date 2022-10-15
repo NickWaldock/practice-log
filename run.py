@@ -326,19 +326,24 @@ def log_wins():
     tprint("Wins")
     global user_wins
     user_wins_yn = input("\nAny successes to brag about? (y/n)\n")
-    if user_wins_yn.lower() == "y":
+    if user_wins_yn.lower() == "y" or user_wins_yn.lower() == "yes":
+        clear_screen()
+        tprint("Wins")
         user_wins = input('Amazing! What were they? '
                           '(seperate your wins with ",")\n')
         sleep()
         print("\nYou are the champion my friend! "
               "You are making great progress!")
-    elif user_wins_yn.lower() == "n":
+    elif user_wins_yn.lower() == "n" or user_wins_yn.lower() == "no":
         print("\nThat's ok, you practiced! Don't give up")
         user_wins = "None"
+    else:
+        print('\nPlease input "y" or "n" :)')
+        sleep()
+        log_wins()
 
-    sleep()
-    
 
+def save_log():
     # Commit log to spreadsheet
     push = ""
     # Check for a valid input
@@ -368,7 +373,7 @@ def log_wins():
                 long_sleep()
                 start()
     menu()
-    
+
 
 def menu():
     # Check if user wishes to quit or return to the main menu
@@ -1366,6 +1371,7 @@ def start():
         log_difficulties()
         log_wins()
         complete_log()
+        save_log()
     elif start_choice == "2":
         get_insights()
     elif start_choice == "3":
