@@ -76,7 +76,7 @@ Below is reasonable test I could imagine to check every validation and all resul
   </tr><tr>
     <td>Option 1 - Difficulties Details Input</td>
     <td>"String 1234" "Strings, 1234, more strings"</td>
-    <td>Input takes any sort of string input from the user, displays it back to the user and continues</td>
+    <td>Input takes any sort of string input from the user, displays confirmation message and continues</td>
     <td>Input acts as intended</td>
     <td>Pass</td>
   </tr><tr>
@@ -86,17 +86,17 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Input validation acts as intended</td>
     <td>Pass</td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Wins Details Input</td>
+    <td>"String 1234" "Strings, 1234, more strings"</td>
+    <td>Input takes any sort of string input from the user, displays confirmation message and continues</td>
+    <td>Input acts as intended</td>
+    <td>Pass</td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Complete Log Function</td>
+    <td>n/a</td>
+    <td>Function returns all user inputted variable data, and triggers save_log function</td>
+    <td>Function acts as intended</td>
+    <td>Pass</td>
   </tr><tr>
     <td></td>
     <td></td>

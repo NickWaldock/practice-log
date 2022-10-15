@@ -343,76 +343,91 @@ def log_wins():
         log_wins()
 
 
-def save_log():
-    # Commit log to spreadsheet
-    push = ""
-    # Check for a valid input
-    while push != 'y' or push != 'n':
-        push = input("\nWould you like to save this log? (y/n)\n")
-        if push.lower() == "y":
-            collate_data()
-            sleep()
-            print("\nSave me, save me, SAAAAVE ME...")
-            push_log_data(data)
-            sleep()
-            print("\nReady Freddie, Let's go back...")
-            sleep()
-            start()
-        elif push.lower() == "n":
-            print("\nAre you sure?? You've come all this way!")
-            confirm = input('\n"y" = Quit and lose all changes.'
-                            ' "n" = Save and return to Main Menu.\n')
-            if confirm.lower() == "y":
-                quit_program()
-            elif confirm.lower() == "n":
-                collate_data()
-                print("\nCaught in a trap... but you got out! Saving log...")
-                sleep()
-                push_log_data(data)
-                print("\nDone. Let's go back to...")
-                long_sleep()
-                start()
-    menu()
 
-
-def menu():
-    # Check if user wishes to quit or return to the main menu
-    menu_choice = input('\nType "menu" or "quit" to return to the main menu'
-                        ' or exit the program.\n')
-    if menu_choice.lower() == "menu" or "m":
-        print("\nKeep the motor running... Head out on the highway...")
-        sleep()
-        print("Looking for adventure, and the Menu that's coming your way!...")
-        sleep()
-        start()
-    elif menu_choice.lower == "quit" or "exit" or "q" or "e":
-        choice = input("\nHold on... Are you sure? (y/n)\n")
-        if choice.lower() == "y":
-            quit_program()
-        elif choice.lower() == "n":
-            return_to_main()
-        else:
-            print("\nSorry I didn't understand that..."
-                  "Let's just go back...\n")
-            sleep()
-            start()
+# def menu():
+#     # Check if user wishes to quit or return to the main menu
+#     menu_choice = input('\nType "menu" or "quit" to return to the main menu'
+#                         ' or exit the program.\n')
+#     if menu_choice.lower() == "menu" or "m":
+#         print("\nKeep the motor running... Head out on the highway...")
+#         sleep()
+#         print("Looking for adventure, and the Menu that's coming your way!...")
+#         sleep()
+#         start()
+#     elif menu_choice.lower == "quit" or "exit" or "q" or "e":
+#         choice = input("\nHold on... Are you sure? (y/n)\n")
+#         if choice.lower() == "y":
+#             quit_program()
+#         elif choice.lower() == "n":
+#             return_to_main()
+#         else:
+#             print("\nSorry I didn't understand that..."
+#                   "Let's just go back...\n")
+#             sleep()
+#             start()
 
 
 def complete_log():
     clear_screen()
-    print("\nOk, so let me reflect your log back to you:\n")
+    tprint("Your  Log")
+    short_sleep()
+    print("\nGroovy! So let me reflect your log back to you:\n")
+    long_sleep()
+    clear_screen()
+    tprint("Your  Log")
+    print(f"\nYou practiced on {session_date}...\n")
     sleep()
-    print("\nDifficulties:")
+    print(f"\nFor {session_duration} mins...\n")
+    sleep()
+    print(f"\nYou scored your productivity {prod_score} out of 10...\n")
+    sleep()
+    print("\nYou worked on the following exercises:")
+    print(f"\n{user_exercises}\n")
+    sleep()
+    print("\nYou expressed the following difficulties in your session:")
     print(f"\n{user_diffs}\n")
     sleep()
-    print("\nWins:")
+    print("\nYou expressed the following WINS:")
     print(f"\n{user_wins}\n")
     sleep()
-    input('Press "Enter" to complete your log')
-    clear_screen()
-    tprint("Log Complete!")
     print("\nYou completed another log, you are SMASHING IT!\n")
-    long_sleep()
+    sleep()
+    input('\nPress "Enter" to contine on down the road...')
+    save_log()
+
+
+def save_log():
+    """"""
+    push = ""
+    while push != 'y' or push != 'n':
+        clear_screen()
+        tprint("Log   Complete!")
+        push = input("\nWould you like to save me, save me, SAAAAVE ME...? (y/n)\n")
+        if push.lower() == "y" or push.lower() == "yes":
+            collate_data()
+            push_log_data(data)
+            sleep()
+            input('\nReady Freddie? Lets go back to the Main Menu... ("Hit Enter")\n')
+            return_to_main()
+        elif push.lower() == "n":
+            print("\nAre you sure?? You've come all this way!")
+            confirm = input('\n"y" = Quit and lose all changes.'
+                            ' "n" = Save and return to Main Menu.\n')
+            if confirm.lower() == "y" or confirm.lower() == "yes":
+                quit_program()
+            elif confirm.lower() == "n" or confirm.lower() == "no":
+                print("\nCaught in a trap... but you got out! Saving log...")
+                sleep()
+                collate_data()
+                push_log_data(data)
+                print("\nDone!")
+                long_sleep()
+                input('Hit "Enter" to return...')
+                return_to_main()
+        else:
+            print('\nCan I get a "y" or "n"...?')
+            sleep()
+            save_log()
 
 
 def collate_data():
@@ -1390,6 +1405,5 @@ def start():
         start()
 
 
-
 # start()
-log_wins()
+save_log()
