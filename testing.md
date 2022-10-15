@@ -49,67 +49,67 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Request date input from user, if incorrect format, display error mesage and repeat request</td>
     <td>Input error handled as expected, correct format continues code</td>
     <td>Pass</td>
-    <tr><tr>
+  <tr><tr>
+    <td>Optino 1 - Duration Input</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
+  </tr><tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
+  </tr>
 </table>
 
 [<< Back to ReadMe](README.md)

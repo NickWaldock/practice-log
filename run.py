@@ -161,6 +161,7 @@ def request_date():
     """
     while True:
         try:
+            global session_date
             clear_screen()
             tprint("Date")
             # Validate for correct date input format (Code Ref.1)
@@ -180,7 +181,7 @@ def request_date():
             sleep()
     if valid_date is True:
         print("\nNice, I'll log that you practiced on "
-                f"{session_date}\n")
+             f"{session_date}\n")
 
 
 def log_duration():
@@ -189,15 +190,26 @@ def log_duration():
     """
     global session_duration
     session_duration = 0
-    clear_screen()
-    tprint("Duration")
     while True:
         try:
-            session_duration = int(input("How long was your practice session"
+            clear_screen()
+            tprint("Duration")
+            print("\nAssuming your practice session wasn't more than"
+                  " 4 hours (240mins)...\n")
+            session_duration = int(input("\nHow long was your practice session"
                                          " in minutes?\n"))
+            if session_duration > 240:
+                print("\nDid you really did practice more than 4 hours...?\n"
+                      "\nIf so, please log them as seperate sessions")
+                long_sleep()
+                input('Hit "Enter" to continue... '
+                      'and log part of this session.\n')
+                log_duration()
+
         except ValueError:
-            print("\n6, 3, 4, 5, 7, 8, 9... That's my number....."
-                  "Please enter yours\n")
+            print("\n6, 3, 4, 5, 7, 8, 9... That's my number.....\n"
+                  "Please enter yours...\n")
+            sleep()
         else:
             print(f"\nWell done! You practiced for {session_duration} mins!")
             break
@@ -1346,4 +1358,4 @@ def start():
 
 
 # start()
-request_date()
+log_duration()
