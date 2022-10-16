@@ -119,90 +119,90 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Pass</td>
   </tr>
     <tr>
-    <td>Option 2 - Get Insights Menu</td>
+    <td>Option 2 - Get Insights Function</td>
     <td>"8", "jhjtd", "0", "Enter"</td>
-    <td></td>
+    <td>Function displays the menu for the Get Insights section. Requests menu input choice via a number, validates for correct options and proceeds with relevant code if correct. If incorrect, message is displayed and the menu loads again.</td>
+    <td>Function works as intended.</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Option 2 - View Last Log Function</td>
+    <td>n/a</td>
+    <td>Function pulls most recent log entry from the spreadsheet and worksheet "log-practice" -> "log", and prints each string object in the list individually, finally allowing the user to return to the menu on "Enter"</td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
-    <tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td></td>
     <td></td>
     <td></td>
