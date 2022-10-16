@@ -267,9 +267,9 @@ Below is reasonable test I could imagine to check every validation and function 
   </tr>
 <tr>
     <td>Option 4 - View Random Selection Generator</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>"sadf","231", ""</td>
+    <td>Retrieves and processes data from relevant worksheets. Request user input to either generate or return to menu, invalid input prompts additional attempt. Generating allows indefinite runs of the generator and options to return to menu, invalid input automatically returns to the beginning of the generator.</td>
+    <td>Function retrieves and processes data successfully, both error handling validations work as intended</td>
     <td>Pass</td>
   </tr>
   <tr>
