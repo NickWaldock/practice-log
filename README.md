@@ -76,7 +76,7 @@
 ## Future Developments
 This project has a great deal of developmental potential in features that could eventually add increased functionality and a deeper user experiece. 
 The following are a few examples:
--  Get logs with certain scores
+- Get logs with certain scores
 <br />
 <br />
 
@@ -234,6 +234,9 @@ https://pynative.com/python-random-choice/
 
 Conditionals
 https://www.openbookproject.net/books/bpp4awd/ch04.html
+
+Strip
+https://www.w3schools.com/python/ref_string_strip.asp
 
 BUGS
 Data not pushing to spreadsheet - due to attemping to send dictionary objects across. Topics dicts function removed and replaced with a log_exercises function

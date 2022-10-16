@@ -161,7 +161,7 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
+    <td>Option 3 - Submit Practice Ideas</td>
     <td></td>
     <td></td>
     <td></td>

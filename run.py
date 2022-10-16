@@ -717,8 +717,14 @@ def view_difficulties():
     new_diffs_list = [i for i in all_diffs if none not in i]
     print("\nHere is a list of difficulties you have logged:\n")
     for i in new_diffs_list:
-        print(i)
-        short_sleep()
+        if "," in i:
+            i = i.split(",")
+            for j in i:
+                print(j.strip())
+                short_sleep()
+        else:
+            print(i)
+            short_sleep()
     input('\nHit "Enter" to continue...\n')
     get_insights()
 
