@@ -636,14 +636,21 @@ def average_time():
     """
     clear_screen()
     print("\nHold on, won't be long...")
-    all_values = log.col_values(2)
-    all_nums = all_values[1:]
-    all_ints = [int(i) for i in all_nums]
-    total_minutes = sum(all_ints)
     long_sleep()
     clear_screen()
     tprint("Average Time")
     sleep()
+    print("Here I can calculate your average time spent per practice session\n"
+          "from looking at the total time spent in each individual session\n"
+          "in your logs\n")
+    sleep()
+    input('Ready Freddie? (Press "Enter")\n')
+    clear_screen()
+    tprint("Average Time")
+    all_values = log.col_values(2)
+    all_nums = all_values[1:]
+    all_ints = [int(i) for i in all_nums]
+    total_minutes = sum(all_ints)
     print(f"\nYou have clocked a total of {total_minutes}"
           " minutes practicing...")
     num_sessions = len(all_ints)
@@ -657,7 +664,7 @@ def average_time():
     sleep()
     print("\nThat's not too shabby ;)")
     sleep()
-    input('\nHit "Enter" to continue:')
+    input('\nHit "Enter" to continue:\n')
     get_insights()
 
 
@@ -1449,4 +1456,4 @@ def start():
 
 
 # start()
-view_3_logs()
+average_time()
