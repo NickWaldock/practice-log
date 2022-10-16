@@ -833,9 +833,10 @@ def submit_ideas_menu():
 
 def submit_tech():
     """
-    To submit a technical exercise to the spreadsheet,
-    Print back to the user and ask if they wish to save it to the
-    Spreadsheet or return to the menu. Validate against incorrect inputs
+    Prepares to submit technical exercises to the spreadsheet,
+    print back to the user and ask if they wish to save it to the
+    spreadsheet or try again. Add today's date to the data.
+    Validate agains incorrect inputs
     """
     sleep()
     clear_screen()
@@ -868,9 +869,10 @@ def submit_tech():
 
 def submit_musicianship():
     """
-    To submit musicianship exercises to the spreadsheet,
+    Prepares to submit musicianship exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
-    spreadsheet or return to the menu. Validate agains incorrect inputs
+    spreadsheet or try again. Add today's date to the data.
+    Validate agains incorrect inputs
     """
     sleep()
     clear_screen()
@@ -903,9 +905,10 @@ def submit_musicianship():
 
 def submit_creative():
     """
-    To submit creativity exercises to the spreadsheet,
+    Prepares to submit creative exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
-    spreadsheet or return to the menu. Validate agains incorrect inputs
+    spreadsheet or try again. Add today's date to the data.
+    Validate agains incorrect inputs
     """
     sleep()
     clear_screen()
@@ -937,9 +940,10 @@ def submit_creative():
 
 def submit_repertoire():
     """
-    To submit repertoire exercises to the spreadsheet,
+    Prepares to submit repertoire exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
-    spreadsheet or try again. Validate agains incorrect inputs
+    spreadsheet or try again. Add today's date to the data.
+    Validate agains incorrect inputs
     """
     sleep()
     clear_screen()
@@ -1421,5 +1425,4 @@ def start():
         start()
 
 
-# start()
-submit_repertoire()
+start()

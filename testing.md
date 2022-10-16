@@ -6,7 +6,7 @@ User should input a number between 0 and 10. If the user does this the code cont
 
 # Manual Application Testing
 
-Below is reasonable test I could imagine to check every validation and all results came back as expected.
+Below is reasonable test I could imagine to check every validation and function and all results came back as expected.
 
 <table>
   <tr>
@@ -177,37 +177,37 @@ Below is reasonable test I could imagine to check every validation and all resul
   <tr>
     <td>Option 3 - Submit Technical Exercises</td>
     <td>"0", "542", "gfds", "Enter"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet along with today's date, if no returns to the menu</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, triggers relevant save if no returns to the menu</td>
     <td>Function acts and validates reponses as expected</td>
     <td>Pass</td>
   </tr>
   <tr>
     <td>Option 3 - Submit Musicicanship Exercises</td>
     <td>"YES", "245g", "Enter", "No"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-musicianship-exercises" worksheet along with today's date, if no returns to the menu</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, triggers relevant save if no returns to the menu</td>
     <td>Functions works as intended</td>
     <td>Pass</td>
   </tr>
   <tr>
    <td>Option 3 - Submit Creative Exercises</td>
     <td>"0", "532", "gfhds", "Enter"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-creative-exercises" worksheet along with today's date, if no returns to the menu</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, triggers relevant save if no returns to the menu</td>
     <td>Function acts and validates reponses as expected</td>
     <td>Pass</td>
   </tr>
   <tr>
     <td>Option 3 - Submit Repertoire Exercises</td>
     <td>"0", "342", "asdsf", "Enter", "YeS"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-repertoire-exercises" worksheet along with today's date, if no returns to the menu</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, triggers relevant save if no returns to the menu</td>
     <td>Function acts and validates reponses as expected</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 3 - Send Technical Exercises Data</td>
+    <td>n/a</td>
+    <td>Function takes previously expressed user input and saves to the relevant worksheet in the "practice_log" spreadsheet along with today's date</td>
+    <td>Function works as expected</td>
+    <td>Pass</td>
   </tr>
   <tr>
     <td></td>
