@@ -953,6 +953,7 @@ def submit_repertoire():
     sleep()
     while True:
         clear_screen()
+        tprint("Repertoire     Exercises")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{repertoire_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
@@ -961,7 +962,8 @@ def submit_repertoire():
             clear_screen()
             send_repertoire_exe(repertoire_data)
         elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
-            print("Ok. Returning to menu...")
+            print("Cool and the gang. Returning to menu...")
+            sleep()
             submit_ideas()
         else:
             print("\nOops you did it again....Please try again...")

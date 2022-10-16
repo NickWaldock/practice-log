@@ -188,11 +188,20 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Functions works as intended</td>
     <td>Pass</td>
   </tr>
-  <td>Option 3 - Submit Creative Exercises</td>
+  <tr>
+   <td>Option 3 - Submit Creative Exercises</td>
     <td>"0", "532", "gfhds", "Enter"</td>
     <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-creative-exercises" worksheet along with today's date, if no returns to the menu</td>
     <td>Function acts and validates reponses as expected</td>
     <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Option 3 - Submit Repertoire Exercises</td>
+    <td>"0", "342", "asdsf", "Enter", "YeS"</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-repertoire-exercises" worksheet along with today's date, if no returns to the menu</td>
+    <td>Function acts and validates reponses as expected</td>
+    <td>Pass</td>
+  </tr>
   <tr>
     <td></td>
     <td></td>
