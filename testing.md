@@ -177,18 +177,22 @@ Below is reasonable test I could imagine to check every validation and all resul
   <tr>
     <td>Option 3 - Submit Technical Exercises</td>
     <td>"0", "542", "gfds", "Enter"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet, if no returns to the menu</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet along with today's date, if no returns to the menu</td>
     <td>Function acts and validates reponses as expected</td>
     <td>Pass</td>
   </tr>
   <tr>
     <td>Option 3 - Submit Musicicanship Exercises</td>
     <td>"YES", "245g", "Enter", "No"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-musicianship-exercises" worksheet, if no returns to the menu</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-musicianship-exercises" worksheet along with today's date, if no returns to the menu</td>
     <td>Functions works as intended</td>
     <td>Pass</td>
   </tr>
-  Changing click to different subdivisions sequentially
+  <td>Option 3 - Submit Creative Exercises</td>
+    <td>"0", "532", "gfhds", "Enter"</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-creative-exercises" worksheet along with today's date, if no returns to the menu</td>
+    <td>Function acts and validates reponses as expected</td>
+    <td>Pass</td>
   <tr>
     <td></td>
     <td></td>
