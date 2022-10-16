@@ -90,8 +90,8 @@ def main_title():
     """
     Prints the program's main title using print art
     """
-    tprint("                     Nick's")
-    tprint("                   Practice")
+    tprint("                    Nick's")
+    tprint("            Practice")
     tprint("                     Log")
 
 
@@ -494,7 +494,8 @@ def get_insights():
         elif user_choice == "6":
             return_to_main()
         else:
-            print("\nGimme, Gimme, Gimme a number between 1 and 6: Try again...")
+            print("\nGimme, Gimme, Gimme a number between 1 and 6:"
+                  " Try again...")
             long_sleep()
 
 

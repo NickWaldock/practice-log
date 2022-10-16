@@ -1,12 +1,8 @@
-
-Input for Productivity Score
-User should input a number between 0 and 10. If the user does this the code continues. If not the user if in a loop until a correct parameter is inputted. If the user inputs a number above 10 the loop is also restarted.
-
 [<< Back to main ReadMe](README.md)
 
 # Manual Application Testing
 
-Below is reasonable test I could imagine to check every validation and function and all results came back as expected.
+Below are reasonable tests to check every validation and function. All results came back as expected.
 
 <table>
   <tr>
@@ -277,6 +273,13 @@ Below is reasonable test I could imagine to check every validation and function 
     <td>"asd", "321", "YEs", "nO"</td>
     <td>Gives the user the option to quit the program. Yes displays quit message and exits, no returns to the main menu. Invalid input repeats the attempt.</td>
     <td>Function acts as intended</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Start Function</td>
+    <td>n/a</td>
+    <td>Function loads initial titles and general information, trigges the main menu when complete. User triggers load of next function</td>
+    <td>Function works as intended</td>
     <td>Pass</td>
   </tr>
   <tr>
