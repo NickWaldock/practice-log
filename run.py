@@ -82,7 +82,7 @@ def return_to_main():
     """
     clear_screen()
     tprint("Returning...")
-    print("\n\nTakin' it to the bridge...... (Main Menu)")
+    print("\n\nTakin' it to the bridge...")
     long_sleep()
     start_menu()
 
@@ -91,9 +91,9 @@ def main_title():
     """
     Prints the program's main title using print art
     """
-    tprint("                    Nick's")
-    tprint("            Practice")
-    tprint("                     Log")
+    tprint("                      Nick's")
+    tprint("              Practice")
+    tprint("                         Log")
 
 
 # 1. Log Practice Functions
@@ -183,6 +183,7 @@ def request_date():
     if valid_date is True:
         print("\nNice, I'll log that you practiced on "
               f"{session_date}\n")
+        long_sleep()
 
 
 def log_duration():
@@ -292,7 +293,7 @@ def log_difficulties():
     global user_diffs
     # Ask for info on difficulties in the practice session
     user_diffs_yn = input("\nDid you experience any particular difficulties"
-                          " during this practice session?\n (y/n)\n")
+                          " during this practice session?\n(y/n)\n")
     short_sleep()
     if user_diffs_yn.lower() == "y" or user_diffs_yn.lower() == "yes":
         clear_screen()
@@ -441,7 +442,6 @@ def collate_data():
         user_exercises,
         user_diffs,
         user_wins]
-    print()
     sleep()
     print("\nPieces succesfully picked up :)")
 
@@ -473,7 +473,7 @@ def get_insights():
         print(
             """
             * Insights Menu *
-            - - - - - - -
+              - - - - - - -
 
             1. View Last Recorded Log
             2. View Last 3 Logs
@@ -570,7 +570,7 @@ def view_3_logs():
 
     # Printing second most recent entry
     clear_screen()
-    tprint("\n\nLog   2")
+    tprint("Log   2")
     sleep()
     print("* Second Most Recent Log *")
     sleep()
@@ -591,7 +591,7 @@ def view_3_logs():
 
     # Printing third most recent entry
     clear_screen()
-    tprint("\n\nLog   3")
+    tprint("Log   3")
     sleep()
     print("* Third Most Recent Log *")
     sleep()
@@ -621,6 +621,7 @@ def average_time():
     Calculate average and print to the user
     """
     clear_screen()
+    tprint("Average Time")
     print("\nHold on, won't be long...")
     long_sleep()
     clear_screen()
@@ -661,7 +662,8 @@ def view_exercises():
     Print to the user
     """
     clear_screen()
-    print("\nYou have chosen to view your logged exercises")
+    tprint("Exercises")
+    print("\nLet's look at your logged exercises")
     sleep()
     print("\nHold on, won't be long...")
     long_sleep()
@@ -694,7 +696,8 @@ def view_difficulties():
     Removes any "None" values. Prints to the user
     """
     clear_screen()
-    print("\nYou have chosen to view your logged difficulties")
+    tprint("Difficulties")
+    print("\nLet's look at your logged difficulties")
     sleep()
     print("\n\nHold on, won't be long...\n")
     long_sleep()
@@ -733,11 +736,9 @@ def submit_ideas():
     long_sleep()
     print("\nAlrighty then! Let me show you how to submit some practice ideas")
     long_sleep()
-    print("""
-        \nHere I will ask you a series of questions to help me organise your
-        ideas into one of 4 categories...
-        """)
-    long_sleep()
+    print("\nHere I will ask you a series of questions to help me organise\n"
+          "your ideas into one of 4 categories...")
+    input('Hit "Enter" to continue...')
     clear_screen()
     tprint("Topics")
     print("""
@@ -795,21 +796,25 @@ def submit_ideas_menu():
     while True:
         if user_choice == "1":
             clear_screen()
+            tprint("Technique")
             print("Technical, ok great!\n\nGood technique facilitates"
                   " everything we do!")
             submit_tech()
         elif user_choice == "2":
             clear_screen()
+            tprint("Musicianship")
             print("Musicianship, FAB!\n\n Good musicianship"
                   " skills are essential!")
             submit_musicianship()
         elif user_choice == "3":
             clear_screen()
+            tprint("Creative")
             print("Creative! Right on!\n\n Developing these skills help to "
                   "do what we are here to do...\nMAKE MUSIC :) ")
             submit_creative()
         elif user_choice == "4":
             clear_screen()
+            tprint("Repertoire")
             print("Repertoire, ROCK ON!\n\nGet ready for the gigs!")
             submit_repertoire()
         elif user_choice == "5":
@@ -843,7 +848,7 @@ def submit_tech():
         tprint("Technique")
         print("Just to confirm, Here's what you wrote:\n")
         print(f'\n"{tech_idea}"\n')
-        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+        user_confirm = input('\nShall I save that for you?\n(Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             clear_screen()
@@ -851,7 +856,7 @@ def submit_tech():
         elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
             print("\nCool and the gang. Returning to menu...")
             sleep()
-            submit_ideas()
+            submit_ideas_menu()
         else:
             print("\nOops you did it again....Please try again...")
             sleep()
@@ -879,7 +884,7 @@ def submit_musicianship():
         tprint("Musicianship")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{musicianship_idea}"\n')
-        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+        user_confirm = input('\nShall I save that for you?\n(Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             clear_screen()
@@ -887,7 +892,7 @@ def submit_musicianship():
         elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
             print("Coolio. Returning to menu...")
             sleep()
-            submit_ideas()
+            submit_ideas_menu()
         else:
             print("\nOops you did it again....Please try again...")
             sleep()
@@ -915,14 +920,14 @@ def submit_creative():
         tprint("Creative")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{creative_idea}"\n')
-        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+        user_confirm = input('\nShall I save that for you?\n(Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             clear_screen()
             send_creative_exe(creative_data)
         elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
             print("Coolio. Returning to menu...")
-            submit_ideas()
+            submit_ideas_menu()
         else:
             print("\nOops you did it again....Please try again...")
             sleep()
@@ -950,7 +955,7 @@ def submit_repertoire():
         tprint("Repertoire")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{repertoire_idea}"\n')
-        user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
+        user_confirm = input('\nShall I save that for you?\n(Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             clear_screen()
@@ -958,7 +963,7 @@ def submit_repertoire():
         elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
             print("Cool and the gang. Returning to menu...")
             sleep()
-            submit_ideas()
+            submit_ideas_menu()
         else:
             print("\nOops you did it again....Please try again...")
             sleep()
