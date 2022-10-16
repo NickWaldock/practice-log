@@ -231,11 +231,11 @@ Below is reasonable test I could imagine to check every validation and function 
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 4 - Get Practice</td>
+    <td>"123fr", "0", "Enter"</td>
+    <td>Display menu information. Request input from the user to select with menu item. Valid selections trigger relevant function.Invalid input displays message and prompts for another input attempt.</td>
+    <td>Function acts as intended</td>
+    <td>Pass</td>
   </tr>
   <tr>
     <td></td>

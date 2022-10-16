@@ -796,11 +796,13 @@ def submit_ideas_menu():
     clear_screen()
     tprint("Topics")
     print("""
-    1. Technical
-    2. Musicianship
-    3. Creative
-    4. Repertoire
-    5. Return to Menu
+                * Menu *
+                  ----\n
+            1. Technical
+            2. Musicianship
+            3. Creative
+            4. Repertoire
+            5. Return to Menu
     """)
     user_choice = input("\nWhich category do you want to log your"
                         " practice idea under?:\n")
@@ -1029,57 +1031,61 @@ def get_practice():
     Ask user which practice topics they would like to view the logged
     exercises for, error-proof input, and display the requested data
     """
-    clear_screen()
-    tprint("View Exercices")
-    sleep()
-    print("\nYou have chosen to view your previously logged practice ideas")
-    sleep()
-    print("""\n
-                * Menu *
-                  ----\n
-          1. View Technical Exercises
-          2. View Musicianship Exercises
-          3. View Creative Exercises
-          4. View Repertoire Exercises
-          5. View a Random Selection From All Categories
-          6. Return to the Main Menu
-    """)
-    menu_loop = False
-    while menu_loop is False:
-        user_choice = input("\nPlease choose an option with a number (1-5):\n")
+    while True:
+        clear_screen()
+        tprint("View Exercices")
+        print("Here I can show you your previously logged practice ideas")
+        print("\nBo Selecta! from the following:")
+        print("""\n
+                      * Menu *
+                        ----\n
+            1. View Technical Exercises
+            2. View Musicianship Exercises
+            3. View Creative Exercises
+            4. View Repertoire Exercises
+            5. View a Random Selection From All Categories
+            6. Return to the Main Menu
+        """)
+        user_choice = input("\nPlease choose an option with a number (1-6):\n")
         if user_choice == "1":
-            menu_loop = True
+            clear_screen()
+            tprint("View Exercices")
             print("\nI ammmmmm, the [option] 1 and only...")
+            long_sleep()
+            print("\nAlrighty then, hold on whilst I collect your technical "
+                  "exercise ideas...\n")
             long_sleep()
             view_technical_exercises()
         elif user_choice == "2":
-            menu_loop = True
+            clear_screen()
+            tprint("View Exercices")
             print("\nJust the [option] 2 of us...")
             long_sleep()
             view_musicianship_exercises()
         elif user_choice == "3":
-            menu_loop = True
+            clear_screen()
+            tprint("View Exercices")
             print('\n3 is the magic number')
             long_sleep()
             view_creativity_exercises()
         elif user_choice == "4":
-            menu_loop = True
+            clear_screen()
+            tprint("View Exercices")
             print("\nFaith no more, here's option 4...")
             long_sleep()
             view_repertoire_exercises()
         elif user_choice == "5":
-            menu_loop = True
+            clear_screen()
+            tprint("View Exercices")
             print("\n[Option] 5 will make you get down now... \n")
             sleep()
-            print("\nSorry......... That was the worst pun in this program")
+            print("\nSorry......... That was the worst reference in this program")
             random_practice()
         elif user_choice == "6":
-            menu_loop = True
             return_to_main()
         else:
             print("\nWhoops, you did it again... have another go\n")
-            long_sleep()
-            get_practice()
+            sleep()
 
 
 # 4. View Practice - 1. View Technical Exercises
@@ -1089,9 +1095,7 @@ def view_technical_exercises():
     and prints to user. Validates a request to return to the menu
     """
     clear_screen()
-    print("Alrighty then, hold on whilst I collect your technical "
-          "exercise ideas...\n")
-    sleep()
+    tprint("Technical     Exercises")
     technical_exercises = technique_sheet.col_values(2)
     for exercise in technical_exercises:
         print(exercise)
@@ -1129,6 +1133,7 @@ def view_musicianship_exercises():
     and prints to user. Validates a request to return to the menu
     """
     clear_screen()
+    tprint("Musicianship     Exercises")
     print("Alrighty then, hold on whilst I collect your Musicianship "
           "practice ideas...\n")
     sleep()
@@ -1169,6 +1174,7 @@ def view_creativity_exercises():
     and prints to user. Validates a request to return to the menu
     """
     clear_screen()
+    tprint("Creative     Exercises")
     print("Alrighty then, hold on whilst I collect your creative "
           "practice ideas...\n")
     sleep()
@@ -1209,6 +1215,7 @@ def view_repertoire_exercises():
     and prints to user. Validates a request to return to the menu.
     """
     clear_screen()
+    tprint("Repertoire     Exercises")
     print("Roger Roger, hold on whilst I collect your repertoire "
           "practice ideas...\n")
     sleep()
@@ -1425,4 +1432,5 @@ def start():
         start()
 
 
-start()
+# start()
+view_technical_exercises()
