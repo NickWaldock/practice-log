@@ -743,10 +743,10 @@ def submit_ideas():
     """
     clear_screen()
     tprint("Submit   Practice")
-    tprint("Ideas")
+    tprint("                          Ideas")
     long_sleep()
-    print("\nAlrighty then! You have chosen to submit some practice ideas")
-    sleep()
+    print("\nAlrighty then! Let me show you how to submit some practice ideas")
+    long_sleep()
     print("""
         \nHere I will ask you a series of questions to help me organise your
         ideas into one of 4 categories...
@@ -777,7 +777,7 @@ def submit_ideas():
         4. Repertoire   - Learning new or refining already-known repertoire
                           (Transciption, memorisation, repertoire reserach)
     """)
-    short_sleep()
+    long_sleep()
     print("""
         (Please only save one practice idea at a time)
 
@@ -1477,4 +1477,4 @@ def start():
 
 
 # start()
-view_exercises()
+submit_ideas()
