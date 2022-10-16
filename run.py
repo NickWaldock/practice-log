@@ -181,7 +181,7 @@ def request_date():
             sleep()
     if valid_date is True:
         print("\nNice, I'll log that you practiced on "
-             f"{session_date}\n")
+              f"{session_date}\n")
 
 
 def log_duration():
@@ -237,7 +237,6 @@ def check_num():
                 sleep()
             else:
                 return prod_score
-                break
         else:
             print("\nWhoops, 1-10 needs a whole number...")
             sleep()
@@ -277,8 +276,6 @@ def log_exercises():
                            ' session?\n(Seperate exercises with ",")\n')
     sleep()
     print("\nYou're simply the BEST!\n")
-    sleep()
-    print(f"\nI have made a note of the following:\n\n  {user_exercises}")
     long_sleep()
 
 
@@ -343,31 +340,11 @@ def log_wins():
         log_wins()
 
 
-
-# def menu():
-#     # Check if user wishes to quit or return to the main menu
-#     menu_choice = input('\nType "menu" or "quit" to return to the main menu'
-#                         ' or exit the program.\n')
-#     if menu_choice.lower() == "menu" or "m":
-#         print("\nKeep the motor running... Head out on the highway...")
-#         sleep()
-#         print("Looking for adventure, and the Menu that's coming your way!...")
-#         sleep()
-#         start()
-#     elif menu_choice.lower == "quit" or "exit" or "q" or "e":
-#         choice = input("\nHold on... Are you sure? (y/n)\n")
-#         if choice.lower() == "y":
-#             quit_program()
-#         elif choice.lower() == "n":
-#             return_to_main()
-#         else:
-#             print("\nSorry I didn't understand that..."
-#                   "Let's just go back...\n")
-#             sleep()
-#             start()
-
-
 def complete_log():
+    """
+    Prints the log data back to the user.
+    Triggers save_log on user input
+    """
     clear_screen()
     tprint("Your  Log")
     short_sleep()
@@ -379,7 +356,7 @@ def complete_log():
     sleep()
     print(f"\nFor {session_duration} mins...\n")
     sleep()
-    print(f"\nYou scored your productivity {prod_score} out of 10...\n")
+    print(f"\nYou scored your productivity as {prod_score} out of 10...\n")
     sleep()
     print("\nYou worked on the following exercises:")
     print(f"\n{user_exercises}\n")
@@ -390,7 +367,7 @@ def complete_log():
     print("\nYou expressed the following WINS:")
     print(f"\n{user_wins}\n")
     sleep()
-    print("\nYou completed another log, you are SMASHING IT!\n")
+    print("\nLOG COMPLETE! You are SMASHING IT!\n")
     sleep()
     input('\nPress "Enter" to contine on down the road...')
     save_log()
@@ -415,7 +392,8 @@ def save_log():
             collate_data()
             push_log_data(data)
             sleep()
-            input('\nReady Freddie? Lets go back to the Main Menu... ("Hit Enter")\n')
+            input('\nReady Freddie? Lets go back to the Main Menu...'
+                  ' ("Hit Enter")\n')
             return_to_main()
         elif push.lower() == "n" or push.lower() == "no":
             clear_screen()
@@ -814,12 +792,13 @@ def submit_ideas_menu():
             submit_tech()
         elif user_choice == "2":
             clear_screen()
-            print("Musicianship, FAB!\n\n Good musicianship skills are essential!")
+            print("Musicianship, FAB!\n\n Good musicianship"
+                  " skills are essential!")
             submit_musicianship()
         elif user_choice == "3":
             clear_screen()
-            print("Creative! Right on!\n\n Developing these skills help to do what"
-                  "we are here to do...\nMAKE MUSIC :) ")
+            print("Creative! Right on!\n\n Developing these skills help to "
+                  "do what we are here to do...\nMAKE MUSIC :) ")
             submit_creative()
         elif user_choice == "4":
             clear_screen()
@@ -828,7 +807,8 @@ def submit_ideas_menu():
         elif user_choice == "5":
             return_to_main()
         elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
-            print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
+            print("\nGimme, Gimme, Gimme a number between 1 and 5:"
+                  " Try again...")
             long_sleep()
             submit_ideas_menu()
 
@@ -1364,7 +1344,7 @@ def quit_program():
             sleep()
             print("\nYou should have pressed yes or no...")
             long_sleep()
-            
+
 
 def start():
     """
