@@ -1379,54 +1379,51 @@ def start():
     sleep()
     print("\nHi, my name is Nick and I'm a musician. For us musicians, "
           "our practice is essential.\n"
-          "So I've built this little program to help log and manage practice"
-          " session information,\n"
-          "and keep track of progress.")
+          "\nSo I've built this little program to help log and"
+          " manage basic practice session information.\n"
+          "\nI also enjoy silly pop music references, "
+          "see how many you can spot!")
     sleep()
-    print("\nAll data is kept on a spreadsheet and is pre-populated with"
-          " a few ideas.\n")
+    print("\nFYI, all data is kept on a spreadsheet and is pre-populated with"
+          " a few ideas for your convenience.\n")
     sleep()
-    print("Without further agadoo..... Let's get busy!\n")
+    print("Without further agadoo... ;) Let's get busy!\n")
     input('\nPress "Enter" to continue\n')
-    clear_screen()
-    tprint("Main  Menu")
-    print("""
-        What would you like to do?
+    while True:
+        clear_screen()
+        tprint("Main  Menu")
+        print("""
+            What would you like to do?
 
-        1. Log a practice session
-        2. Get insights on your practice
-        3. Submit your practice ideas
-        4. View your practice ideas
-        5. Quit
-    """)
-    start_choice = input("\nMake your selection with a number:\n")
-    if start_choice == "1":
-        log_practice()
-        log_date()
-        log_duration()
-        log_score()
-        log_exercises()
-        log_difficulties()
-        log_wins()
-        complete_log()
-        save_log()
-    elif start_choice == "2":
-        get_insights()
-    elif start_choice == "3":
-        submit_ideas()
-    elif start_choice == "4":
-        get_practice()
-    elif start_choice == "5":
-        quit_program()
-    else:
-        print("""\n
-        Oops you did it [wrong] again...
-
-        Let's go back to the very beginning....
+            1. Log a practice session
+            2. Get insights on your practice
+            3. Submit your practice ideas
+            4. View your practice ideas
+            5. Quit
         """)
-        long_sleep()
-        start()
+        start_choice = input("\nMake your selection with a number:\n")
+        if start_choice == "1":
+            log_practice()
+            log_date()
+            log_duration()
+            log_score()
+            log_exercises()
+            log_difficulties()
+            log_wins()
+            complete_log()
+            save_log()
+        elif start_choice == "2":
+            get_insights()
+        elif start_choice == "3":
+            submit_ideas()
+        elif start_choice == "4":
+            get_practice()
+        elif start_choice == "5":
+            quit_program()
+        else:
+            print("\nOops you did it [wrong] again...\n"
+                  "\nLet's go back to the very beginning....")
+            long_sleep()
 
 
-# start()
-quit_program()
+start()

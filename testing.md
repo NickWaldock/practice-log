@@ -280,25 +280,11 @@ Below is reasonable test I could imagine to check every validation and function 
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Start Function - Main Menu</td>
+    <td>"sdfczx", "!23", "0"</td>
+    <td>Function allows the user to choose from 5 options to begin the program. Valid inputs begin relevant functions. Invalid input displays message and prompts additinoal attempt</td>
+    <td>Function works as intended. All menus options trigger relevant code and invalid input repeats input</td>
+    <td>Pass</td>
   </tr>
 </table>
 
