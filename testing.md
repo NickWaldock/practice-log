@@ -177,16 +177,16 @@ Below is reasonable test I could imagine to check every validation and all resul
   <tr>
     <td>Option 3 - Submit Technical Exercises</td>
     <td>"0", "542", "gfds", "Enter"</td>
-    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet. If no, asks to confirm again to either save or return to the menu. Messages displayed and input request repeated if invalid entries inputted</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet, if no returns to the menu</td>
     <td>Function acts and validates reponses as expected</td>
     <td>Pass</td>
   </tr>
   <tr>
     <td>Option 3 - Submit Musicicanship Exercises</td>
-    <td>"YES", "245g", </td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>"YES", "245g", "Enter", "No"</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet, if no returns to the menu</td>
+    <td>Functions works as intended</td>
+    <td>Pass</td>
   </tr>
   Changing click to different subdivisions sequentially
   <tr>
