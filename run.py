@@ -698,7 +698,7 @@ def view_exercises():
 def view_difficulties():
     """
     Get all values from Difficulties column in spreadsheet,
-    Print to the user
+    Removes any "None" values. Prints to the user
     """
     clear_screen()
     print("\nYou have chosen to view your logged difficulties")
@@ -706,16 +706,19 @@ def view_difficulties():
     print("\n\nHold on, won't be long...\n")
     sleep()
     clear_screen()
-    all_values = log.col_values(5)
-    all_diffs = all_values[1:]
     print("Remember! These are useful to help you understand things you "
           "should be working on or ways to develop your practice in future"
           " sessions")
     sleep()
+    all_values = log.col_values(5)
+    all_diffs = all_values[1:]
+    none = "None"
+    new_diffs_list = [i for i in all_diffs if none not in i]
     print("\nHere is a list of difficulties you have logged:\n")
-    for i in all_diffs:
+    for i in new_diffs_list:
         print(i)
-    input('\nPress "Enter" to continue..:')
+        short_sleep()
+    input('\nPress "Enter" to continue...\n')
     get_insights()
 
 
@@ -1461,4 +1464,4 @@ def start():
 
 
 # start()
-view_difficulties()()
+view_difficulties()
