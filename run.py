@@ -1414,5 +1414,4 @@ def start():
         start()
 
 
-# start()
-save_log()
+start()
