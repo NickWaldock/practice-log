@@ -266,11 +266,11 @@ Below is reasonable test I could imagine to check every validation and function 
     <td>Pass</td>
   </tr>
 <tr>
+    <td>Option 4 - View Random Selection Generator</td>
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td>Pass</td>
   </tr>
   <tr>
     <td></td>
