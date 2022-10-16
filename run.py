@@ -1094,7 +1094,7 @@ def view_error():
     Returns the user to the Get Practice Menu
     """
     clear_screen()
-    print("\nWhoops...")
+    tprint("Whoops...")
     sleep()
     print("\nI'm sure you didn't mean...")
     sleep()
@@ -1111,7 +1111,8 @@ def view_error():
 def view_technical_exercises():
     """
     Retrieves all information from 'my-technical-exercises' worksheet
-    and prints to user. Validates a request to return to the menu
+    and prints to user. Removes the column title and prints,
+    Validates a request to return to the menu
     """
     clear_screen()
     tprint("Technical     Exercises")
@@ -1142,14 +1143,16 @@ def view_technical_exercises():
 def view_musicianship_exercises():
     """
     Retrieves all information from 'my-musicianship-exercises' worksheet
-    and prints to user. Validates a request to return to the menu
+    and prints to user. Removes the column title and prints,
+    Validates a request to return to the menu
     """
     clear_screen()
     tprint("Musicianship     Exercises")
-    print("Alrighty then, hold on whilst I collect your Musicianship "
+    print("Splendid! Hold on whilst I collect your Musicianship "
           "practice ideas...\n")
     sleep()
     musicianship_exercises = musicianship_sheet.col_values(2)
+    musicianship_exercises.remove("Musicianship Exercises")
     for exercise in musicianship_exercises:
         print(exercise)
         short_sleep()
@@ -1166,17 +1169,8 @@ def view_musicianship_exercises():
         get_practice()
     elif user_choice.lower() == "m":
         return_to_main()
-    elif user_choice.lower() != "v" or "m":
-        clear_screen()
-        print("\nWhoops...\n")
-        sleep()
-        print("\nI'm sure you didn't mean...")
-        sleep()
-        print("\nTo not press...the buttons I said you could press...")
-        sleep()
-        print("\nMaybe I'll take you back to the santuary of the menu...")
-        long_sleep()
-        get_practice()
+    else:
+        view_error()
 
 
 # 4. View Practice - 3. View Creativity Exercises
@@ -1187,10 +1181,11 @@ def view_creativity_exercises():
     """
     clear_screen()
     tprint("Creative     Exercises")
-    print("Alrighty then, hold on whilst I collect your creative "
+    print("Outta sight! Hold on whilst I collect your creative "
           "practice ideas...\n")
     sleep()
     creativity_exercises = creativity_sheet.col_values(2)
+    creativity_exercises.remove("Creativity Exercises")
     for exercise in creativity_exercises:
         print(exercise)
         short_sleep()
@@ -1445,4 +1440,4 @@ def start():
 
 
 # start()
-view_technical_exercises()
+view_musicianship_exercises()
