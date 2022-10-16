@@ -839,55 +839,33 @@ def submit_tech():
     """
     sleep()
     clear_screen()
-    tprint("Technique     Exercises")
     global tech_data
-    loop = False
-    while loop is False:
-        tech_idea = input("\nWhat details would you like to save?\n")
-        tech_data = []
-        tech_data.append(today)
-        tech_data.append(tech_idea)
-        print("\nOk, I've got that.\n")
-        sleep()
+    tprint("Technique     Exercises")
+    tech_idea = input("\nWhat details would you like to save?\n")
+    tech_data = []
+    tech_data.append(today)
+    tech_data.append(tech_idea)
+    print("\nOk, I've got that.\n")
+    sleep()
+    clear_screen()
+    while True:
         clear_screen()
         tprint("Technique     Exercises")
         print("Just to confirm, Here's what you wrote:\n")
-        sleep()
         print(f'\n"{tech_idea}"\n')
-        sleep()
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
         if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
-            loop = True
             clear_screen()
             send_tech_exs(tech_data)
         elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
-            loop = True
             print("\nCool and the gang. Returning to menu...")
             sleep()
             submit_ideas()
-        elif user_confirm.lower() != "y" or "n" or "yes" or "no":
-            loop = True
-            confirm_loop = False
-            while confirm_loop is False:
-                clear_screen()
-                tprint("Technique     Exercises")
-                print("Just to confirm, Here's what you wrote:\n")
-                print(f'\n"{tech_idea}"\n')
-                print("\nSorry I didn't get that, please try again\n")
-                confirm = input('"y" to save, "n" to delete and'
-                                ' return to the menu\n')
-                if confirm.lower() == "y" or confirm.lower() == "yes":
-                    confirm_loop = True
-                    clear_screen()
-                    send_tech_exs(tech_data)
-                elif confirm.lower() == "n" or confirm.lower() == "no":
-                    confirm_loop = True
-                    print("\nTurn around...")
-                    short_sleep()
-                    print("Every now and then I get sent back to the menu...")
-                    sleep()
-                    submit_ideas()
+        else:
+            print("\nOops you did it again....Please try again...")
+            sleep()
+            clear_screen()
 
 
 def submit_musicianship():
@@ -1480,4 +1458,4 @@ def start():
 
 
 # start()
-submit_musicianship()
+submit_tech()
