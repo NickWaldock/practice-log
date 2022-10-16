@@ -835,7 +835,7 @@ def submit_tech():
     """
     To submit a technical exercise to the spreadsheet,
     Print back to the user and ask if they wish to save it to the
-    Spreadsheet or try again. Validate against incorrect inputs
+    Spreadsheet or return to the menu. Validate against incorrect inputs
     """
     sleep()
     clear_screen()
@@ -870,7 +870,7 @@ def submit_musicianship():
     """
     To submit musicianship exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
-    spreadsheet or try again. Validate agains incorrect inputs
+    spreadsheet or return to the menu. Validate agains incorrect inputs
     """
     sleep()
     clear_screen()
@@ -905,7 +905,7 @@ def submit_creative():
     """
     To submit creativity exercises to the spreadsheet,
     print back to the user and ask if they wish to save it to the
-    spreadsheet or try again. Validate agains incorrect inputs
+    spreadsheet or return to the menu. Validate agains incorrect inputs
     """
     sleep()
     clear_screen()
@@ -935,7 +935,6 @@ def submit_creative():
             sleep()
 
 
-
 def submit_repertoire():
     """
     To submit repertoire exercises to the spreadsheet,
@@ -944,47 +943,29 @@ def submit_repertoire():
     """
     sleep()
     clear_screen()
+    tprint("Repertoire     Exercises")
     global repertoire_data
-    loop = False
-    while loop is False:
-        repertoire_idea = input("\nWhat details would you like to save?\n")
-        repertoire_data = []
-        repertoire_data.append(today)
-        repertoire_data.append(repertoire_idea)
-        print("\nOk, I've got that.\n")
-        sleep()
+    repertoire_idea = input("\nWhat details would you like to save?\n")
+    repertoire_data = []
+    repertoire_data.append(today)
+    repertoire_data.append(repertoire_idea)
+    print("\nOk, I've got that.\n")
+    sleep()
+    while True:
         clear_screen()
         print("Just to confirm: Here's what you wrote:\n")
-        sleep()
         print(f'\n"{repertoire_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
-        if user_confirm.lower() == "y":
-            loop = True
+        if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             clear_screen()
             send_repertoire_exe(repertoire_data)
-        elif user_confirm.lower() == "n":
-            loop = True
+        elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
             print("Ok. Returning to menu...")
             submit_ideas()
-        elif user_confirm.lower() != "y" or "n":
-            loop = True
-            confirm_loop = False
-            while confirm_loop is False:
-                print("\nSorry I didn't get that, please try again")
-                confirm = input('"y" to save, "n" to delete and'
-                                ' return to the menu')
-                if confirm.lower() == "y":
-                    confirm_loop = True
-                    clear_screen()
-                    send_repertoire_exe(repertoire_data)
-                elif confirm.lower() == "n":
-                    confirm_loop = True
-                    print("\nTurn around...")
-                    short_sleep()
-                    print("Every now and then I get sent back to the menu...")
-                    sleep()
-                    submit_ideas()
+        else:
+            print("\nOops you did it again....Please try again...")
+            sleep()
 
 
 # Functions to send user input data to the relevant spreadsheets
@@ -1439,4 +1420,4 @@ def start():
 
 
 # start()
-submit_creative()
+submit_repertoire()
