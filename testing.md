@@ -245,6 +245,13 @@ Below is reasonable test I could imagine to check every validation and function 
     <td>Pass</td>
   </tr>
 <tr>
+    <td>Option 4 - View Musicianship Exercises</td>
+    <td>"13efa", "", "54", "vcxz" </td>
+    <td>Function retrieves data from relevant worksheet and displays. User is requested to input thier choice of returning to view menu or main menu. Invalid input automatically returns to the view menu</td>
+    <td>Function Acts as intended</td>
+    <td>Pass</td>
+  </tr>
+<tr>
     <td></td>
     <td></td>
     <td></td>
