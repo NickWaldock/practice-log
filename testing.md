@@ -168,18 +168,18 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 3 - Submit Practice Ideas Menu Function</td>
+    <td>"83", "sdfg", "0", "Enter"</td>
+    <td>Function recieves input from user. If not valid, displays message and repeats request. If valid, triggers relevant function.</td>
+    <td>Fuction works as expected</td>
+    <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 3 - Submit Technical Exercises</td>
+    <td>"0", "542", "gfds", "Enter"</td>
+    <td>Function requests input from the user for a string. Displays it back to the user and asks whether to save or not. Validates for this choice. If yes, saves to the "practice_log" spreadsheet --> "my-technical-exercises" worksheet. If no, asks to confirm again to either save or return to the menu. Messages displayed and input request repeated if invalid entries inputted</td>
+    <td>Function acts and validates reponses as expected</td>
+    <td>Pass</td>
   </tr>
   <tr>
     <td></td>

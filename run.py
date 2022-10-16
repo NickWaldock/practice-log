@@ -753,6 +753,7 @@ def submit_ideas():
         """)
     long_sleep()
     clear_screen()
+    tprint("Topics")
     print("""
         General practice topics are classed as either:
 
@@ -780,10 +781,9 @@ def submit_ideas():
     long_sleep()
     print("""
         (Please only save one practice idea at a time)
-
-        Press "5" to return to the Main Menu
     """)
     long_sleep()
+    input('\nHit "Enter" to continue...\n')
     submit_ideas_menu()
 
 
@@ -793,42 +793,53 @@ def submit_ideas_menu():
     Validating user input for menu choice and directing
     the program to run the relevant function
     """
+    clear_screen()
+    tprint("Topics")
+    print("""
+    1. Technical
+    2. Musicianship
+    3. Creative
+    4. Repertoire
+    5. Return to Menu
+    """)
     user_choice = input("\nWhich category do you want to log your"
                         " practice idea under?:\n")
-    if user_choice == "1":
-        clear_screen()
-        print("Technical, ok great!\n\nGood technique facilitates"
-              " everything we do!")
-        submit_tech()
-    elif user_choice == "2":
-        clear_screen()
-        print("Musicianship, FAB!\n\n Good musicianship skills are essential!")
-        submit_musicianship()
-    elif user_choice == "3":
-        clear_screen()
-        print("Creative! Right on!\n\n Developing these skills help to do what"
-              "we are here to do...\nMAKE MUSIC :) ")
-        submit_creative()
-    elif user_choice == "4":
-        clear_screen()
-        print("Repertoire, ROCK ON!\n\nGet ready for the gigs!")
-        submit_repertoire()
-    elif user_choice == "5":
-        return_to_main()
-    elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
-        print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
-        long_sleep()
-        submit_ideas_menu()
+    while True:
+        if user_choice == "1":
+            clear_screen()
+            print("Technical, ok great!\n\nGood technique facilitates"
+                  " everything we do!")
+            submit_tech()
+        elif user_choice == "2":
+            clear_screen()
+            print("Musicianship, FAB!\n\n Good musicianship skills are essential!")
+            submit_musicianship()
+        elif user_choice == "3":
+            clear_screen()
+            print("Creative! Right on!\n\n Developing these skills help to do what"
+                  "we are here to do...\nMAKE MUSIC :) ")
+            submit_creative()
+        elif user_choice == "4":
+            clear_screen()
+            print("Repertoire, ROCK ON!\n\nGet ready for the gigs!")
+            submit_repertoire()
+        elif user_choice == "5":
+            return_to_main()
+        elif user_choice != "1" or "2" or "3" or "4" or "5" or "":
+            print("\nGimme, Gimme, Gimme a number between 1 and 5: Try again...")
+            long_sleep()
+            submit_ideas_menu()
 
 
 def submit_tech():
     """
     To submit a technical exercise to the spreadsheet,
-    print back to the user and ask if they wish to save it to the
-    spreadsheet or try again. Validate against incorrect inputs
+    Print back to the user and ask if they wish to save it to the
+    Spreadsheet or try again. Validate against incorrect inputs
     """
     sleep()
     clear_screen()
+    tprint("Technique     Exercises")
     global tech_data
     loop = False
     while loop is False:
@@ -839,31 +850,38 @@ def submit_tech():
         print("\nOk, I've got that.\n")
         sleep()
         clear_screen()
-        print("Just to confirm: Here's what you wrote:\n")
+        tprint("Technique     Exercises")
+        print("Just to confirm, Here's what you wrote:\n")
         sleep()
         print(f'\n"{tech_idea}"\n')
+        sleep()
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
-        if user_confirm.lower() == "y":
+        if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             loop = True
             clear_screen()
             send_tech_exs(tech_data)
-        elif user_confirm.lower() == "n":
+        elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
             loop = True
-            print("Ok. Returning to menu...")
+            print("\nCool and the gang. Returning to menu...")
+            sleep()
             submit_ideas()
-        elif user_confirm.lower() != "y" or "n":
+        elif user_confirm.lower() != "y" or "n" or "yes" or "no":
             loop = True
             confirm_loop = False
             while confirm_loop is False:
+                clear_screen()
+                tprint("Technique     Exercises")
+                print("Just to confirm, Here's what you wrote:\n")
+                print(f'\n"{tech_idea}"\n')
                 print("\nSorry I didn't get that, please try again\n")
                 confirm = input('"y" to save, "n" to delete and'
                                 ' return to the menu\n')
-                if confirm.lower() == "y":
+                if confirm.lower() == "y" or confirm.lower() == "yes":
                     confirm_loop = True
                     clear_screen()
                     send_tech_exs(tech_data)
-                elif confirm.lower() == "n":
+                elif confirm.lower() == "n" or confirm.lower() == "no":
                     confirm_loop = True
                     print("\nTurn around...")
                     short_sleep()
@@ -1477,4 +1495,4 @@ def start():
 
 
 # start()
-submit_ideas()
+submit_tech()
