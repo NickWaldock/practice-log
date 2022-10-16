@@ -1100,9 +1100,9 @@ def view_error():
     sleep()
     print("\nTo not press...the buttons I said you could press...")
     sleep()
-    print("\nDon't worry...")
+    print("\nDon't worry...\n")
     sleep()
-    print("I'll lift us up where we belong...")
+    print("                I'll lift us up where we belong...")
     long_sleep()
     get_practice()
 
@@ -1116,13 +1116,15 @@ def view_technical_exercises():
     """
     clear_screen()
     tprint("Technical     Exercises")
+    print("Hold on whilst I collect your Technical "
+          "practice ideas...\n\n")
     technical_exercises = technique_sheet.col_values(2)
     technical_exercises.remove("Technical Exercises")
     for exercise in technical_exercises:
         print(exercise)
         short_sleep()
     sleep()
-    print("\nPhew! That's some GAINS material right there!")
+    print("\n\nPhew! That's some GAINS material right there!")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
           " Main Menu ;)\n")
@@ -1148,15 +1150,15 @@ def view_musicianship_exercises():
     """
     clear_screen()
     tprint("Musicianship     Exercises")
-    print("Splendid! Hold on whilst I collect your Musicianship "
-          "practice ideas...\n")
+    print("Hold on whilst I collect your Musicianship "
+          "practice ideas...\n\n")
     sleep()
     musicianship_exercises = musicianship_sheet.col_values(2)
     musicianship_exercises.remove("Musicianship Exercises")
     for exercise in musicianship_exercises:
         print(exercise)
         short_sleep()
-    print("\nPhew! That's everything I have...\n")
+    print("\n\nPhew! That's everything I have...\n")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
           " Main Menu ;)\n")
@@ -1181,15 +1183,15 @@ def view_creativity_exercises():
     """
     clear_screen()
     tprint("Creative     Exercises")
-    print("Outta sight! Hold on whilst I collect your creative "
-          "practice ideas...\n")
+    print("Hold on whilst I collect your creative "
+          "practice ideas...\n\n")
     sleep()
     creativity_exercises = creativity_sheet.col_values(2)
-    creativity_exercises.remove("Creativity Exercises")
+    creativity_exercises.remove("Creative Practice")
     for exercise in creativity_exercises:
         print(exercise)
         short_sleep()
-    print("\nPhew! Some good stuff in there!\n")
+    print("\n\nOutta SIGHT! Some good stuff in there!\n")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
           " Main Menu ;)\n")
@@ -1202,17 +1204,8 @@ def view_creativity_exercises():
         get_practice()
     elif user_choice.lower() == "m":
         return_to_main()
-    elif user_choice.lower() != "v" or "m":
-        clear_screen()
-        print("\nWhoops...\n")
-        sleep()
-        print("\nI'm sure you didn't mean...")
-        sleep()
-        print("\nTo not press...the buttons I said you could press...")
-        sleep()
-        print("\nMaybe I'll take you back to the santuary of the menu...")
-        long_sleep()
-        get_practice()
+    else:
+        view_error()
 
 
 # 4. View Practice - 4. View Repertoire Exercises
@@ -1223,14 +1216,15 @@ def view_repertoire_exercises():
     """
     clear_screen()
     tprint("Repertoire     Exercises")
-    print("Roger Roger, hold on whilst I collect your repertoire "
-          "practice ideas...\n")
+    print("Hold on whilst I collect your repertoire "
+          "practice ideas...\n\n")
     sleep()
     repertoire_exercises = repertoire_sheet.col_values(2)
+    repertoire_exercises.remove("Repertoire Practice")
     for exercise in repertoire_exercises:
         print(exercise)
         short_sleep()
-    print("\nWhat a collection of BANGERS! You have good taste!\n")
+    print("\n\nWhat a collection of BANGERS! You have good taste!\n")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
           " Main Menu ;)\n")
@@ -1243,16 +1237,8 @@ def view_repertoire_exercises():
         get_practice()
     elif user_choice.lower() == "m":
         return_to_main()
-    elif user_choice.lower() != "v" or "m":
-        print("\nWhoops...\n")
-        sleep()
-        print("\nYou are great at choosing tunes to play...")
-        sleep()
-        print("\nBut not at pressing the buttons I said you could press...")
-        sleep()
-        print("\nMaybe I'll take you back to the santuary of the menu...")
-        long_sleep()
-        get_practice()
+    else:
+        view_error()
 
 
 # 4. Get Practice Ideas - 5. View Random Selection
@@ -1440,4 +1426,4 @@ def start():
 
 
 # start()
-view_musicianship_exercises()
+view_repertoire_exercises()
