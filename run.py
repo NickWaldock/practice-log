@@ -1049,7 +1049,7 @@ def get_practice():
         user_choice = input("\nPlease choose an option with a number (1-6):\n")
         if user_choice == "1":
             clear_screen()
-            tprint("View Exercices")
+            tprint("Technical     Exercises")
             print("\nI ammmmmm, the [option] 1 and only...")
             long_sleep()
             print("\nAlrighty then, hold on whilst I collect your technical "
@@ -1058,25 +1058,25 @@ def get_practice():
             view_technical_exercises()
         elif user_choice == "2":
             clear_screen()
-            tprint("View Exercices")
+            tprint("Musicianship     Exercises")
             print("\nJust the [option] 2 of us...")
             long_sleep()
             view_musicianship_exercises()
         elif user_choice == "3":
             clear_screen()
-            tprint("View Exercices")
+            tprint("Creative     Exercises")
             print('\n3 is the magic number')
             long_sleep()
             view_creativity_exercises()
         elif user_choice == "4":
             clear_screen()
-            tprint("View Exercices")
+            tprint("Repertoire     Exercises")
             print("\nFaith no more, here's option 4...")
             long_sleep()
             view_repertoire_exercises()
         elif user_choice == "5":
             clear_screen()
-            tprint("View Exercices")
+            tprint("Random     Exercises")
             print("\n[Option] 5 will make you get down now... \n")
             sleep()
             print("\nSorry......... That was the worst reference in this program")
@@ -1088,6 +1088,25 @@ def get_practice():
             sleep()
 
 
+def view_error():
+    """
+    Reusable error message for the Get Practice functions,
+    Returns the user to the Get Practice Menu
+    """
+    clear_screen()
+    print("\nWhoops...")
+    sleep()
+    print("\nI'm sure you didn't mean...")
+    sleep()
+    print("\nTo not press...the buttons I said you could press...")
+    sleep()
+    print("\nDon't worry...")
+    sleep()
+    print("I'll lift us up where we belong...")
+    long_sleep()
+    get_practice()
+
+
 # 4. View Practice - 1. View Technical Exercises
 def view_technical_exercises():
     """
@@ -1097,9 +1116,11 @@ def view_technical_exercises():
     clear_screen()
     tprint("Technical     Exercises")
     technical_exercises = technique_sheet.col_values(2)
+    technical_exercises.remove("Technical Exercises")
     for exercise in technical_exercises:
         print(exercise)
         short_sleep()
+    sleep()
     print("\nPhew! That's some GAINS material right there!")
     sleep()
     print("\nPsst! BTW, you can submit more ideas from the option 3 in the"
@@ -1113,17 +1134,8 @@ def view_technical_exercises():
         get_practice()
     elif user_choice.lower() == "m":
         return_to_main()
-    elif user_choice.lower() != "v" or "m":
-        clear_screen()
-        print("\nWhoops...")
-        sleep()
-        print("\nI'm sure you didn't mean...")
-        sleep()
-        print("\nTo not press...the buttons I said you could press...")
-        sleep()
-        print("\nLet's try again...")
-        long_sleep()
-        get_practice()
+    else:
+        view_error()
 
 
 # 4. View Practice - 2. View Musicianship Exercises
