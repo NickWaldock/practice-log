@@ -67,7 +67,7 @@ def short_sleep():
     """
     time.sleep(0.7)
 
-
+# Code Reference 1
 def clear_screen():
     """
     Clear the user terminal
@@ -164,7 +164,7 @@ def request_date():
             global session_date
             clear_screen()
             tprint("Date")
-            # Validate for correct date input format (Code Ref.1)
+            # Code Reference 2. Validate for correct date input format
             session_date = input("\nPlease input the date of your"
                                  " practice session (DD/MM/YY):\n")
             valid = re.match(
@@ -670,6 +670,7 @@ def view_exercises():
     all_exercises = all_values[1:]
     print("\nHere is a list of exercises you have logged:\n")
     sleep()
+    # Code Reference 3
     for i in all_exercises:
         if "," in i:
             i = i.split(",")
@@ -1290,6 +1291,7 @@ def random_generator_loop():
                 print("Here is your list of 3 randomly selected "
                       "exercises for your next session:\n\n")
                 new_list = 0
+                # Code Reference 4
                 while new_list < 3:
                     sleep()
                     print(random.choice(all_values))

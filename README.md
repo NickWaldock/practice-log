@@ -8,37 +8,46 @@
 
 # Table of Contents
 1. [Introduction](#introduction)
-    i. [Aims](#aims)
-2. [User Experience](#user-experience-ux)
-3. [Main Features](#main-features)
-    1. [Inspiration & Design](#inspiration--design)
-    4. [Flow Chart](#)
-    5. [Features](#features)
-    7. [Future Developments](#future-developments)
+    1. [Aims](#aims)
+    2. [User Stories](#user-stories)
+2. [Main Features](#main-features)
+    1. [Wireframes](#wireframes)
+    2. [Logic Flowchart](#logic-flowchart)
+    3. [Start & Main Menu](#start--main-menu)
+    4. [Log Practice](#1-log-practice)
+    5. [Get Insights](#2-get-insights)
+    6. [Submit Practice](#3-submit-practice-ideas)
+    7. [View Practice](#4-view-practice)
+    8. [Practice Generator](#4-practice-idea-generator)
+    9. [Quit](#5-quit)
+3. [Future Development](#future-developments)
 4. [Technologies](#technologies)
+    1. [Python Modules](#python-modules)
 5. [Testing](#testing)
-    1. [Manual Testing](#manual-testing)
-    2. [Code Validation](#code-validation)
-    4. [Tools](#tools)
+    1. [Pep8](#pep8)
+    2. [Manual Testing](#manual-testing)
+    3. [Tools](#tools)
 6. [Deployment](#deployment)
-    1. [GitHub](#github)
+    1. [Heroku](#heroku)
     2. [Forking](#forking)
     3. [Cloning](#cloning)
 7. [References & Acknowledgements](#references--acknowledgements)
-   3. [References](#references)
-   4. [Acknoledgements](#acknoledgements)
+   1. [References](#references)
+   2. [General Reference](#general-reference)
+   3. [Code Reference](#code-reference)
+   4. [Code Syntax Validators](#code-syntax-validators)
+   5. [Acknoledgements](#acknoledgements)
 <br />
 <br />
 
-# Introduction & Aims
+# Introduction
 This project acts as a proof of concept in developing a program to assist musicians with keeping track of their practice routines. 
 
 As a musician myself, I understand well that practice is a incredibly important part of maintaining and developing musical skill. As such I planned to see if an interactive chat-based logging model could work for storing data relating to practice activities that could be refered to for later insight, therby informing future practice efficacy.
 
-This project is intended for use by a single user, but can, and likely will be developed for exclusive multi-user functionality in its next development.
+This project is intended for use by a single user, but can, and likely will be developed for exclusive multi-user functionality in its next development. Being intended for a single user (myself) I took the liberty to add numerous popular music references within the 'chat' personality as a way of making the process more engaging and entertaining.
 <br>
 <br>
-
 
 ## Aims
 - Design and build an interactive practice logging system using an API to save data to a spreadsheet.
@@ -68,6 +77,7 @@ As a single returning user for this program I want to be able to:
 # Main Features
 ## Wireframes
 Wireframes have been omitted in this readme due to the simplistic nature of the deployment. The browser window remains static and the only changes occur within the console window.
+
 <img src="readme-imgs/browser-window.png" width="45%">
 <br />
 <br />
@@ -80,41 +90,48 @@ This flowcart was created using [Lucid Chart](https://www.lucidchart.com/). This
 <br />
 <br />
 
-### Start & Main Menu
+## Start & Main Menu
 <img src="readme-imgs/start-main-menu.png" width="50%">
-The main menu introduces the user to the program and provides brief contextual information.
+<br />
+
+On starting the program the user is presented with brief contextual information on the use and aims of the program.
+
 <br />
 <br />
 
 <img src="readme-imgs/main-menu.png" width="50%">
 <br />
+
 The Main Menu provides the main selection of options which the program can currently handle.
 <br />
 <br />
 
-### 1. Log Practice
+## 1. Log Practice
 <img src="readme-imgs/log-practice-sc.png" width="50%">
 <br />
+
 Option 1 - Log Practice, takes the user step-by-step through the process of gaining data on the practice date, duration, productivity score, list of exercises undertaken, expression of difficulties for later practice, and successes from the session. 
 <br />
 <br />
 
 <img src="readme-imgs/log-complete.png" width="50%">
 <br />
+
 Once complete, the program will play back all of the information and give the user the option to save. Saving utilises the API and sends the data to the spreadsheet
 <br />
 <br />
+
 <img src="readme-imgs/practice-log-spreadsheet.png" width="50%">
 <br />
 Each new log enters a new row of data at the bottom of this spreadsheet
 
-### 2. Get Insights
+## 2. Get Insights
 <img src="readme-imgs/get-insights.png" width="50%">
 <img src="readme-imgs/get-insights-fc.png" width="50%">
 <br />
 Option 2 - Get Insights allows the user to view the last inputted log, view the last three logs, calculate the average time spent practicing, view the complete list of exercises, and view the complete list of difficulties. All this information can assist the user in determining the best course of action for their next practice session.
 
-### 3. Submit Practice Ideas
+## 3. Submit Practice Ideas
 <img src="readme-imgs/topics.png" width="50%">
 <img src="readme-imgs/submit-fc.png" width="50%">
 <br />
@@ -126,25 +143,25 @@ Option 3 - Submit Practice Ideas. The user can submit their own practice exercis
 <br />
 The four main topics of practice are: Technique, Musicianship, Creative, and Repertoire. These topics are briefly explained to the user before the menu choice is available.
 
-### 4. View Practice
+## 4. View Practice
 <img src="readme-imgs/view-exercises.png" width="50%">
 <img src="readme-imgs/view-exercises-fc.png" width="50%">
 <br />
 Option 4 - View Exercises. This part of the program acts as a get-all, it will list all of the available data from the relevant worksheet that has been requested by the user. Here they can view all exercises in the spreadsheet from a particular topic. 
 
-### 4. Practice Idea Generator
+## 4. Practice Idea Generator
 <img src="readme-imgs/generator.png" width="50%">
 <br />
 Within the menu for option 4 is a random exercise generator. Here the user can indefinitely generate a random selectin of three exercises for use as inspiration in a practice session. All exercise data is collated from each of the four topics worksheets which is previously possible for the user to submit to. From this data a random selection of three is chosen and presented to the user.
 
-### 5. Quit
+## 5. Quit
 <img src="readme-imgs/quit.png.png" width="50%">
 <img src="readme-imgs/quit-fc.png" width="50%">
 <br />
 Option 5 - Quit. The final option is for the user to gracefully exit the program and offers an 'Are you sure?' safety option in case of accidental selection. On quitting the program delivers a goodbye message.
 
 
-## Future Developments
+# Future Developments
 This project has a great deal of developmental potential in features that could eventually add increased functionality and a deeper user experiece. 
 
 The following are a few examples:
@@ -171,10 +188,30 @@ Additional technologies include:
 <br />
 <br />
 
-# 3rd party Modules
-art
+## Python Modules
+Additional modules used in this python project include:
+<br />
 
+<img src="readme-imgs/ascii.png" width="30%">
+<br />
 
+- [ASCII Art for Python](https://github.com/sepandhaghighi/art) 
+- This 3rd party module was used and adapted into a general print function withint the project for ease when printing large titles. Only the standard font was used.
+<br />
+
+- [GSpread API](https://docs.gspread.org/en/latest/)
+- The GSpread module was used as the API for interacting with the [Google Sheet](https://docs.google.com/spreadsheets/d/1Mfl3k1mdvx5z0EP16o-hWFraB17Hc-JPV_qUXtO9hHw/edit?usp=sharing).
+<br />
+
+- [Google Auth](https://developers.google.com/identity/protocols/oauth2)
+- Google Auth was for generating the credentials for the API.
+<br />
+<br />
+
+- Additional standard Python modules were also utilised such as: [datetime](https://docs.python.org/3/library/datetime.html), [re](https://docs.python.org/3/library/re.html), [random](https://docs.python.org/3/library/random.html?highlight=random%20module#module-random), [time](https://docs.python.org/3/library/time.html), and [os](https://docs.python.org/3/library/os.html).
+
+<br />
+<br />
 
 # Testing
 ## Pep8
@@ -258,15 +295,64 @@ To clone the repository procees with the following steps:
 # References & Acknoledgements
 - Unless specified, all code written in the run.py file is my own
 - Gitpod repository template provided by [Code Institute](https://codeinstitute.net)
+<br />
+<br />
+
+## General Reference
+- [Python](https://www.python.org/)
+General Reference
+- [Programiz](https://www.programiz.com/python-programming/methods/string/lower)
+Translating string inputs to lowercase, to assist with input validation.
+- [Railsware](https://railsware.com/blogpython-for-machine-learning-indexing-and-slicing-for-lists-tuples-strings-and-other-sequential-types/
+https://www.edureka.co/blog/python-list-length/)
+Slicing for lists
+- [GSpread](https://docs.gspread.org/en/latest/user-guide.html)
+Use of the GSpread API
+- [Open Book Project](https://www.openbookproject.net/books/bpp4awd/ch04.html)
+Use of conditionals and general python reference
+- [Kodify](https://kodify.net/python/math/round-integers/)
+Using math to round integers
+- [W3 Schools](https://www.w3schools.com/python/default.asp)
+General python reference
+- [Bobby Hadz](https://bobbyhadz.com/blog/python-check-if-input-is-integer#:~:text=isdigit()%20%23-,Use%20the%20str.,point%20numbers%20or%20negative%20numbers.)
+Validating inputs for integers
+- [Python Guides](https://pythonguides.com/python-check-if-the-variable-is-an-integer/)
+Validating inputs for integers
+<br />
+<br />
+
+## Code Reference
+During the development of this project I occasionally needed to search for solutions to problems I was encountering. The following is a list of reference sites I relied upon to learn and understand Python concepts new to me. In some cases the article simply offered a simple use of method or concept, in more detailed and specific cases a Code Reference No. is assigned whcih corresponds to a comment in the main run.py file.
+
+### Code Reference 1
+[Geeks for Geeks](https://www.geeksforgeeks.org/clear-screen-python/)
+run.py line 70 - Clear screen
 
 
+### Code Reference 2
 
+- [Adam Smith](https://www.adamsmith.haus/python/answers/how-to-check-if-a-string-matches-a-pattern-in-python)
+run.py line 167 - used to validate the user has inputted the date in the correct format and with valid days, monthm and year digits.
+<br />
 
-## References
+### Code Reference 3
+- [W3 Schools and Code Institute Tutor Ed](https://www.w3schools.com/python/ref_string_strip.asp)
+run.py line 673 - Use for loop and strip to remove "," from strings within lists
+<br />
 
-The following sites were used for syntax checking, problem solving, and general coding concept referencing:
-- 
+### Code Reference 4
 
+- [PY Native](https://pynative.com/python-random-choice/)
+run.py line 1293 - Random selections
+<br />
+<br />
+
+## Code Syntax Validators
+
+The following sites were used for syntax and logic checking:
+- [Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
+- [Python Code Checker](https://extendsclass.com/python-tester.html)
+- [Python Syntax Checker](https://www.pythonchecker.com/)
 <br />
 <br />
 
@@ -275,68 +361,3 @@ I am incredibly grateful to my Code Institute Mentor Chris Quinn for his support
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/nicholas-waldock-05237071/)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-References
-General
-https://www.programiz.com/python-programming/methods/string/lower
-https://railsware.com/blog/python-for-machine-learning-indexing-and-slicing-for-lists-tuples-strings-and-other-sequential-types/
-https://www.edureka.co/blog/python-list-length/
-https://docs.gspread.org/en/latest/user-guide.html
-
-Clear screen
-https://www.geeksforgeeks.org/clear-screen-python/
-
-Datetime formatting
-https://pynative.com/python-datetime-format-strftime/
-
-Checking string format
-https://www.adamsmith.haus/python/answers/how-to-check-if-a-string-matches-a-pattern-in-python
-
-Checking for integer
-https://bobbyhadz.com/blog/python-check-if-input-is-integer#:~:text=isdigit()%20%23-,Use%20the%20str.,point%20numbers%20or%20negative%20numbers.
-https://pythonguides.com/python-check-if-the-variable-is-an-integer/
-
-Code checker
-https://www.pythonchecker.com/
-
-The slow print
-https://replit.com/talk/learn/The-Slow-Print/44741
-
-pretty printer
-https://docs.python.org/3/library/pprint.html
-
-Console Art
-https://github.com/sepandhaghighi/art
-
-
-https://kodify.net/python/math/round-integers/
-
-Random
-https://pynative.com/python-random-choice/
-
-Conditionals
-https://www.openbookproject.net/books/bpp4awd/ch04.html
-
-Strip
-https://www.w3schools.com/python/ref_string_strip.asp
-
-BUGS
-Data not pushing to spreadsheet - due to attemping to send dictionary objects across. Topics dicts function removed and replaced with a log_exercises function
