@@ -182,12 +182,13 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Option 3 - Submit Musicicanship Exercises</td>
+    <td>"YES", "245g", </td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
+  Changing click to different subdivisions sequentially
   <tr>
     <td></td>
     <td></td>

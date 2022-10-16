@@ -898,47 +898,32 @@ def submit_musicianship():
     """
     sleep()
     clear_screen()
+    tprint("Musicianship   Exercises")
     global musicianship_data
-    loop = False
-    while loop is False:
-        musicianship_idea = input("\nWhat details would you like to save?\n")
-        musicianship_data = []
-        musicianship_data.append(today)
-        musicianship_data.append(musicianship_idea)
-        print("\nOk, I've got that.\n")
-        sleep()
+    musicianship_idea = input("\nWhat details would you like to save?\n")
+    musicianship_data = []
+    musicianship_data.append(today)
+    musicianship_data.append(musicianship_idea)
+    print("\nOk, I've got that.\n")
+    sleep()
+
+    while True:
         clear_screen()
+        tprint("Musicianship   Exercises")
         print("Just to confirm: Here's what you wrote:\n")
-        sleep()
         print(f'\n"{musicianship_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
                              ' "n" to delete and return to the menu)\n')
-        if user_confirm.lower() == "y":
-            loop = True
+        if user_confirm.lower() == "y" or user_confirm.lower() == "yes":
             clear_screen()
             send_music_exs(musicianship_data)
-        elif user_confirm.lower() == "n":
-            loop = True
-            print("Ok. Returning to menu...")
+        elif user_confirm.lower() == "n" or user_confirm.lower() == "no":
+            print("Coolio. Returning to menu...")
             submit_ideas()
-        elif user_confirm.lower() != "y" or "n":
-            loop = True
-            confirm_loop = False
-            while confirm_loop is False:
-                print("\nSorry I didn't get that, please try again")
-                confirm = input('"y" to save, "n" to delete and'
-                                ' return to the menu')
-                if confirm.lower() == "y":
-                    confirm_loop = True
-                    clear_screen()
-                    send_music_exs(musicianship_data)
-                elif confirm.lower() == "n":
-                    confirm_loop = True
-                    print("\nTurn around...")
-                    short_sleep()
-                    print("Every now and then I get sent back to the menu...")
-                    sleep()
-                    submit_ideas()
+        else:
+            print("\nOops you did it again....Please try again...")
+            sleep()
+            clear_screen()
 
 
 def submit_creative():
@@ -1495,4 +1480,4 @@ def start():
 
 
 # start()
-submit_tech()
+submit_musicianship()
