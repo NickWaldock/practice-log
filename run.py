@@ -725,8 +725,7 @@ def submit_ideas():
     practice ideas
     """
     clear_screen()
-    tprint("Submit   Practice")
-    tprint("                          Ideas")
+    tprint("Submit   Ideas")
     long_sleep()
     print("\nAlrighty then! Let me show you how to submit some practice ideas")
     long_sleep()
@@ -828,7 +827,7 @@ def submit_tech():
     sleep()
     clear_screen()
     global tech_data
-    tprint("Technique     Exercises")
+    tprint("Technique")
     tech_idea = input("\nWhat details would you like to save?\n")
     tech_data = []
     tech_data.append(today)
@@ -837,7 +836,7 @@ def submit_tech():
     sleep()
     while True:
         clear_screen()
-        tprint("Technique     Exercises")
+        tprint("Technique")
         print("Just to confirm, Here's what you wrote:\n")
         print(f'\n"{tech_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
@@ -863,7 +862,7 @@ def submit_musicianship():
     """
     sleep()
     clear_screen()
-    tprint("Musicianship   Exercises")
+    tprint("Musicianship")
     global musicianship_data
     musicianship_idea = input("\nWhat details would you like to save?\n")
     musicianship_data = []
@@ -873,7 +872,7 @@ def submit_musicianship():
     sleep()
     while True:
         clear_screen()
-        tprint("Musicianship   Exercises")
+        tprint("Musicianship")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{musicianship_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
@@ -899,7 +898,7 @@ def submit_creative():
     """
     sleep()
     clear_screen()
-    tprint("Creative     Exercises")
+    tprint("Creative")
     global creative_data
     creative_idea = input("\nWhat details would you like to save?\n")
     creative_data = []
@@ -909,7 +908,7 @@ def submit_creative():
     sleep()
     while True:
         clear_screen()
-        tprint("Creative     Exercises")
+        tprint("Creative")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{creative_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
@@ -934,7 +933,7 @@ def submit_repertoire():
     """
     sleep()
     clear_screen()
-    tprint("Repertoire     Exercises")
+    tprint("Repertoire")
     global repertoire_data
     repertoire_idea = input("\nWhat details would you like to save?\n")
     repertoire_data = []
@@ -944,7 +943,7 @@ def submit_repertoire():
     sleep()
     while True:
         clear_screen()
-        tprint("Repertoire     Exercises")
+        tprint("Repertoire")
         print("Just to confirm: Here's what you wrote:\n")
         print(f'\n"{repertoire_idea}"\n')
         user_confirm = input('\nShall I save that for you? (Hit "y" to save,'
@@ -1034,7 +1033,7 @@ def get_practice():
         user_choice = input("\nPlease choose an option with a number (1-6):\n")
         if user_choice == "1":
             clear_screen()
-            tprint("Technical     Exercises")
+            tprint("Technical")
             print("\nI ammmmmm, the [option] 1 and only...")
             long_sleep()
             print("\nAlrighty then, hold on whilst I collect your technical "
@@ -1043,25 +1042,25 @@ def get_practice():
             view_technical_exercises()
         elif user_choice == "2":
             clear_screen()
-            tprint("Musicianship     Exercises")
+            tprint("Musicianship")
             print("\nJust the [option] 2 of us...")
             long_sleep()
             view_musicianship_exercises()
         elif user_choice == "3":
             clear_screen()
-            tprint("Creative     Exercises")
+            tprint("Creative")
             print('\n3 is the magic number')
             long_sleep()
             view_creativity_exercises()
         elif user_choice == "4":
             clear_screen()
-            tprint("Repertoire     Exercises")
+            tprint("Repertoire")
             print("\nFaith no more, here's option 4...")
             long_sleep()
             view_repertoire_exercises()
         elif user_choice == "5":
             clear_screen()
-            tprint("Random     Exercises")
+            tprint("Generator")
             print("\n[Option] 5 will make you get down now... \n")
             long_sleep()
             random_practice()
@@ -1099,7 +1098,7 @@ def view_technical_exercises():
     Validates a request to return to the menu
     """
     clear_screen()
-    tprint("Technical     Exercises")
+    tprint("Technical")
     print("Hold on whilst I collect your Technical "
           "practice ideas...\n\n")
     technical_exercises = technique_sheet.col_values(2)
@@ -1133,7 +1132,7 @@ def view_musicianship_exercises():
     Validates a request to return to the menu
     """
     clear_screen()
-    tprint("Musicianship     Exercises")
+    tprint("Musicianship")
     print("Hold on whilst I collect your Musicianship "
           "practice ideas...\n\n")
     sleep()
@@ -1166,7 +1165,7 @@ def view_creativity_exercises():
     and prints to user. Validates a request to return to the menu
     """
     clear_screen()
-    tprint("Creative     Exercises")
+    tprint("Creative")
     print("Hold on whilst I collect your creative "
           "practice ideas...\n\n")
     sleep()
@@ -1199,7 +1198,7 @@ def view_repertoire_exercises():
     and prints to user. Validates a request to return to the menu.
     """
     clear_screen()
-    tprint("Repertoire     Exercises")
+    tprint("Repertoire")
     print("Hold on whilst I collect your repertoire "
           "practice ideas...\n\n")
     sleep()
@@ -1232,7 +1231,7 @@ def random_practice():
     holds triggers the generator function
     """
     clear_screen()
-    tprint("Random Exercises")
+    tprint("Generator!")
     print(" * Random Exercise Generator * ")
     sleep()
     print("\nSo... you're looking for some spontaneous practice ideas\n"
@@ -1269,7 +1268,7 @@ def random_generator_loop():
     all_values.extend(repertoire)
     while True:
         clear_screen()
-        tprint("Exercises    Generator!")
+        tprint("Generator!")
         user_choice = input('\nPress "g" and I will generate a list of 5 '
                             'exercises\n\nType "e" to exit to the menu:\n')
         if user_choice.lower() == "e":
@@ -1278,12 +1277,12 @@ def random_generator_loop():
             get_practice()
         elif user_choice.lower() == "g":
             clear_screen()
-            tprint("Exercises    Generator!")
+            tprint("Generator!")
             print("Superstar DJ, here we go!...\n")
             sleep()
             while True:
                 clear_screen()
-                tprint("Exercises    Generator!")
+                tprint("Generator!")
                 print("Here is your list of 3 randomly selected "
                       "exercises for your next session:\n\n")
                 new_list = 0
