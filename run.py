@@ -1461,4 +1461,4 @@ def start():
 
 
 # start()
-view_exercises()
+view_difficulties()()

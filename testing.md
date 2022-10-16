@@ -149,13 +149,13 @@ Below is reasonable test I could imagine to check every validation and all resul
   <tr>
     <td>Option 2 - View Exercises Function</td>
     <td>n/a</td>
-    <td>Function iterates and prints the list of all exercises held in the "log" workheet of the "practice_log" spreadsheet. Requests user "Enter" input to return to the menu</td>
+    <td>Function iterates and prints the list of all exercises data held in the "log" workheet of the "practice_log" spreadsheet. Requests user "Enter" input to return to the menu</td>
     <td>Function works as intended</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>Option 2 - View Difficulties Function</td>
+    <td>Function iterates and prints the list of all difficulties data held in the "log" workheet of the "practice_log" spreadsheet. Requests user "Enter" input to return to the menu</td>
     <td></td>
     <td></td>
     <td></td>
