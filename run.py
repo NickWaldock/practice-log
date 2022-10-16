@@ -83,16 +83,16 @@ def return_to_main():
     tprint("Returning...")
     print("\n\nTakin' it to the bridge...... (Main Menu)")
     long_sleep()
-    start()
+    start_menu()
 
 
 def main_title():
     """
     Prints the program's main title using print art
     """
-    tprint("        Nick's")
-    tprint("Practice")
-    tprint("           Log")
+    tprint("                       Nick's")
+    tprint("                      Practice")
+    tprint("                        Log")
 
 
 # 1. Log Practice Functions
@@ -331,8 +331,10 @@ def log_wins():
         sleep()
         print("\nYou are the champion my friend! "
               "You are making great progress!")
+        long_sleep()
     elif user_wins_yn.lower() == "n" or user_wins_yn.lower() == "no":
         print("\nThat's ok, you practiced! Don't give up")
+        long_sleep()
         user_wins = "None"
     else:
         print('\nPlease input "y" or "n" :)')
@@ -460,40 +462,40 @@ def get_insights():
     """
     Main function for option 2 to allow choice to next menu
     """
-    clear_screen()
-    tprint("Get   Insights")
-    sleep()
-    print("You have chosen to get insights on your saved practice logs\n")
-    sleep()
-    print(
-        """
-        Insights Menu:
-        _ _ _ _ _ _ _
+    while True:
+        clear_screen()
+        tprint("Get   Insights")
+        sleep()
+        print("You have chosen to get insights on your saved practice logs\n")
+        sleep()
+        print(
+            """
+            * Insights Menu *
+            - - - - - - -
 
-        1. View Last Recorded Log
-        2. View Last 3 Logs
-        3. Calculate Average Practice Time
-        4. View List of Exercises Practiced
-        5. View List of Difficulties Encountered
-        6. Return to the Main Menu
-        """)
-    user_choice = input("Pick a number, any number...\n")
-    if user_choice == "1":
-        view_last_Log()
-    if user_choice == "2":
-        view_3_logs()
-    if user_choice == "3":
-        average_time()
-    if user_choice == "4":
-        view_exercises()
-    if user_choice == "5":
-        view_difficulties()
-    if user_choice == "6":
-        return_to_main()
-    elif user_choice != "1" or "2" or "3" or "4" or "5" or "6" or "":
-        print("\nGimme, Gimme, Gimme a number between 1 and 6: Try again...")
-        long_sleep()
-        get_insights()
+            1. View Last Recorded Log
+            2. View Last 3 Logs
+            3. Calculate Average Practice Time
+            4. View List of Exercises Practiced
+            5. View List of Difficulties Encountered
+            6. Return to the Main Menu
+            """)
+        user_choice = input("Pick a number, any number...\n")
+        if user_choice == "1":
+            view_last_Log()
+        elif user_choice == "2":
+            view_3_logs()
+        elif user_choice == "3":
+            average_time()
+        elif user_choice == "4":
+            view_exercises()
+        elif user_choice == "5":
+            view_difficulties()
+        elif user_choice == "6":
+            return_to_main()
+        else:
+            print("\nGimme, Gimme, Gimme a number between 1 and 6: Try again...")
+            long_sleep()
 
 
 # 2. Get Insights - 1. View Last Log
@@ -503,6 +505,7 @@ def view_last_Log():
     split the list entry and seperately print to the user
     """
     clear_screen()
+    tprint("Last Log")
     print("\nYou have chosen to view the last log entry. \nLoading...\n")
     all_data = log.get_all_values()
     last_log = list.pop(all_data)
@@ -563,6 +566,7 @@ def view_3_logs():
     input('\nHit me with your rhythm ("Enter") stick...\n')
 
     # Printing second most recent entry
+    clear_screen()
     tprint("\n\nLog   2")
     sleep()
     print("* Second Most Recent Log *")
@@ -583,6 +587,7 @@ def view_3_logs():
     input('\nHit me... (Press "Enter")\n')
 
     # Printing third most recent entry
+    clear_screen()
     tprint("\n\nLog   3")
     sleep()
     print("* Third Most Recent Log *")
@@ -600,7 +605,7 @@ def view_3_logs():
     sleep()
     print(f"\nYou expressed your successes as:\n\n{third_recent[5]}\n")
     sleep()
-    input('\nHIT... ME! ...(Press "Enter" to return...)\n')
+    input('\nHIT... ME! ...(Press "Enter" to return to the Menu...)\n')
     get_insights()
 
 
@@ -642,7 +647,7 @@ def average_time():
     sleep()
     print("\nThat's not too shabby ;)")
     sleep()
-    input('\nHit "Enter" to continue:\n')
+    input('\nHit "Enter" to return to the Menu...\n')
     get_insights()
 
 
@@ -674,7 +679,7 @@ def view_exercises():
             short_sleep()
     print("\nQuite a list eh?!")
     sleep()
-    input('\nHit "Enter" to return...\n')
+    input('\nHit "Enter" to return to the Menu...\n')
     get_insights()
 
 
@@ -688,7 +693,7 @@ def view_difficulties():
     print("\nYou have chosen to view your logged difficulties")
     sleep()
     print("\n\nHold on, won't be long...\n")
-    sleep()
+    long_sleep()
     clear_screen()
     tprint("Difficulties")
     print("Remember! These are useful to help you understand things you "
@@ -709,7 +714,7 @@ def view_difficulties():
         else:
             print(i)
             short_sleep()
-    input('\nHit "Enter" to continue...\n')
+    input('\nHit "Enter" to return to the Menu...\n')
     get_insights()
 
 
@@ -1355,20 +1360,30 @@ def start():
     get_date()
     main_title()
     long_sleep()
-    print("\n ** Wecome to Nick's Practice Log! **\n")
+    print("\n ** Wecome to Nick's Practice Log! **")
     sleep()
     print("\nHi, my name is Nick and I'm a musician. For us musicians, "
-          "our practice is essential.\n"
-          "\nSo I've built this little program to help log and"
-          " manage basic practice session information.\n"
-          "\nI also enjoy silly pop music references, "
+          "our practice\nis essential.")
+    sleep()
+    print("\nSo I've built this little program to help log and"
+          " manage basic practice session\ninformation.\n")
+    sleep()
+    print("\nI also enjoy silly pop music references, "
           "see how many you can spot!")
     sleep()
     print("\nFYI, all data is kept on a spreadsheet and is pre-populated with"
-          " a few ideas for your convenience.\n")
+          " a few ideas\nfor your convenience.\n")
     sleep()
     print("Without further agadoo... ;) Let's get busy!\n")
     input('\nPress "Enter" to continue\n')
+    start_menu()
+    
+
+def start_menu():
+    """
+    Creates the Main Menu and validates user choice,
+    Triggers relevant function
+    """
     while True:
         clear_screen()
         tprint("Main  Menu")
