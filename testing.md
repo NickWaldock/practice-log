@@ -120,7 +120,7 @@ Below is reasonable test I could imagine to check every validation and all resul
   </tr>
     <tr>
     <td>Option 2 - Get Insights Menu</td>
-    <td></td>
+    <td>"8", "jhjtd", "0", "Enter"</td>
     <td></td>
     <td></td>
     <td></td>

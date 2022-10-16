@@ -483,7 +483,7 @@ def get_insights():
     Main function for option 2 to allow choice to next menu
     """
     clear_screen()
-    tprint("Get  Insights")
+    tprint("Get   Insights")
     sleep()
     print("You have chosen to get insights on your saved practice logs\n")
     sleep()
