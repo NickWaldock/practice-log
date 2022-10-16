@@ -706,9 +706,10 @@ def view_difficulties():
     print("\n\nHold on, won't be long...\n")
     sleep()
     clear_screen()
+    tprint("Difficulties")
     print("Remember! These are useful to help you understand things you "
           "should be working on or ways to develop your practice in future"
-          " sessions")
+          " sessions\n")
     sleep()
     all_values = log.col_values(5)
     all_diffs = all_values[1:]
@@ -718,7 +719,7 @@ def view_difficulties():
     for i in new_diffs_list:
         print(i)
         short_sleep()
-    input('\nPress "Enter" to continue...\n')
+    input('\nHit "Enter" to continue...\n')
     get_insights()
 
 
