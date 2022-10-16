@@ -675,17 +675,22 @@ def view_exercises():
     Print to the user
     """
     clear_screen()
-    print("\nYou have chosen to view your logged exercises.")
+    print("\nYou have chosen to view your logged exercises")
     sleep()
     print("\nHold on, won't be long...")
-    sleep()
+    long_sleep()
+    clear_screen()
+    tprint("Exercises")
     all_values = log.col_values(4)
     all_exercises = all_values[1:]
-    clear_screen()
     print("\nHere is a list of exercises you have logged:\n")
+    sleep()
     for i in all_exercises:
         print(i)
-    input('\nPress "Enter" to continue..:')
+        short_sleep()
+    print("\nQuite a list eh?!")
+    sleep()
+    input('\nHit "Enter" to return...\n')
     get_insights()
 
 
@@ -1456,4 +1461,4 @@ def start():
 
 
 # start()
-average_time()
+view_exercises()
