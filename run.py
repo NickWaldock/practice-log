@@ -291,7 +291,7 @@ def log_difficulties():
     global user_diffs
     # Ask for info on difficulties in the practice session
     user_diffs_yn = input("\nDid you experience any particular difficulties"
-                          " during this practice session? (y/n)\n")
+                          " during this practice session?\n (y/n)\n")
     short_sleep()
     if user_diffs_yn.lower() == "y" or user_diffs_yn.lower() == "yes":
         clear_screen()
@@ -432,7 +432,7 @@ def collate_data():
     clear_screen()
     tprint("Log   Complete!")
     global data
-    print("Pickin' up the pieces...\n")
+    print("Pickin' up the pieces...")
     data = [
         str(session_date),
         str(session_duration),
@@ -442,7 +442,7 @@ def collate_data():
         user_wins]
     print()
     sleep()
-    print("\nPieces succesfully picked up :)\n")
+    print("\nPieces succesfully picked up :)")
 
 
 def push_log_data(data):
@@ -450,6 +450,7 @@ def push_log_data(data):
     Update log worksheet, add new row with the data provided
     by the user in the log program
     """
+    sleep()
     print("\nGiving your log to Mr Postman...\n")
     log_worksheet = SHEET.worksheet("log")
     log_worksheet.append_row(data)
@@ -788,7 +789,7 @@ def submit_ideas_menu():
             5. Return to Menu
     """)
     user_choice = input("\nWhich category do you want to log your"
-                        " practice idea under?:\n")
+                        " practice idea under?\n")
     while True:
         if user_choice == "1":
             clear_screen()
@@ -1032,7 +1033,7 @@ def get_practice():
             2. View Musicianship Exercises
             3. View Creative Exercises
             4. View Repertoire Exercises
-            5. View a Random Selection From All Categories
+            5. Random Exercise Generator
             6. Return to the Main Menu
         """)
         user_choice = input("\nPlease choose an option with a number (1-6):\n")
@@ -1062,7 +1063,7 @@ def get_practice():
             view_repertoire_exercises()
         elif user_choice == "5":
             clear_screen()
-            tprint("Generator")
+            tprint("Generator!")
             print("\n[Option] 5 will make you get down now... \n")
             long_sleep()
             random_practice()

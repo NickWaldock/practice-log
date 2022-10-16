@@ -31,64 +31,139 @@
 <br />
 
 # Introduction & Aims
+This project acts as a proof of concept in developing a program to assist musicians with keeping track of their practice routines. 
 
+As a musician myself, I understand well that practice is a incredibly important part of maintaining and developing musical skill. As such I planned to see if an interactive chat-based logging model could work for storing data relating to practice activities that could be refered to for later insight, therby informing future practice efficacy.
+
+This project is intended for use by a single user, but can, and likely will be developed for exclusive multi-user functionality in its next development.
 <br>
 <br>
 
 
 ## Aims
-- 
+- Design and build an interactive practice logging system using an API to save data to a spreadsheet.
+- The project should exclusively use the [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) language, run in a CLI and be deployed via [Heroku](https://signup.heroku.com/)
+- Provide a system for saving basic practice data such as date, duration, exercises, and challenges
+- Be able to pull data from the spreadsheet source for insights into current practice material
+- Provide a system for storing inputted data using an API
+- Have reliable error-handling 
+- Include a singular sense of personality for a better UX
+- Give clear instructions on functions and features
+<br />
+<br />
+
+## User Stories
+As a single returning user for this program I want to be able to:
+- Easily understand how to navigate the program
+- Log basic practice session data
+- View basic practice session data
+- View a statistic on my practice data such as average time spent practicing
+- View a lists of exercises and be able to add my own ideas to those lists
+- Be offered a random selection of exercises from my lists to inspire my next practice session
+- Be able to gracefully quit the program when finished
 <br />
 <br />
 
 
 # Main Features
-## Inspiration & Design
-
-<br />
-<br />
-
-
 ## Wireframes
-[Balsamiq](https://balsamiq.cloud/) has been used to develop wireframes to demonstrate the basic design of the site.
+Wireframes have been omitted in this readme due to the simplistic nature of the deployment. The browser window remains static and the only changes occur within the console window.
+<img src="readme-imgs/browser-window.png" width="45%">
 <br />
 <br />
 
-<img src="" width="33%">
-
+## Logic Flowchart
+<img src="readme-imgs/flowchart.png" width="100%">
 <br />
-<br />
 
-## Features
-<img src="" width="40%">
-
+This flowcart was created using [Lucid Chart](https://www.lucidchart.com/). This flowchart details the main logic of the program, excluding input validation loops for the sake of simplicity and ease of interpretation.
 <br />
 <br />
 
-
-## User Stories
+### Start & Main Menu
+<img src="readme-imgs/start-main-menu.png" width="50%">
+The main menu introduces the user to the program and provides brief contextual information.
 <br />
 <br />
 
+<img src="readme-imgs/main-menu.png" width="50%">
+<br />
+The Main Menu provides the main selection of options which the program can currently handle.
 <br />
 <br />
-In intend to
 
-I do not intend to
+### 1. Log Practice
+<img src="readme-imgs/log-practice-sc.png" width="50%">
+<br />
+Option 1 - Log Practice, takes the user step-by-step through the process of gaining data on the practice date, duration, productivity score, list of exercises undertaken, expression of difficulties for later practice, and successes from the session. 
+<br />
+<br />
+
+<img src="readme-imgs/log-complete.png" width="50%">
+<br />
+Once complete, the program will play back all of the information and give the user the option to save. Saving utilises the API and sends the data to the spreadsheet
+<br />
+<br />
+<img src="readme-imgs/practice-log-spreadsheet.png" width="50%">
+<br />
+Each new log enters a new row of data at the bottom of this spreadsheet
+
+### 2. Get Insights
+<img src="readme-imgs/get-insights.png" width="50%">
+<img src="readme-imgs/get-insights-fc.png" width="50%">
+<br />
+Option 2 - Get Insights allows the user to view the last inputted log, view the last three logs, calculate the average time spent practicing, view the complete list of exercises, and view the complete list of difficulties. All this information can assist the user in determining the best course of action for their next practice session.
+
+### 3. Submit Practice Ideas
+<img src="readme-imgs/topics.png" width="50%">
+<img src="readme-imgs/submit-fc.png" width="50%">
+<br />
+Option 3 - Submit Practice Ideas. The user can submit their own practice exercise to the program under one of four general topic headings. Each topic heading relates to a seperate worksheet in the main spreadsheet. 
+<br />
+<br />
+
+<img src="readme-imgs/topics-spreadsheet.png" width="50%">
+<br />
+The four main topics of practice are: Technique, Musicianship, Creative, and Repertoire. These topics are briefly explained to the user before the menu choice is available.
+
+### 4. View Practice
+<img src="readme-imgs/view-exercises.png" width="50%">
+<img src="readme-imgs/view-exercises-fc.png" width="50%">
+<br />
+Option 4 - View Exercises. This part of the program acts as a get-all, it will list all of the available data from the relevant worksheet that has been requested by the user. Here they can view all exercises in the spreadsheet from a particular topic. 
+
+### 4. Practice Idea Generator
+<img src="readme-imgs/generator.png" width="50%">
+<br />
+Within the menu for option 4 is a random exercise generator. Here the user can indefinitely generate a random selectin of three exercises for use as inspiration in a practice session. All exercise data is collated from each of the four topics worksheets which is previously possible for the user to submit to. From this data a random selection of three is chosen and presented to the user.
+
+### 5. Quit
+<img src="readme-imgs/quit.png.png" width="50%">
+<img src="readme-imgs/quit-fc.png" width="50%">
+<br />
+Option 5 - Quit. The final option is for the user to gracefully exit the program and offers an 'Are you sure?' safety option in case of accidental selection. On quitting the program delivers a goodbye message.
+
 
 ## Future Developments
 This project has a great deal of developmental potential in features that could eventually add increased functionality and a deeper user experiece. 
+
 The following are a few examples:
-- Get logs with certain scores
+- View logs within a range of productivity certain scores and the data associated with them
 - After viewing lists of exercises, immediatly have the option to add more
+- A search for an individual log function, by date, or by exercise
+- Any one piece of data from any method the user can locate the whole log associated with it
+- Set parameters for the generator to accept or decline certain variables, topics, or exercises
+- Gain more detailed data on a practice session log such as, time of day, time spent of each exercise, additional user notes, place of practice, links or references to resources
+- Exercises have links to required resources 
+- Multi-user funcitonality. User can load individual practice log data, the program adapts and utilises users name and details for a personalised experience
+
 <br />
 <br />
 
 # Technologies
-Languages used in this site are [Python]
+Languages used in this site are [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 Additional technologies include: 
-
 - [GitHub](https://github.com/)
   - Site repository
 - [Gitpod](https://gitpod.io/)
@@ -181,6 +256,10 @@ To clone the repository procees with the following steps:
 <br />
 
 # References & Acknoledgements
+- Unless specified, all code written in the run.py file is my own
+- Gitpod repository template provided by [Code Institute](https://codeinstitute.net)
+
+
 
 
 ## References
@@ -192,9 +271,9 @@ The following sites were used for syntax checking, problem solving, and general 
 <br />
 
 ## Acknoledgements
+I am incredibly grateful to my Code Institute Mentor Chris Quinn for his support and guidance, as well as the course providers and tutors at Code Institute for the expertise and support.
 
-
-
+Connect with me on [LinkedIn](https://www.linkedin.com/in/nicholas-waldock-05237071/)
 
 
 
