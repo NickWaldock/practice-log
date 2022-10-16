@@ -98,11 +98,11 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Function acts as intended</td>
     <td>Pass</td>
   </tr><tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 1 - Save Log Function</td>
+    <td>"45", "sdfg", "YES", "No", "34f"</td>
+    <td>Function asks the user whether they would like to save the log. Requires and validates for y/n input. If yes, log is saved. If no, asks if sure and validates for a second round of y/n resoponse to either save or return to the main menu. </td>
+    <td>Function will recieve any capitalisation of "y"/"yes"/"n"/"no", otherwise it will display a message before requesting input again</td>
+    <td>Pass</td>
   </tr><tr>
     <td></td>
     <td></td>

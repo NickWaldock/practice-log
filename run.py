@@ -411,6 +411,8 @@ def save_log():
             input('\nReady Freddie? Lets go back to the Main Menu... ("Hit Enter")\n')
             return_to_main()
         elif push.lower() == "n" or push.lower() == "no":
+            clear_screen()
+            tprint("Log   Complete!")
             print("\nAre you sure?? You've come all this way!")
             confirm = input('\n"y" = Quit and lose all changes.'
                             ' "n" = Save and return to Main Menu.\n')
@@ -418,13 +420,17 @@ def save_log():
                 quit_program()
             elif confirm.lower() == "n" or confirm.lower() == "no":
                 print("\nCaught in a trap... but you got out! Saving log...")
-                sleep()
+                long_sleep()
                 collate_data()
                 push_log_data(data)
-                print("\nDone!")
                 long_sleep()
                 input('Hit "Enter" to return...')
                 return_to_main()
+            else:
+                clear_screen()
+                tprint("Log   Complete!")
+                print("\nI can't go for that, no can do...")
+                sleep()
         else:
             print('\nCan I get a "y" or "n"...?')
             sleep()
@@ -436,8 +442,10 @@ def collate_data():
     Collates all of the user input variables into a single variable
     and converts ints to strings.
     """
+    clear_screen()
+    tprint("Log   Complete!")
     global data
-    print("Pickin' up the pieces...")
+    print("Pickin' up the pieces...\n")
     data = [
         str(session_date),
         str(session_duration),
@@ -447,7 +455,7 @@ def collate_data():
         user_wins]
     print(data)
     sleep()
-    print("Pieces succesfully picked up :)")
+    print("\nPieces succesfully picked up :)\n")
 
 
 def push_log_data(data):
@@ -455,7 +463,7 @@ def push_log_data(data):
     Update log worksheet, add new row with the data provided
     by the user in the log program
     """
-    print("Giving your log to Mr Postman...\n")
+    print("\nGiving your log to Mr Postman...\n")
     log_worksheet = SHEET.worksheet("log")
     log_worksheet.append_row(data)
     sleep()
