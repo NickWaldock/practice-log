@@ -397,7 +397,14 @@ def complete_log():
 
 
 def save_log():
-    """"""
+    """
+    Asks the user if they would like to save their log,
+    Validate input.
+    If yes, trigger the collate_data function and push_log_data
+    function to save to spreadsheet. If not, ask if sure and
+    validate input again, then either save and return to the main menu
+    or quit program
+    """
     push = ""
     while True:
         clear_screen()
@@ -476,7 +483,7 @@ def get_insights():
     Main function for option 2 to allow choice to next menu
     """
     clear_screen()
-    tprint("Get Insights")
+    tprint("Get  Insights")
     sleep()
     print("You have chosen to get insights on your saved practice logs\n")
     sleep()
@@ -1414,4 +1421,5 @@ def start():
         start()
 
 
-start()
+# start()
+get_insights()
