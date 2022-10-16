@@ -1340,29 +1340,31 @@ def quit_program():
     Function to allow the user to safely quit the program
     Validate for accidental quit
     """
-    clear_screen()
-    tprint("Quit...")
-    print("\nShould you stay or should you go...?\n")
-    quit_choice = input('\nStay "y", Go "n":\n')
-    if quit_choice.lower() == "n":
+    while True:
         clear_screen()
-        print("\nQuitting...\n")
-        sleep()
-        tprint("Bye,")
-        short_sleep()
-        tprint("     Bye,")
-        short_sleep()
-        tprint("          Bye!")
-        exit()
-    elif quit_choice.lower() == "y":
-        return_to_main()
-    else:
-        print('\nYou, you, you, oughta know...\n')
-        sleep()
-        print("\nYou should have pressed yes or no...")
-        long_sleep()
-        start()
-
+        tprint("Quit...?")
+        print("\nShould you stay or should you go...?\n")
+        quit_choice = input('\nStay "y", Go "n":\n')
+        if quit_choice.lower() == "n" or quit_choice.lower() == "no":
+            clear_screen()
+            print("\nQuitting...\n")
+            sleep()
+            tprint("Bye,")
+            short_sleep()
+            tprint("                  Bye,")
+            short_sleep()
+            tprint("                                Bye!")
+            exit()
+        elif quit_choice.lower() == "y" or quit_choice.lower() == "yes":
+            return_to_main()
+        else:
+            clear_screen()
+            tprint("Quit...?")
+            print('\nYou, you, you, oughta know...\n')
+            sleep()
+            print("\nYou should have pressed yes or no...")
+            long_sleep()
+            
 
 def start():
     """

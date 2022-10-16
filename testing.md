@@ -273,11 +273,11 @@ Below is reasonable test I could imagine to check every validation and function 
     <td>Pass</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Option 5 - Quit Program</td>
+    <td>"asd", "321", "YEs", "nO"</td>
+    <td>Gives the user the option to quit the program. Yes displays quit message and exits, no returns to the main menu. Invalid input repeats the attempt.</td>
+    <td>Function acts as intended</td>
+    <td>Pass</td>
   </tr>
   <tr>
     <td></td>
