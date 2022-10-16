@@ -205,7 +205,28 @@ Below is reasonable test I could imagine to check every validation and function 
   <tr>
     <td>Option 3 - Send Technical Exercises Data</td>
     <td>n/a</td>
-    <td>Function takes previously expressed user input and saves to the relevant worksheet in the "practice_log" spreadsheet along with today's date</td>
+    <td>Function takes previously expressed user input and saves to the relevant worksheet ("my-technical-exercises") in the "practice_log" spreadsheet along with today's date</td>
+    <td>Function works as expected</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Option 3 - Send Musicianship Exercises Data</td>
+    <td>n/a</td>
+    <td>Function takes previously expressed user input and saves to the relevant worksheet ("my-musicianship-exercises") in the "practice_log" spreadsheet along with today's date</td>
+    <td>Function works as expected</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Option 3 - Send Creative Exercises Data</td>
+    <td>n/a</td>
+    <td>Function takes previously expressed user input and saves to the relevant worksheet ("my-creative-exercises") in the "practice_log" spreadsheet along with today's date</td>
+    <td>Function works as expected</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Option 3 - Send Repertoire Exercises Data</td>
+    <td>n/a</td>
+    <td>Function takes previously expressed user input and saves to the relevant worksheet in the ("my-repertoire-exercises") "practice_log" spreadsheet along with today's date</td>
     <td>Function works as expected</td>
     <td>Pass</td>
   </tr>
