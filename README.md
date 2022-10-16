@@ -66,12 +66,15 @@
 <br />
 
 
-## User Interactivity
+## User Stories
 <br />
 <br />
 
 <br />
 <br />
+In intend to
+
+I do not intend to
 
 ## Future Developments
 This project has a great deal of developmental potential in features that could eventually add increased functionality and a deeper user experiece. 
@@ -92,6 +95,11 @@ Additional technologies include:
   - Online IDE for all coding work and site file management, terminal was used to add, commit, and push to Github
 <br />
 <br />
+
+# 3rd party Modules
+art
+
+
 
 # Testing
 ## Pep8
@@ -119,25 +127,35 @@ Tools used in the development of this project include:
 <br />
 
 # Deployment
-The live site can be accessed [here](https://nickwaldock.github.io/Awesome-80s/)
+The live site can be accessed [here](https://nicks-practice-log.herokuapp.com/)
 <br />
 <br />
 
-## GitHub
-This project was deloyed to GitHub Pages with the following steps:
-1. Log in to GitHub (create an account if necessary)
-2. Locate the [GitHub Respository](https://github.com/NickWaldock/Awesome-80s)
-3. On the repository page, find the 'Settings' icon anc click on it
-4. In the Settings page, look for and click the 'Pages' menu item on the left hand side (under section titled 'Code and automation', you may need to scroll down slightly)
-5. In the 'Pages' page, under 'Source', select 'Branch:main', then '/root' and click save
-6. After a few minutes, the site will be published
+## Heroku
+This project was deloyed to [Heroku](https://heroku.com/) with the following steps:
+1. Log in to Heroku (create an account if necessary)
+2. Navigate to your dashboard, click "New" and select "Create new app"
+3. Input an appropriate name for your project and choose a region
+4. Click the "Settings" tab
+5. Click "Reveal Config Vars"
+6. Input PORT and 8000 as one config var and click add
+7. Input CREDS and the information from your Google Sheet API creds file as another config var and click add
+8. Click "Add buildpack"
+9. Add "nodejs" and "python" from the list or search if required, click save.
+10. Ensure python is the first build pack. YOu can drag to change the order
+11. Select "Deploy" from the heading tabs
+12. Select "GitHub - Connect to GitHub" next to the Deployment Methods
+13. Click "Connect to GitHub"
+14. Search for the repository ("practice-log") and click to connect
+15. Click either 'Enable Automatic Deploys' or 'Deploy Branch' to deploy manually. If you select Deploy Branch please note you will need to manually deploy each time you update the repository.
+16. Finally, click 'View' to visit the deployed site. It may take a moment to become visible
 <br />
 <br />
 
 ## Forking
-The fork this repository proceed with the following steps:
+To fork this repository on [Github](https://github.com/NickWaldock/practice-log) proceed with the following steps:
 1. Log it to GitHub (create an account if necessary)
-2. Locate the [GitHub Respository](https://github.com/NickWaldock/Awesome-80s)
+2. Locate the [GitHub Respository](https://github.com/NickWaldock/practice-log)
 3. On the repository page, find the 'Fork' menu in the top right, click on the small down arrow
 4. Select '+ Create a new fork'
 5. Remane repository as required
@@ -149,7 +167,7 @@ The fork this repository proceed with the following steps:
 ## Cloning
 To clone the repository procees with the following steps:
 1. Log in to GitHub (create an account if necessary)
-2. Locate the [GitHub Respository](https://github.com/NickWaldock/Awesome-80s)
+2. Locate the [GitHub Respository](https://github.com/NickWaldock/practice-log)
 3. On the repository page, find and click on the 'Code' menu in the mid-top right of the page
 4. Choose to either download or open in GitHub Desktop,
   - or;
