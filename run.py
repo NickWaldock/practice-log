@@ -90,9 +90,9 @@ def main_title():
     """
     Prints the program's main title using print art
     """
-    tprint("                       Nick's")
-    tprint("                      Practice")
-    tprint("                        Log")
+    tprint("                     Nick's")
+    tprint("                   Practice")
+    tprint("                     Log")
 
 
 # 1. Log Practice Functions
@@ -965,48 +965,52 @@ def send_tech_exs(tech_data):
     """
     Sends technique exercises to the worksheet
     """
+    tprint("Saving...")
     print("Signed, sealed...\n")
     technique_sheet.append_row(tech_data)
     sleep()
-    print("Delivered! It's done. Returning to main menu...")
+    print("Delivered! It's done. Returning to Menu...")
     sleep()
-    start()
+    submit_ideas_menu()
 
 
 def send_music_exs(musicianship_data):
     """
     Sends musicianship exercises to the worksheet
     """
+    tprint("Saving...")
     print("Signed, sealed...\n")
     musicianship_sheet.append_row(musicianship_data)
     sleep()
-    print("Delivered! It's done. Returning to main menu...")
+    print("Delivered! It's done. Returning to Menu...")
     sleep()
-    start()
+    submit_ideas_menu()
 
 
 def send_creative_exe(creative_data):
     """
     Sends creativity exercises to the worksheet
     """
+    tprint("Saving...")
     print("Signed, sealed...\n")
     creativity_sheet.append_row(creative_data)
     sleep()
-    print("Delivered! It's done. Returning to main menu...")
+    print("Delivered! It's done. Returning to Menu...")
     sleep()
-    start()
+    submit_ideas_menu()
 
 
 def send_repertoire_exe(repertoire_data):
     """
     Sends repertoire exercises to the worksheet
     """
+    tprint("Saving...")
     print("Signed, sealed...\n")
     repertoire_sheet.append_row(repertoire_data)
     sleep()
-    print("Delivered! It's done. Returning to main menu...")
+    print("Delivered! It's done. Returning to Menu...")
     sleep()
-    start()
+    submit_ideas_menu()
 
 
 # 4. Get Practice
@@ -1036,9 +1040,6 @@ def get_practice():
             tprint("Technical")
             print("\nI ammmmmm, the [option] 1 and only...")
             long_sleep()
-            print("\nAlrighty then, hold on whilst I collect your technical "
-                  "exercise ideas...\n")
-            long_sleep()
             view_technical_exercises()
         elif user_choice == "2":
             clear_screen()
@@ -1049,7 +1050,7 @@ def get_practice():
         elif user_choice == "3":
             clear_screen()
             tprint("Creative")
-            print('\n3 is the magic number')
+            print('\n3 is the magic number...')
             long_sleep()
             view_creativity_exercises()
         elif user_choice == "4":
@@ -1253,6 +1254,7 @@ def random_generator_loop():
     Give user the choice to generate a random selection of 3 exercises from
     the list and validate to repeat or return to the menu
     """
+    print("\nLoading....")
     technique = technique_sheet.col_values(2)
     technique.pop(0)
     musicianship = musicianship_sheet.col_values(2)
@@ -1279,7 +1281,7 @@ def random_generator_loop():
             clear_screen()
             tprint("Generator!")
             print("Superstar DJ, here we go!...\n")
-            sleep()
+            long_sleep()
             while True:
                 clear_screen()
                 tprint("Generator!")
@@ -1298,7 +1300,7 @@ def random_generator_loop():
                 if user_confirm.lower() == "y":
                     print("\nYou're Simply the BEST! "
                           "Have a great practice session!\n")
-                    sleep()
+                    long_sleep()
                     print("\nReturning to the Menu...")
                     sleep()
                     get_practice()
@@ -1365,7 +1367,7 @@ def start():
           "our practice\nis essential.")
     sleep()
     print("\nSo I've built this little program to help log and"
-          " manage basic practice session\ninformation.\n")
+          " manage basic practice session\ninformation.")
     sleep()
     print("\nI also enjoy silly pop music references, "
           "see how many you can spot!")
