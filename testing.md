@@ -149,14 +149,14 @@ Below is reasonable test I could imagine to check every validation and all resul
   <tr>
     <td>Option 2 - View Exercises Function</td>
     <td>n/a</td>
-    <td>Function iterates and prints the list of all exercises data held in the "log" workheet of the "practice_log" spreadsheet. Requests user "Enter" input to return to the menu</td>
+    <td>Function iterates and prints the list of all exercises data held in the "log" workheet of the "practice_log" spreadsheet. Multiple enteries within a single string are seperated.Requests user "Enter" input to return to the menu</td>
     <td>Function works as intended</td>
     <td>Pass</td>
   </tr>
   <tr>
     <td>Option 2 - View Difficulties Function</td>
     <td>n/a</td>
-    <td>Function iterates and prints the list of all difficulties data held in the "log" workheet of the "practice_log" spreadsheet. Any "None" values are removed. Requests user "Enter" input to return to the menu</td>
+    <td>Function iterates and prints the list of all difficulties data held in the "log" workheet of the "practice_log" spreadsheet. Any "None" values are removed, multiple enteries within a single string are seperated. Requests user "Enter" input to return to the menu</td>
     <td>Function works as expects</td>
     <td>Pass</td>
   </tr>

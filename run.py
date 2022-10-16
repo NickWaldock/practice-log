@@ -686,8 +686,14 @@ def view_exercises():
     print("\nHere is a list of exercises you have logged:\n")
     sleep()
     for i in all_exercises:
-        print(i)
-        short_sleep()
+        if "," in i:
+            i = i.split(",")
+            for x in i:
+                print(x.strip())
+                short_sleep()
+        else:
+            print(i)
+            short_sleep()
     print("\nQuite a list eh?!")
     sleep()
     input('\nHit "Enter" to return...\n')
@@ -719,8 +725,8 @@ def view_difficulties():
     for i in new_diffs_list:
         if "," in i:
             i = i.split(",")
-            for j in i:
-                print(j.strip())
+            for x in i:
+                print(x.strip())
                 short_sleep()
         else:
             print(i)
@@ -1471,4 +1477,4 @@ def start():
 
 
 # start()
-view_difficulties()
+view_exercises()
