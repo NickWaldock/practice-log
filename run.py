@@ -67,6 +67,7 @@ def short_sleep():
     """
     time.sleep(0.7)
 
+
 # Code Reference 1
 def clear_screen():
     """
