@@ -94,27 +94,29 @@ Additional technologies include:
 <br />
 
 # Testing
+## Pep8
+This program is free of any Pep8 errors. There are however a number of suggestions and warnings against my use of global variables and their naming style. My global variables do not act as constants which the Pep8 validator believes they are. This project represents a learning curve for me with Python and its good practice conventions, I believe the use of global variables was a logical step within the scope of this project and in my learning the language. I understood too late to the deadline of this project that this isn't considered 'good practice'. Therefore, for future developments I will adapt this program to take this into account.
+<br />
+<br />
+
 ## Manual Testing 
-
-**Design Expectation**
-- 
-**Testing**
-
-**Result** * 
-<br/>
-<br/>
-
-## Code Validation
-Pep8
-
+Each function and validation has been manually tested. All testing logs can her viewed here:
+[>> Testing](testing.md)
+<br />
+<br />
 
 
 ## Tools
-[GitPod]
+Tools used in the development of this project include:
+- [GitHub](https://github.com/)
+- [GitPod](https://gitpod.io/)
+- [Heroku](https://heroku.com/)
+- [Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
+- [Lucid Chart](https://www.lucidchart.com/)
+- [Google Drive](https://www.google.co.uk/intl/en-GB/drive/)
+- [Google Sheets](https://www.google.co.uk/sheets/about/)
 <br />
 <br />
-
-
 
 # Deployment
 The live site can be accessed [here](https://nickwaldock.github.io/Awesome-80s/)

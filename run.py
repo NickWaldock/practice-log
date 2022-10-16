@@ -1379,7 +1379,7 @@ def start():
     print("Without further agadoo... ;) Let's get busy!\n")
     input('\nPress "Enter" to continue\n')
     start_menu()
-    
+
 
 def start_menu():
     """
