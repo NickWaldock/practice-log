@@ -1427,4 +1427,4 @@ def start():
 
 
 # start()
-random_generator_loop()
+quit_program()
