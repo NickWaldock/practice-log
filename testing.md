@@ -103,13 +103,113 @@ Below is reasonable test I could imagine to check every validation and all resul
     <td>Function asks the user whether they would like to save the log. Requires and validates for y/n input. If yes, log is saved. If no, asks if sure and validates for a second round of y/n resoponse to either save or return to the main menu. </td>
     <td>Function will recieve any capitalisation of "y"/"yes"/"n"/"no", otherwise it will display a message before requesting input again</td>
     <td>Pass</td>
-  </tr><tr>
+  </tr>
+  <tr>
+    <td>Option 1 - Collate Data Function</td>
+    <td>n/a</td>
+    <td>Collates all of the user inputs but converting ints to strings and collating in a sigle list variable "data"</td>
+    <td>Function works as intended</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Option 1 - Push Log Data Function</td>
+    <td>n/a</td>
+    <td>Function takes the "data" variable and saves it via API in the "log-practice" spreadsheet -> "log" worksheet in a new row.</td>
+    <td>Function works as intended. Data visible in spreadsheet</td>
+    <td>Pass</td>
+  </tr>
+    <tr>
+    <td>Option 2 - Get Insights Menu</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
 </table>
 
 [<< Back to ReadMe](README.md)

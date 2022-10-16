@@ -453,7 +453,7 @@ def collate_data():
         user_exercises,
         user_diffs,
         user_wins]
-    print(data)
+    print()
     sleep()
     print("\nPieces succesfully picked up :)\n")
 
