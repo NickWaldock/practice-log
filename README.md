@@ -73,7 +73,6 @@ As a single returning user for this program I want to be able to:
 <br />
 <br />
 
-
 # Main Features
 ## Wireframes
 Wireframes have been omitted in this readme due to the simplistic nature of the deployment. The browser window remains static and the only changes occur within the console window.
@@ -124,12 +123,16 @@ Once complete, the program will play back all of the information and give the us
 <img src="readme-imgs/practice-log-spreadsheet.png" width="50%">
 <br />
 Each new log enters a new row of data at the bottom of this spreadsheet
+<br />
+<br />
 
 ## 2. Get Insights
 <img src="readme-imgs/get-insights.png" width="50%">
 <img src="readme-imgs/get-insights-fc.png" width="50%">
 <br />
 Option 2 - Get Insights allows the user to view the last inputted log, view the last three logs, calculate the average time spent practicing, view the complete list of exercises, and view the complete list of difficulties. All this information can assist the user in determining the best course of action for their next practice session.
+<br />
+<br />
 
 ## 3. Submit Practice Ideas
 <img src="readme-imgs/topics.png" width="50%">
@@ -142,24 +145,31 @@ Option 3 - Submit Practice Ideas. The user can submit their own practice exercis
 <img src="readme-imgs/topics-spreadsheet.png" width="50%">
 <br />
 The four main topics of practice are: Technique, Musicianship, Creative, and Repertoire. These topics are briefly explained to the user before the menu choice is available.
+<br />
+<br />
 
 ## 4. View Practice
 <img src="readme-imgs/view-exercises.png" width="50%">
 <img src="readme-imgs/view-exercises-fc.png" width="50%">
 <br />
 Option 4 - View Exercises. This part of the program acts as a get-all, it will list all of the available data from the relevant worksheet that has been requested by the user. Here they can view all exercises in the spreadsheet from a particular topic. 
+<br />
+<br />
 
 ## 4. Practice Idea Generator
 <img src="readme-imgs/generator.png" width="50%">
 <br />
 Within the menu for option 4 is a random exercise generator. Here the user can indefinitely generate a random selectin of three exercises for use as inspiration in a practice session. All exercise data is collated from each of the four topics worksheets which is previously possible for the user to submit to. From this data a random selection of three is chosen and presented to the user.
+<br />
+<br />
 
 ## 5. Quit
 <img src="readme-imgs/quit.png.png" width="50%">
 <img src="readme-imgs/quit-fc.png" width="50%">
 <br />
 Option 5 - Quit. The final option is for the user to gracefully exit the program and offers an 'Are you sure?' safety option in case of accidental selection. On quitting the program delivers a goodbye message.
-
+<br />
+<br />
 
 # Future Developments
 This project has a great deal of developmental potential in features that could eventually add increased functionality and a deeper user experiece. 
@@ -224,7 +234,6 @@ Each function and validation has been manually tested. All testing logs can her 
 [>> Testing](testing.md)
 <br />
 <br />
-
 
 ## Tools
 Tools used in the development of this project include:
@@ -323,32 +332,35 @@ Validating inputs for integers
 
 ## Code Reference
 During the development of this project I occasionally needed to search for solutions to problems I was encountering. The following is a list of reference sites I relied upon to learn and understand Python concepts new to me. In some cases the article simply offered a simple use of method or concept, in more detailed and specific cases a Code Reference No. is assigned whcih corresponds to a comment in the main run.py file.
+<br />
+<br />
 
 ### Code Reference 1
 [Geeks for Geeks](https://www.geeksforgeeks.org/clear-screen-python/)
 run.py line 70 - Clear screen
-
+<br />
+<br />
 
 ### Code Reference 2
-
 - [Adam Smith](https://www.adamsmith.haus/python/answers/how-to-check-if-a-string-matches-a-pattern-in-python)
 run.py line 167 - used to validate the user has inputted the date in the correct format and with valid days, monthm and year digits.
+<br />
 <br />
 
 ### Code Reference 3
 - [W3 Schools and Code Institute Tutor Ed](https://www.w3schools.com/python/ref_string_strip.asp)
 run.py line 673 - Use for loop and strip to remove "," from strings within lists
 <br />
+<br />
 
 ### Code Reference 4
-
 - [PY Native](https://pynative.com/python-random-choice/)
 run.py line 1293 - Random selections
 <br />
 <br />
 
-## Code Syntax Validators
 
+## Code Syntax Validators
 The following sites were used for syntax and logic checking:
 - [Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
 - [Python Code Checker](https://extendsclass.com/python-tester.html)
