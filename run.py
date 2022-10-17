@@ -302,7 +302,8 @@ def log_difficulties():
                            " (seperate them with ','):\n")
         short_sleep()
         print("\nThank you. Remember that experiencing difficulties in your"
-              "\npractice session is a natural part of the learning process!\n")
+              "\npractice session is a natural part of the learning"
+              " process!\n")
         long_sleep()
     elif user_diffs_yn.lower() == "n" or user_diffs_yn.lower() == "no":
         user_diffs = "None"
