@@ -27,6 +27,7 @@
     1. [Pep8](#pep8)
     2. [Manual Testing](#manual-testing)
     3. [Tools](#tools)
+    4. [Bugs](#bugs)
 6. [Deployment](#deployment)
     1. [Heroku](#heroku)
     2. [Forking](#forking)
@@ -246,6 +247,29 @@ Tools used in the development of this project include:
 - [Google Sheets](https://www.google.co.uk/sheets/about/)
 <br />
 <br />
+
+## Bugs
+The only major bugs that occured in the development of this project include:
+
+
+
+### 1. Date Format 
+<img src="readme-imgs/bug-1.png" width="70%">
+
+- Requesting the user to input a valid date in the correct format threw during the Log Practice option threw syntax errors due to the use of "/". The problem was solved by Code Institute tutor Ed who discovered a slightly different syntax from that in the below article was required.
+
+[>>> Adam Smith Reference Article](https://www.adamsmith.haus/python/answers/how-to-check-if-a-string-matches-a-pattern-in-python)
+<br />
+<br />
+
+### 2. Heroku
+<img src="readme-imgs/herouku-bug.png" width="70%">
+
+- On deployment to [Heroku](https://signup.heroku.com/) a irritating bug occurs within the console. The program uses specific and commonly used 'clear screen' command (from the [OS Module](https://docs.python.org/3/library/os.html)) which within the IDE GitPod functions as intended. However, within Heroku although the clear screen command seems functional, if the user scrolls up the console previous printed data can be viewed is glitched. On researching this issue I found little help, and at the time of deployment I was unable to solve this issue.
+<br />
+<br />
+
+
 
 # Deployment
 The live site can be accessed [here](https://nicks-practice-log.herokuapp.com/)

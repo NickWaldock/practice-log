@@ -302,7 +302,7 @@ def log_difficulties():
                            " (seperate them with ','):\n")
         short_sleep()
         print("\nThank you. Remember that experiencing difficulties in your"
-              " practice session is a natural part of the learning process!\n")
+              "\npractice session is a natural part of the learning process!\n")
         long_sleep()
     elif user_diffs_yn.lower() == "n" or user_diffs_yn.lower() == "no":
         user_diffs = "None"
@@ -704,7 +704,7 @@ def view_difficulties():
     clear_screen()
     tprint("Difficulties")
     print("Remember! These are useful to help you understand things you "
-          "should be working on or ways to develop your practice in future"
+          "should be working on\nor ways to develop your practice in future"
           " sessions\n")
     sleep()
     all_values = log.col_values(5)
