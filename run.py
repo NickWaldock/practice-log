@@ -1372,10 +1372,10 @@ def start():
     get_date()
     main_title()
     long_sleep()
-    print("\n ** Wecome to Nick's Practice Log! **")
+    print("\n ** Welcome to Nick's Practice Log! **")
     sleep()
     print("\nHi, my name is Nick and I'm a musician. For us musicians, "
-          "our practice\nis essential.")
+          "practice\nis essential.")
     sleep()
     print("\nSo I've built this little program to help log and"
           " manage basic practice session\ninformation.")
